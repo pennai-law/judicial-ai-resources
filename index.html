@@ -1242,18 +1242,24 @@
   <section class="tab-pane" id="use-cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
 
     <p class="section-label">The core of this portal</p>
-    <h2 class="section-title">What judges can actually <em>do</em> with these tools</h2>
-    <p class="section-intro">Three buckets, sorted by risk rather than by capability. The sorting principle comes straight from the previous tab: <strong>a task is safer to the degree that the source material sits in front of the model and a human checks the output</strong>. It gets riskier as the model is asked to supply substance from its own memory, and riskiest when it is asked to supply judgment.</p>
+    <h2 class="section-title">What judges are actually <em>doing</em></h2>
+    <p class="section-intro">Three buckets, sorted by risk rather than by capability. The sorting principle is the one established on the previous tab, applied consistently: <strong>a task is safer to the degree that the source material sits in front of the model and a human checks the output.</strong> It gets riskier as the model is asked to supply substance from its own memory, and riskiest when it is asked to supply judgment. Every item below sits where it sits for that reason, and each one says why.</p>
 
-    <div class="draft-flag wide">
-      <span class="draft-flag-label">Draft &mdash; awaiting input</span>
-      <h4>This tab is deliberately thin, and that is the point</h4>
-      <p>The panel agreed to build this section from <strong>real use cases collected from sitting judges</strong>. That running list is being assembled by Hon. Maritza Dominguez Braswell and is not yet in hand. Until it arrives, this tab holds only the items the panel has actually discussed, plus a clearly labeled set of proposals for the panel to accept, reject, or correct.</p>
-      <p>Nothing here is a report of what judges are doing, except where it says so. Fabricated examples would be worse than gaps, so there are gaps.</p>
-      <p><strong>Panel:</strong> the fastest way to improve this portal is to send use cases. What did you try, what did you give the model, what came back, and did you keep it? Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
+    <div class="callout">
+      <h3>Where this comes from</h3>
+      <p>These are drawn from chambers participating in a <strong>federal judicial AI testbed</strong>: roughly forty use cases observed across about eighteen chambers. That matters, because it means this is <strong>observed practice rather than speculation</strong>. These are things judges and law clerks actually tried, with the results they actually reported, including the failures.</p>
+      <p>They are reported here <strong>in aggregate, with the chambers de-identified.</strong> No judge, clerk, court, or case is named, and none will be. Where chambers reported conflicting experiences, this page says so rather than picking a winner.</p>
+      <p>Reported figures are reported, not measured. When a chambers says a technique saves roughly an hour a page, that is their estimate of their own work, and it is presented as such.</p>
     </div>
 
-    <!-- BUCKET 1 -->
+    <div class="draft-flag wide">
+      <span class="draft-flag-label">Still to come</span>
+      <h4>This catalogue will grow</h4>
+      <p>Hon. Maritza Dominguez Braswell is assembling a further running list of judicial use cases. It is not yet in hand, and this tab will be expanded when it lands.</p>
+      <p><strong>Panel:</strong> the ask stands. What did you try, what did you give the model, what came back, and did you keep it? The failures are as useful as the successes. Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
+    </div>
+
+    <!-- ── BUCKET 1: SAFE ── -->
     <div class="bucket bucket-safe">
       <div class="bucket-head">
         <h3>Safe and effective today</h3>
@@ -1262,50 +1268,195 @@
       <div class="bucket-body">
 
         <div class="uc">
-          <h4>Drafting a case management order from a review of the initial pleadings<span class="uc-verified">Panel</span></h4>
-          <p>You hand the model the complaint, the answer, and whatever else is in the file. You ask for a draft scheduling or case management order. It reads what you gave it and produces a draft. You read the draft.</p>
-          <p class="why"><strong>Why it works:</strong> everything the model needs is in the prompt, so it is not reaching into memory for facts. The order is a form document with a known shape, so errors are conspicuous rather than subtle. And you would have read it anyway.</p>
+          <h4>Summarize the motion, the opposition, and the reply<span class="uc-verified">Observed</span></h4>
+          <p>Close to universal across the chambers reporting. It is the most common entry point, and the one most judges start with.</p>
+          <p class="why"><strong>One technique worth copying:</strong> summarize first, then give it the real task. Several chambers report that output quality drops if you skip the summary step and go straight to the work.</p>
         </div>
 
-        <div class="draft-flag" style="margin: 1.5rem 0 0;">
-          <span class="draft-flag-label">Awaiting the use-case list</span>
-          <p>Additional confirmed items go here as judges report them.</p>
+        <div class="uc">
+          <h4>Pull the issues, the agreements, and the key cases out of the briefs<span class="uc-verified">Observed</span></h4>
+          <p>Feed it both parties' briefs and ask what is actually contested, where they agree, and which authorities are carrying the weight. One chambers fed in both briefs and asked for ten questions, and reports getting about three good ones every time.</p>
+          <p class="why"><strong>Why it works:</strong> the briefs are the universe. The model is reading, not remembering. Three usable questions out of ten is a fine return when the ten cost you nothing.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Draft the procedural history<span class="uc-verified">Observed</span></h4>
+          <p>From the docket, with a prior opinion supplied as a template. Consistently the <strong>highest-reliability drafting task</strong> reported anywhere in the record.</p>
+          <p class="why"><strong>Why it works:</strong> everything needed is in the documents, the form is fixed, and errors are conspicuous rather than subtle.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Draft the factual background<span class="uc-verified">Observed</span></h4>
+          <p>From the parties' statements of material facts, with paragraph cites.</p>
+          <p class="why"><strong>The caveat several chambers hit:</strong> the fact cites come back <strong>over-inclusive</strong>. The model reaches for more support than the proposition needs. Budget time to prune, and read what you keep.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Find a citation inside the documents you uploaded<span class="uc-verified">Observed</span></h4>
+          <p>"Give me every sentence in these briefs citing ECF #14." This works, and works well.</p>
+          <p class="why"><strong>State the boundary out loud, because it is the whole lesson of this site:</strong> finding cites <em>in the record you supplied</em> works. Finding cases <em>in the world</em> does not. Same verb, entirely different operation, opposite risk profiles. One is reading. The other is remembering.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Draft oral-argument and bench questions<span class="uc-verified">Observed</span></h4>
+          <p>Reported as "very successful." Built from the briefs, aimed at the weak points.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Proofread<span class="uc-verified">Observed</span></h4>
+          <p>Typos, affect versus effect, and checking the arithmetic in settlement figures. Unglamorous and reliable.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Rewrite and condense<span class="uc-verified">Observed</span></h4>
+          <p>Case parentheticals, plain-English conversion, voir dire questions, remarks to the jury. One chambers rewrites material for self-represented parties at a fifth-grade reading level.</p>
+          <p class="why"><strong>Why it works:</strong> you supply the substance and the model supplies the prose. Nothing is being retrieved from memory. Read the rewrite against the original to confirm the legal effect survived.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Speeches, public remarks, and teaching outlines<span class="uc-verified">Observed</span></h4>
+          <p>One chambers uploads prior speeches and tunes the draft for a new audience, and uses AI for nothing else at all. That is a coherent, defensible position.</p>
+        </div>
+
+        <div class="uc">
+          <h4>A custom assistant for scheduling orders<span class="uc-verified">Observed</span></h4>
+          <p>Holiday-aware, built once and reused. It generates <em>dates</em>, not prose, which is exactly the kind of narrow, checkable output that suits these tools.</p>
+        </div>
+
+        <div class="uc">
+          <h4>A custom assistant for guilty-plea colloquies<span class="uc-verified">Observed</span></h4>
+          <p>Built from a stack of prior scripts.</p>
+          <p class="why"><strong>The generalization is the useful part:</strong> anything with a repetitive script is a good candidate. If your chambers produces the same document with the same bones twenty times a year, that is where to start.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Build timelines and charts from the record<span class="uc-verified">Observed</span></h4>
+          <p>One chambers reports roughly 95% accuracy and real time saved on complicated charts. Reported as good at tables in Word and bad at Excel.</p>
+          <p class="why"><strong>Note what 95% means:</strong> reliable enough to save you the assembly, not reliable enough to go out unread. Roughly one cell in twenty is wrong, and the model will not tell you which.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Summarize and categorize long self-represented filings<span class="uc-verified">Observed</span></h4>
+          <p>One office's trick: transcribe first, then work from the transcription rather than the original scan.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Compare two documents<span class="uc-verified">Observed</span></h4>
+          <p>Competing proposed jury instructions, for instance: where do they agree, and where exactly do they diverge. Both documents are in front of the model, and the answer is checkable line by line.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Brainstorm analogous legal problems<span class="uc-verified">Observed</span></h4>
+          <p>Ask for many options, then prune. One chambers reports surfacing analogies they had not considered.</p>
+          <p class="why"><strong>Why this is safe despite drawing on the model's memory:</strong> you are asking for candidates, not authority. Nothing it offers goes anywhere until you have checked it yourself. The model is generating leads, and you are the one deciding whether any of them is real.</p>
         </div>
 
       </div>
     </div>
 
-    <!-- BUCKET 2 -->
+    <!-- ── BUCKET 2: CARE ── -->
     <div class="bucket bucket-care">
       <div class="bucket-head">
         <h3>Promising, with care</h3>
-        <p>Real value, real failure modes. Use only if you know what the failure mode is and have a way to catch it.</p>
+        <p>The model supplies more, so a human must supply the check. Real value, real failure modes. Use these only if you know what the failure mode is and have a way to catch it.</p>
       </div>
       <div class="bucket-body">
-        <div class="draft-flag" style="margin: 0;">
-          <span class="draft-flag-label">Draft &mdash; awaiting input</span>
-          <p>Empty pending the panel's use-case list. The proposals below are candidates for this bucket and the one above.</p>
+
+        <div class="callout">
+          <h3>Opinion drafting, section by section, from a clerk's outline</h3>
+          <p>This is the central finding in the record, and it deserves the space. Done in a <strong>closed-universe project</strong>, section by section, working from an outline the clerk has already written, opinion drafting <strong>works</strong>. One chambers reports saving <strong>roughly an hour per page</strong>. Multiple chambers arrived at the section-by-section approach independently, which is the strongest signal in the entire catalogue.</p>
+          <p>The working formula reported: <em>"Based on [SOURCE] regarding [TOPIC], draft [LENGTH] concluding [OUTCOME] for use in an opinion."</em> Note how much of that prompt is the human's work. The source, the topic, the length, and above all the <em>outcome</em> are all supplied by the clerk.</p>
+          <p><strong>The safeguard is the ordering, and it is not optional. The clerk does the reasoning first. The model does the prose second.</strong> The human decides what the section concludes and why; the model puts it into sentences. Reverse that order and you are no longer in this bucket. You are asking the model to reason, which is the next bucket down, and it fails there. See "end-to-end opinion drafting" below.</p>
         </div>
+
+        <div class="uc">
+          <h4>Bench memos<span class="uc-verified">Observed</span></h4>
+          <p>Fast enough to read before the clerks arrive, but reported as less nuanced than the real thing.</p>
+          <p class="why"><strong>Use it as:</strong> an orientation, not a work product. It tells you what the case is roughly about so you can ask better questions. It does not replace the memo.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Mimicking a judge's writing style<span class="uc-verified">Observed</span></h4>
+          <p>Genuinely mixed, and reported as such. One chambers trained it successfully on prior opinions. Another got output that "sounded snarky."</p>
+          <p class="why"><strong>The honest read:</strong> this sometimes works and sometimes embarrasses you, and nobody has reported a reliable way to tell in advance which one you are getting. Nobody should promise you this.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Deep-research modes for a first pass<span class="uc-verified">Observed</span></h4>
+          <p>The extended research modes are meaningfully better than a plain query for a first pass at legal research.</p>
+          <p class="why"><strong>And they still return real cases with fabricated quotes.</strong> Better is not fixed. Verify on Westlaw or Lexis. Every time. There is no exception to this and no version of the tool that has earned one.</p>
+        </div>
+
+        <div class="uc">
+          <h4>A custom assistant over a closed set of cases, for a recurring multi-factor test<span class="uc-verified">Observed</span></h4>
+          <p>If your circuit has a multi-factor test you apply constantly, one chambers built an assistant loaded with ten cases applying it, deliberately chosen to cut in both directions.</p>
+          <p class="why"><strong>Two rules they stress.</strong> First, <strong>load the cases going both ways</strong>: a lopsided library produces a lopsided analysis, and it will read as authoritative either way. Second, <strong>instruct the model not to draw on outside knowledge</strong>, which is what keeps it inside the closed universe you built. The cost of even-handed loading is that the analysis sometimes comes back wishy-washy. That is the correct trade, and a wishy-washy answer is a far better failure than a confident wrong one.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Bluebook and citation-format checking<span class="uc-verified">Reports conflict</span></h4>
+          <p><strong>The chambers disagree, and this page is not going to resolve it for you.</strong> One chambers reports that it fails and that they do citation formatting by hand. Two others report success.</p>
+          <p class="why"><strong>What to take from that:</strong> test it on your own material before you rely on it, and do not assume another chambers' result transfers to yours. A disagreement in the record is information. Papering over it would not be.</p>
+        </div>
+
+        <div class="uc">
+          <h4>OCR and handwriting on self-represented filings<span class="uc-verified">Observed</span></h4>
+          <p>Uneven across tools. One office got nowhere with one product and succeeded with another. A second office made it work by transcribing first and then working from the transcription.</p>
+          <p class="why"><strong>Practical upshot:</strong> if this fails, the tool may be the problem rather than the task. It is worth trying a second one before concluding it cannot be done.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Hiring support<span class="uc-verified">Observed</span></h4>
+          <p>Good at catching typos in cover letters and at reading the tone of recommendation letters. But it <strong>hallucinated candidates and invented the law schools they attended.</strong></p>
+          <p class="why"><strong>The line:</strong> polish only, never screening. A tool that invents an applicant cannot be trusted to evaluate one, and the failure here lands on a real person who applied to your chambers.</p>
+        </div>
+
       </div>
     </div>
 
-    <!-- BUCKET 3 -->
+    <!-- ── BUCKET 3: NOT WORTH THE RISK ── -->
     <div class="bucket bucket-no">
       <div class="bucket-head">
-        <h3>Not worth the risk today</h3>
-        <p>The upside is small, the downside is career-defining, and the failure is exactly the one the architecture produces.</p>
+        <h3>Not worth the risk</h3>
+        <p>The model is asked to supply substance or judgment out of its own memory. This is where the architecture fails, and the record shows it failing.</p>
       </div>
       <div class="bucket-body">
 
-        <div class="uc">
-          <h4>Asking a model to produce a first draft of a decisional document from its own knowledge<span class="uc-verified">Panel</span></h4>
-          <p>An opinion, an order resolving a contested motion, anything that decides something, generated from the model's memory rather than from the record you put in front of it.</p>
-          <p class="why"><strong>Why not:</strong> this is the worst case of the worst mode. No anchor, so the model supplies law and facts from a process that is generating plausibility, not truth. The output will be fluent, well-organized, and confident, which makes the errors harder to see, not easier. It invites exactly the failure for which lawyers have drawn sanctions in federal court. The time it saves is not worth what it risks.</p>
+        <div class="callout">
+          <h3>Open-universe legal research: "find me a case that says X"</h3>
+          <p><strong>This is the most consistent failure in the entire record.</strong> Seminal cases come back correct roughly half the time. The rest are hallucinations.</p>
+          <p>But the raw failure rate is not the danger. The recurring pattern, reported independently by <strong>at least five chambers</strong>, is <strong>real cases with invented quotes</strong>. That is far more dangerous than an obviously fake case, because <em>the case checks out</em>. You look it up, it exists, it is roughly on topic, and the quotation you were handed appears nowhere in it. Every verification habit you have is built to catch the fake case. None of them is built to catch this.</p>
+          <p>One chambers now explicitly instructs the model <strong>not to give cases or statutes at all</strong>. On the current evidence that is a reasonable setting, not an excessive one.</p>
+          <p class="why" style="margin-top:0.8rem;"><strong>Why it fails:</strong> exactly as the previous tab predicts. No source in front of it, so it generates what a citation to a case like that would plausibly look like. That is the whole operation. It is not malfunctioning.</p>
         </div>
 
-        <div class="draft-flag" style="margin: 1.5rem 0 0;">
-          <span class="draft-flag-label">Awaiting the use-case list</span>
-          <p>Additional items go here. The proposals below include candidates.</p>
+        <div class="callout">
+          <h3>Asking a long trial transcript what it contains</h3>
+          <p>One chambers uploaded a long trial transcript and asked whether something appeared in the record. The model <strong>fabricated quotations and invented witness names.</strong> Summarizing first, which fixes so much else, did not fix this.</p>
+          <p><strong>Sit with why this one surprises people.</strong> The transcript <em>was</em> in front of the model. By the test this site has been giving you, that should have made it safe. It did not, and the reason is worth knowing: the document exceeded what the model can actually hold and attend to at once, so it filled the gaps the only way it knows how, by generating.</p>
+          <p><strong>The lesson, and it is a hard one: "I uploaded it" is not the same as "the model read it."</strong> Attaching a document is not a guarantee that the whole document is in play. On a very long record, the safe-mode assumption quietly stops holding, and nothing in the interface tells you it has stopped.</p>
+        </div>
+
+        <div class="uc">
+          <h4>End-to-end opinion drafting<span class="uc-verified">Observed</span></h4>
+          <p>Fails, and fails by hallucinating. Confirmed across chambers, and confirmed again after prompt refinement.</p>
+          <p class="why"><strong>Contrast this with the section-by-section approach above,</strong> which works. The difference is not the tool and not the prompt. It is who does the reasoning. Hand the model the whole job and it must supply substance from memory, which is precisely the mode that fails.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Nuanced or cutting-edge substantive analysis<span class="uc-verified">Observed</span></h4>
+          <p>One chambers read a recent Supreme Court decision narrowly. The model "covered the field and applied it across the board."</p>
+          <p class="why"><strong>Why:</strong> the model is drawn to the conventional reading, because the conventional reading is the probable one. A narrow, careful, contested construction is by definition the less probable text, which is exactly what the model is built not to produce.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Sealed documents<span class="uc-verified">Observed</span></h4>
+          <p>"Absolutely no sealed documents." That is the reported practice and it is the right one. Not negotiable, and no version of this gets softened.</p>
+        </div>
+
+        <div class="uc">
+          <h4>Uploading multimedia or auto-generated transcripts<span class="uc-verified">Observed</span></h4>
+          <p>Failed technically. And the privacy exposure would rule it out even if it had worked.</p>
         </div>
 
       </div>
@@ -1313,87 +1464,53 @@
 
     <div class="divider"></div>
 
-    <!-- PROPOSALS -->
-    <p class="section-label">For panel review</p>
-    <h2 class="section-title">Proposed additions, not yet vetted</h2>
-    <p class="proposal-note"><strong>Read this first.</strong> The items below are <em>proposals from R. Polk Wagner</em>, derived from the principle on the previous tab. They are not reports of judicial practice, and no judge has endorsed them. They are here so the panel has something concrete to argue with. Cut what is wrong, move what is misplaced, and replace all of it with the real list when it arrives.</p>
+    <!-- ── PROPOSED, NOT OBSERVED ── -->
+    <p class="section-label">Not practice</p>
+    <h2 class="section-title">Proposed, <em>not observed</em></h2>
+    <p class="proposal-note"><strong>Read the label.</strong> Everything above this line is something a chambers actually did. Everything below it is an <em>idea someone raised</em>. Nobody has reported doing these, and they carry none of the weight of the catalogue above. They are here because they are worth discussing, not because they are worth copying.</p>
 
-    <h3 class="subhead">Proposed for &ldquo;safe and effective&rdquo;</h3>
     <div class="card-grid">
       <div class="card">
-        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Summarizing filings you have in hand</h3>
-        <p>Give the model the brief, ask for a structured summary with page cites, and spot-check the cites against the document. Useful for triage across a heavy motion calendar.</p>
-        <p><strong>Failure mode:</strong> it flattens a nuance the party was making. Spot-checking cites catches invented ones; it does not catch a summary that is subtly wrong about emphasis.</p>
+        <span class="resource-tag">Proposed</span>
+        <h3>Specialized assistants for high-volume, repetitive dockets</h3>
+        <p>The idea: where a docket is dominated by the same motion over and over, build a narrow tool for it.</p>
+        <p><strong>Worth noting:</strong> the chambers that proposed it also said their own court is poorly suited to it, having "not a huge volume doing repetitive stuff." The proposal came with its own caveat attached.</p>
       </div>
       <div class="card">
-        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Plain-English explanation of a technical report</h3>
-        <p>Before you read an expert report on a subject outside your background, have the model explain the field's basic vocabulary and methods. You are orienting yourself, not learning the case.</p>
-        <p><strong>Failure mode:</strong> it will be confidently wrong about details. That is tolerable when the purpose is orientation and the report itself is the authority.</p>
+        <span class="resource-tag">Proposed</span>
+        <h3>A custom assistant embedded inside a project workspace</h3>
+        <p>This is a feature request aimed at the vendors, not a use case. It describes something a judge would like to exist, not something anyone has done.</p>
       </div>
       <div class="card">
-        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Restructuring your own draft</h3>
-        <p>You wrote it. You ask the model to reorganize, tighten, or flag where the reasoning jumps. Every idea in the output originated with you.</p>
-        <p><strong>Failure mode:</strong> it quietly changes a word that carried legal weight. Read the redline, not just the result.</p>
-      </div>
-      <div class="card">
-        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Adversarial review of your own draft</h3>
-        <p>Ask it to find internal inconsistencies, undefined terms, assertions with no support in the record you provided, and the strongest argument against your reasoning. It is a check on you, not a source of substance.</p>
-        <p><strong>Failure mode:</strong> it invents objections that sound serious and are not. You are the filter, which is fine, because you were always the filter.</p>
+        <span class="resource-tag">Proposed</span>
+        <h3>An audio briefing for the drive in</h3>
+        <p>Feed in the day's briefs, listen to the summary on the way to the courthouse. Possibly the highest-upside idea in the record, and easy to see why it appeals.</p>
+        <p><strong>Provenance, stated plainly:</strong> this is <strong>second-hand</strong>. It reached the record as "another judge told me," and no chambers in the testbed reported doing it. Treat it as a rumor of a good idea, which is what it is.</p>
       </div>
     </div>
-
-    <h3 class="subhead">Proposed for &ldquo;promising, with care&rdquo;</h3>
-    <div class="card-grid">
-      <div class="card">
-        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Identifying what is actually in dispute</h3>
-        <p>Give it both briefs and ask what the parties genuinely disagree about versus where they are talking past each other. A fast way into a case.</p>
-        <p><strong>The care:</strong> the model is drawn to symmetry and will manufacture a tidy dispute where the real one is lopsided. Treat the output as a hypothesis to test against the briefs.</p>
-      </div>
-      <div class="card">
-        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Screening a voluminous record</h3>
-        <p>Ask it to surface passages in a large record bearing on a specific question. Genuinely powerful on documents no one has time to read end to end.</p>
-        <p><strong>The care:</strong> recall is not guaranteed. A hit is worth checking. <em>Absence</em> of a hit is not evidence of absence, and cannot be relied on for anything that matters.</p>
-      </div>
-      <div class="card">
-        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Legal research inside Westlaw or Lexis AI</h3>
-        <p>The AI layers in the research tools retrieve first and then summarize, which is a real improvement over a chatbot answering from memory.</p>
-        <p><strong>The care:</strong> the model still writes the summary, so it can still mischaracterize a case it correctly found. Read the case. The AI layer changes where you start, not whether you finish.</p>
-      </div>
-      <div class="card">
-        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
-        <h3>Plain-language rewriting for pro se parties</h3>
-        <p>Rewriting an order you have already written into language a self-represented litigant can follow.</p>
-        <p><strong>The care:</strong> simplification changes meaning. Every rewrite has to be read against the original with the question of whether the legal effect survived intact.</p>
-      </div>
-    </div>
-
-    <h3 class="subhead">Proposed for &ldquo;not worth the risk&rdquo;</h3>
-    <ul class="tips-list">
-      <li><strong>Asking a model what the law is</strong> and relying on the answer. This is the memory mode, and it is where fabricated citations come from.</li>
-      <li><strong>Any assessment of credibility.</strong> A model has no access to demeanor, no access to the record beyond what you paste, and produces confident text either way. There is nothing here to be gained and a great deal to be lost.</li>
-      <li><strong>Asking it to recommend an outcome.</strong> Even framed as a sanity check, this is delegation of the one thing that cannot be delegated. It also anchors you, which is a subtler harm than a wrong answer.</li>
-      <li><strong>Anything involving sealed, confidential, or non-public material</strong> in a tool that is not authorized for it. See <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a>.</li>
-      <li><strong>Sentencing.</strong> Not the calculation, not the comparison, not the framing. The individualized judgment is the entire point of the exercise.</li>
-    </ul>
 
     <div class="divider"></div>
 
     <p class="section-label">A working test</p>
     <h2 class="section-title">Three questions to sort any task</h2>
-    <p class="section-intro">When something new comes up and it is not on any list, ask these in order. They are the whole framework compressed.</p>
+    <p class="section-intro">When something new comes up and it is not on any list, ask these in order. They are the whole framework compressed, and they are what generated the buckets above.</p>
 
     <ul class="tips-list">
-      <li><strong>1. Is the source material in front of the model, or is it working from memory?</strong> In front of it: the risk drops a lot. From memory: assume anything specific it tells you is unverified, including things that look like citations.</li>
+      <li><strong>1. Is the source material in front of the model, or is it working from memory?</strong> In front of it: the risk drops a lot. From memory: assume anything specific it tells you is unverified, including things that look like citations. And remember the trial transcript. On a very long document, "in front of it" can quietly stop being true.</li>
       <li><strong>2. Can I check the output, and will I?</strong> Not <em>could someone in principle</em>, but will you, on this task, on the day you actually do it. If checking the output is as much work as doing the task, the tool has bought you nothing and added a risk.</li>
       <li><strong>3. Is any part of the judgment being handed over?</strong> Deciding what the case is about, what the evidence is worth, who is telling the truth, what the sentence should be. If yes, stop. That is not a workflow question, and no amount of verification cures it.</li>
     </ul>
+
+    <div class="divider"></div>
+
+    <!-- ── AI-GENERATED FILINGS ── -->
+    <div class="callout callout-gold">
+      <h3>The AI problem that reaches your desk whether or not you ever open one of these tools</h3>
+      <p>This is not a judicial use case, and it is the one AI issue in the record that arrives without being invited. <strong>Four chambers independently report receiving AI-generated filings</strong>, mostly from self-represented litigants.</p>
+      <p>The tells they describe are ordinary human observations: randomly bolded words, uncanny 24-hour turnarounds, legal elements paraphrased rather than quoted. Parties generally admit it when asked at a hearing.</p>
+      <p><strong>The problem is not primarily fake citations.</strong> It is <strong>subtly wrong statements of law</strong>: elements restated <em>almost</em> correctly, tests recited with a piece quietly missing. A fabricated case announces itself the moment you look it up. A near-miss statement of the governing standard does not announce anything, and it will sit in the record until someone reads it closely enough to catch it. Plan for that failure, not the flashy one.</p>
+      <p><strong>One caution, and it matters.</strong> The patterns above are things people noticed, not the output of a detector. <em>There are no reliable tools to detect AI-generated writing. None.</em> Do not treat any tool's confident claim that a filing is AI-generated as evidence of anything, and be careful about acting on a hunch that a self-represented party used a machine. The wrongness of the law in the filing is something you can actually establish. Its authorship usually is not.</p>
+    </div>
 
   </section>
 

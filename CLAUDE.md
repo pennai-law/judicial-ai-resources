@@ -62,14 +62,43 @@ Hon. Maritza Dominguez Braswell (D. Colo., panelist), R. Polk Wagner (Penn Carey
 **One real citation we do have:** Judge Dominguez Braswell, "Between hype and fear: Why I have
 not issued a standing order on AI," Thomson Reuters Institute, Jan 15, 2026.
 
-## Known gaps — leave them visible
+## 🔴 De-identification — the hard rule
 
-The **Use Cases** tab is the core of the site and is deliberately thin. It's waiting on Judge
-Dominguez Braswell's running list of real judge use cases. Until that lands, it carries only
-what the panel actually discussed, plus a clearly fenced set of *proposals* — labeled as
-proposals, not as reports of judicial practice. **Do not fill the gap with plausible
-examples.** The distinction between "a judge does this" and "a judge could do this" is the
-whole ballgame with this audience.
+The **Use Cases** tab is built from real observed practice, gathered from named sitting federal
+judges in a judicial AI testbed. Polk's instruction (2026-07-13): **obscure the chambers using
+them.**
+
+**Never write** a judge's name, a clerk's name, a court, a district, or a circuit. Never write a
+circuit-specific doctrine that fingerprints a court; abstract it to "a recurring multi-factor
+test in your circuit". Never write identifying case details.
+
+**Do write** aggregate, unattributed provenance: "several chambers report," "multiple chambers
+independently," "one chambers found." Keep the frame that these are **observed practice from a
+judicial AI testbed, reported in aggregate with chambers de-identified** — that frame is what
+makes the page worth reading. Without it these are assertions; with it, they're what judges
+actually do.
+
+If a reader could identify a judge or a court from anything on the page, that is a
+professional problem for Polk, not a style nit. The unabstracted source lives in Box
+(`AI Teaching Lab/Judiciary/sixth-circuit-2026/research/judge-use-cases-from-testbed.md`) and
+in Drive. **Neither belongs in this repo.**
+
+## Observed vs. proposed — keep the line
+
+"A judge does this" and "a judge could do this" are different claims, and the difference is the
+whole ballgame with this audience. Proposals stay in a clearly fenced section, labeled as
+proposals. **Never fill a gap with a plausible example.**
+
+Still outstanding: **Judge Dominguez Braswell's running list of use cases.** The catalogue grows
+when it lands.
+
+## Do not claim AI can detect AI-generated writing
+
+One testbed office reported that it can. That is almost certainly wrong and it contradicts Polk's
+own published position — *"There are no reliable tools to detect AI-generated writing. None."*
+The site may describe the human-noticed tells in AI-drafted filings (randomly bolded words,
+uncanny turnarounds, legal elements paraphrased rather than quoted). It may **not** present any
+of that as a detector.
 
 ## Design — "The Slip Opinion"
 
