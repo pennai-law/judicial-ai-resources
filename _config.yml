@@ -1,0 +1,7 @@
+# GitHub Pages (Jekyll) config.
+# Keep repo notes out of the published site. The portal itself is plain static
+# HTML; nothing here needs Jekyll processing — this only excludes dev files.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - _config.yml

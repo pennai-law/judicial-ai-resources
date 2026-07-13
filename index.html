@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judicial AI Portal — Draft</title>
+<!-- DRAFT: remove the robots tag below before this goes public. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://judicial-ai.ai-teaching-lab.org/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://judicial-ai.ai-teaching-lab.org/">
+<meta property="og:title" content="Judicial AI Portal">
+<meta property="og:description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<meta property="og:image" content="https://judicial-ai.ai-teaching-lab.org/assets/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Judicial AI Portal">
+<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Draft for panel review.">
+<meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── The Slip Opinion ── */
+    --ivory:       #FCFAF5;  /* page ground */
+    --ivory-deep:  #F5F1E8;  /* secondary ground: stripes, table heads */
+    --oxblood-wash:#F7F0F1;  /* faint accent ground for callouts */
+    --ink:         #1A1815;  /* body text — warm near-black   16.98:1 on ivory */
+    --ink-muted:   #5A554C;  /* secondary text                 7.09:1 on ivory */
+    --oxblood:     #6E2639;  /* sole accent: links, rules     10.07:1 on ivory */
+    --oxblood-deep:#551D2C;  /* hover */
+    --brass:       #9A7B33;  /* HAIRLINES + ORNAMENT ONLY — never a fill, never text (3.83:1) */
+    --rule:        #DED8CB;  /* warm hairline */
+    --rule-soft:   #EAE5DA;
+
+    --display: 'Libre Baskerville', 'Times New Roman', Georgia, serif;
+    --body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --measure: 68ch;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  /* ── ACCESSIBILITY ── */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--oxblood);
+    color: var(--ivory);
+    padding: 0.65rem 1.1rem;
+    text-decoration: none;
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 1000;
+    transition: top 0.15s;
+  }
+  .skip-link:focus { top: 0.5rem; }
+
+  /* Focus indicators (WCAG 2.4.7) — one treatment; all grounds are light now. */
+  *:focus-visible {
+    outline: 2px solid var(--oxblood);
+    outline-offset: 2px;
+    border-radius: 0;
+  }
+
+  body {
+    font-family: var(--body);
+    font-optical-sizing: auto;
+    background: var(--ivory);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.72;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--oxblood); }
+  a:hover { color: var(--oxblood-deep); }
+
+  /* ── DRAFT BANNER ── */
+  .draft-banner {
+    background: var(--ivory);
+    border-top: 3px solid var(--oxblood);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 0.85rem 3rem;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .draft-banner strong {
+    display: inline-block;
+    font-family: var(--body);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    color: var(--oxblood);
+    border: 1px solid var(--oxblood);
+    padding: 2px 8px;
+    margin-right: 0.7rem;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+  .draft-banner span { color: var(--ink-muted); }
+  .draft-banner a { color: var(--oxblood); }
+
+  /* ── LAB STRIPE ── */
+  .lab-stripe {
+    background: var(--ivory-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 3rem;
+  }
+  .lab-stripe-link {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: var(--ink-muted);
+  }
+  .lab-stripe-text {
+    flex: 1;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+  .lab-stripe-text strong { color: var(--ink); font-weight: 600; }
+  .lab-stripe-cta {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--oxblood);
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lab-stripe-link:hover .lab-stripe-cta { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── SEARCH ── */
+  .header-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink-muted);
+    font-family: var(--body);
+    font-size: 13.5px;
+    font-weight: 400;
+    padding: 4px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .header-search:hover { border-color: var(--oxblood); color: var(--oxblood); }
+  .header-search svg { flex-shrink: 0; }
+  .header-search kbd {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+  .search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 24, 21, 0.45);
+    z-index: 200;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10vh 1.5rem 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s;
+  }
+  .search-overlay.active { opacity: 1; pointer-events: auto; }
+  .search-modal {
+    background: var(--ivory);
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 640px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+  }
+  .search-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .search-input-wrap svg { color: var(--ink-muted); flex-shrink: 0; }
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-family: var(--body);
+    font-size: 17px;
+    color: var(--ink);
+    background: transparent;
+  }
+  .search-input::placeholder { color: var(--ink-muted); }
+  .search-results { overflow-y: auto; max-height: 56vh; }
+  .search-empty, .search-no-results {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 14px;
+  }
+  .search-result {
+    display: block;
+    padding: 0.85rem 1.4rem;
+    border-bottom: 1px solid var(--rule-soft);
+    text-decoration: none;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.08s;
+  }
+  .search-result:last-child { border-bottom: none; }
+  .search-result:hover, .search-result.focused { background: var(--ivory-deep); }
+  .search-result-tab {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 4px;
+  }
+  .search-result-title {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 3px;
+  }
+  .search-result-snippet {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+  /* Highlight uses a brass RULE, not a brass fill. */
+  .search-result mark {
+    background: transparent;
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: 2px solid var(--brass);
+  }
+  .search-footer-bar {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--rule);
+    font-size: 11.5px;
+    color: var(--ink-muted);
+  }
+  .search-footer-bar kbd {
+    border: 1px solid var(--rule);
+    padding: 1px 5px;
+    font-family: var(--body);
+    font-size: 10.5px;
+    color: var(--ink);
+    margin-right: 5px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ivory);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header .wordmark {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .site-header .wordmark span { color: var(--brass); margin: 0 9px; }
+  .header-badge {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .header-badge a:hover { color: var(--oxblood); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ivory);
+    padding: 4rem 3rem 3rem;
+    border-bottom: 1px solid var(--brass);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: -0.005em;
+  }
+  .hero h1 em { font-style: italic; color: var(--oxblood); }
+  .hero-sub {
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    max-width: var(--measure);
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+  }
+  .hero-meta {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    max-width: var(--measure);
+  }
+
+  /* ── NAV TABS ── */
+  .tab-nav-wrap {
+    background: var(--ivory);
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+  }
+  .tab-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 0 1.35rem;
+    height: 52px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .tab-btn:first-child { padding-left: 0; }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+  /* "CORE" marker: letterspaced type, no pill. */
+  .tab-btn-featured::after {
+    content: "\00B7 Core";
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--oxblood);
+    margin-left: 0.45rem;
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+  }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 2.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 0.9rem;
+    max-width: var(--measure);
+  }
+  .section-title em { font-style: italic; color: var(--oxblood); }
+  .section-intro {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    max-width: var(--measure);
+    line-height: 1.72;
+    margin-bottom: 3rem;
+  }
+  .section-intro strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CARDS: hairline boxes on the ivory ground. Flat. ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .card {
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.6rem 1.75rem;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { border-color: var(--brass); }
+  .card h3 {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+  }
+  .card p {
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .card p + p { margin-top: 0.7rem; }
+  .card p strong { color: var(--ink); font-weight: 600; }
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 1rem;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    text-decoration: none;
+  }
+  .card-link::after { content: '\2192'; font-size: 13px; transition: transform 0.15s; }
+  .card-link:hover::after { transform: translateX(3px); }
+  .card-links {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--rule-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+  }
+  .card-links .card-link { margin-top: 0; }
+
+  /* ── TAGS: letterspaced type, no pills, no fills ── */
+  .resource-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: inline-block;
+    padding: 0 0 0.35rem;
+    border-bottom: 1px solid var(--brass);
+    margin-bottom: 0.9rem;
+  }
+  .tag-no { color: var(--oxblood); border-bottom-color: var(--oxblood); }
+
+  /* ── PROSE ── */
+  .prose-section { max-width: var(--measure); }
+  .prose-section h3 {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    margin-top: 2.4rem;
+    line-height: 1.35;
+  }
+  .prose-section h3:first-child { margin-top: 0; }
+  .prose-section p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.78;
+    margin-bottom: 1.1rem;
+  }
+  .prose-section strong { color: var(--ink); font-weight: 700; }
+  .prose-section ul { margin: 0 0 1.4rem 1.3rem; padding: 0; }
+  .prose-section ul li {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.78;
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .prose-section ul li::marker { color: var(--brass); }
+
+  /* ── CALLOUT: faint oxblood ground, oxblood rule ── */
+  .callout {
+    background: var(--oxblood-wash);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--oxblood);
+    border-radius: 2px;
+    color: var(--ink);
+    padding: 2rem 2.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 860px;
+  }
+  .callout h3 {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--oxblood);
+    margin-bottom: 0.85rem;
+  }
+  .callout p {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .callout p + p { margin-top: 0.8rem; }
+  .callout strong { color: var(--ink); font-weight: 700; }
+
+  /* Gold variant → brass-ruled, ivory-deep ground */
+  .callout-gold {
+    background: var(--ivory-deep);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--brass);
+  }
+  .callout-gold h3 { color: var(--ink); }
+  .callout-gold p { color: var(--ink); }
+  .callout-gold ul { list-style: none; padding: 0; margin: 0.85rem 0 0; }
+  .callout-gold ul li {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 0.35rem 0 0.35rem 1.35rem;
+    position: relative;
+  }
+  .callout-gold ul li::before {
+    content: '\2014';
+    position: absolute;
+    left: 0;
+    color: var(--oxblood);
+  }
+
+  /* ── OBJECTIONS ── */
+  .objection {
+    background: transparent;
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid var(--oxblood);
+    padding: 1.6rem 0 1.6rem 1.75rem;
+    margin-bottom: 2rem;
+    max-width: var(--measure);
+  }
+  .objection h3 {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--oxblood);
+    margin-bottom: 0.9rem;
+    line-height: 1.35;
+  }
+  .objection p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.78;
+    margin-bottom: 1rem;
+  }
+  .objection p:last-child { margin-bottom: 0; }
+  .objection strong { color: var(--ink); font-weight: 700; }
+
+  /* ── TIPS LIST ── */
+  .tips-list {
+    max-width: var(--measure);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+  }
+  .tips-list li {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.78;
+    padding: 0.85rem 0 0.85rem 1.6rem;
+    position: relative;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .tips-list li:last-child { border-bottom: none; }
+  .tips-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.55rem;
+    width: 8px;
+    height: 1px;
+    background: var(--brass);
+  }
+  .tips-list li strong { color: var(--ink); font-weight: 700; }
+
+  /* ── USE-CASE BUCKETS ── */
+  .bucket {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: transparent;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+  .bucket-head {
+    padding: 1.3rem 1.85rem;
+    background: var(--ivory-deep);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bucket-head h3 {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+  .bucket-head p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+    color: var(--ink-muted);
+  }
+  /* Rank is carried by the top rule: ink → brass → oxblood */
+  .bucket-safe { border-top: 3px solid var(--ink); }
+  .bucket-care { border-top: 3px solid var(--brass); }
+  .bucket-no   { border-top: 3px solid var(--oxblood); }
+  .bucket-no .bucket-head h3 { color: var(--oxblood); }
+
+  .bucket-body { padding: 1.75rem 1.85rem; }
+  .bucket-body > p { font-size: 16px; line-height: 1.78; color: var(--ink); margin-bottom: 1rem; }
+  .bucket-body > p:last-child { margin-bottom: 0; }
+
+  .uc { padding: 1.35rem 0; border-top: 1px solid var(--rule-soft); }
+  .uc:first-child { border-top: none; padding-top: 0; }
+  .uc h4 {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.45;
+  }
+  .uc p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin: 0; }
+  .uc p + p { margin-top: 0.6rem; }
+  .uc .why { font-size: 15px; color: var(--ink-muted); }
+  .uc .why strong { color: var(--ink); font-weight: 700; }
+  .uc-verified {
+    display: inline-block;
+    font-family: var(--body);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-left: 0.55rem;
+    vertical-align: 2px;
+    white-space: nowrap;
+  }
+  .uc-verified::before { content: '\2014\00A0'; color: var(--brass); }
+
+  /* ── DRAFT / AWAITING-INPUT FLAG ── */
+  .draft-flag {
+    border: 1px dashed var(--oxblood);
+    border-radius: 2px;
+    background: var(--oxblood-wash);
+    padding: 1.5rem 1.75rem;
+    margin: 1.75rem 0;
+    max-width: var(--measure);
+  }
+  .draft-flag.wide { max-width: none; }
+  .draft-flag-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    padding: 0 0 0.4rem;
+    border-bottom: 1px solid var(--oxblood);
+    margin-bottom: 1rem;
+  }
+  .draft-flag h4 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .draft-flag p {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.75;
+    margin-bottom: 0.7rem;
+  }
+  .draft-flag p:last-child { margin-bottom: 0; }
+  .draft-flag strong { color: var(--oxblood); font-weight: 700; }
+
+  /* ── PROPOSAL NOTE ── */
+  .proposal-note {
+    font-size: 15px;
+    color: var(--ink-muted);
+    font-style: italic;
+    background: var(--ivory-deep);
+    border-left: 1px solid var(--brass);
+    padding: 0.9rem 1.2rem;
+    margin: 0 0 2rem;
+    line-height: 1.7;
+    max-width: 860px;
+  }
+  .proposal-note strong { font-style: normal; color: var(--ink); font-weight: 700; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 3.5rem 0;
+  }
+
+  /* ── HERO FEATURE ── */
+  .hero-feature {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 3rem;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-feature-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .hero-feature-kicker {
+    display: inline-block;
+    font-family: var(--body);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    padding: 0 0 0.45rem;
+    border-bottom: 1px solid var(--oxblood);
+    margin-bottom: 1.4rem;
+  }
+  .hero-feature h2 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    font-weight: 400;
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-feature h2 em { color: var(--oxblood); font-style: italic; }
+  .hero-feature-lede {
+    font-size: 17px;
+    line-height: 1.78;
+    color: var(--ink);
+    max-width: var(--measure);
+  }
+  .hero-feature-lede strong { color: var(--ink); font-weight: 700; }
+  .hero-feature-ctas { display: flex; flex-direction: column; gap: 0; }
+  .hero-feature-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 400;
+    transition: color 0.15s;
+  }
+  .hero-feature-cta:last-child { border-bottom: 1px solid var(--rule); }
+  .hero-feature-cta:hover { color: var(--oxblood); }
+  .hero-feature-cta .cta-label {
+    display: block;
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 5px;
+  }
+  .hero-feature-cta .cta-arrow {
+    font-size: 18px;
+    color: var(--brass);
+    flex-shrink: 0;
+    transition: transform 0.15s;
+  }
+  .hero-feature-cta:hover .cta-arrow { transform: translateX(3px); }
+  .hero-feature-cta.primary { border-top-color: var(--oxblood); border-top-width: 2px; }
+
+  /* ── OVERVIEW MAP ── */
+  .overview-map {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 3rem 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+  .overview-col {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    border-top: 1px solid var(--rule);
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .overview-col:hover { border-top-color: var(--oxblood); }
+  .overview-col.featured { border-top: 2px solid var(--brass); }
+  .overview-col.active { border-top: 2px solid var(--oxblood); }
+  .overview-col h3 {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0.9rem 0 0.7rem;
+    line-height: 1.3;
+  }
+  .overview-col.active h3 { color: var(--oxblood); }
+  .overview-col ul { list-style: none; padding: 0; }
+  .overview-col ul li {
+    font-size: 14px;
+    color: var(--ink-muted);
+    padding: 0.2rem 0;
+    line-height: 1.5;
+  }
+  .overview-col ul li strong { color: var(--ink); font-weight: 600; }
+
+  /* ── PANEL LIST ── */
+  .panel-list { list-style: none; padding: 0; margin: 1.2rem 0 0; }
+  .panel-list li {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 0.45rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .panel-list li strong { color: var(--ink); font-weight: 700; }
+  .panel-list li span { color: var(--ink-muted); }
+
+  /* ── CONTACT FOOTER ── */
+  .contact-footer {
+    background: transparent;
+    border-top: 1px solid var(--brass);
+    padding: 2rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3.5rem;
+  }
+  .contact-footer p {
+    font-size: 16px;
+    color: var(--ink-muted);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .contact-footer p strong { color: var(--ink); font-weight: 700; }
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--oxblood);
+    border: 1px solid var(--oxblood);
+    border-radius: 2px;
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.18s, color 0.18s;
+  }
+  .contact-btn:hover { background: var(--oxblood); color: var(--ivory); }
+
+  /* ── SITE FOOTER ── */
+  .site-footer {
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--rule);
+    color: var(--ink-muted);
+    text-align: center;
+    font-size: 13px;
+    padding: 2rem 1.5rem;
+    line-height: 1.7;
+  }
+  .site-footer strong { color: var(--ink); font-weight: 600; }
+  .site-footer a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .site-footer a:hover { color: var(--oxblood); }
+
+  /* ── SUBHEAD (group headings inside a tab) ── */
+  .subhead {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.35;
+    margin: 3rem 0 0.7rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--brass);
+    max-width: var(--measure);
+  }
+  .subhead-note {
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-bottom: 1.75rem;
+    max-width: var(--measure);
+    line-height: 1.72;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1000px) {
+    .overview-map { grid-template-columns: repeat(3, 1fr); }
+    .hero-feature { padding: 2.5rem 2rem; }
+    .hero-feature-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 720px) {
+    .overview-map { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.25rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .hero { padding: 2.5rem 1.5rem 2rem; }
+    .hero-feature { padding: 2rem 1.5rem; }
+    .site-header { padding: 0 1.5rem; }
+    .tab-nav { padding: 0 1.5rem; }
+    .tab-btn:first-child { padding-left: 0; }
+    .page-body { padding: 2.5rem 1.5rem 4rem; }
+    .contact-footer { flex-direction: column; align-items: flex-start; }
+    .lab-stripe { padding: 0.6rem 1.25rem; }
+    .lab-stripe-link { gap: 0.9rem; }
+    .lab-stripe-text { font-size: 13px; }
+    .draft-banner { padding: 0.8rem 1.25rem; text-align: left; }
+    .draft-banner strong { margin-bottom: 0.4rem; }
+    .bucket-head, .bucket-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .objection { padding-left: 1.25rem; }
+    .header-search .label { display: none; }
+    .header-search kbd { display: none; }
+    .search-overlay { padding: 5vh 0.75rem 0.75rem; }
+    .search-modal { max-height: 90vh; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- DRAFT BANNER — remove before publication -->
+<div class="draft-banner" role="note">
+  <strong>Draft v0</strong>
+  <span>Working draft circulated for panel review, not a published resource. Sections are incomplete, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
+</div>
+
+<!-- TOP STRIPE: AI Teaching Lab attribution -->
+<div class="lab-stripe">
+  <a class="lab-stripe-link" href="https://ai-teaching-lab.org/" target="_blank" rel="noopener">
+    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>AI Teaching Lab</strong>.</span>
+    <span class="lab-stripe-cta">Visit the Lab &rarr;</span>
+  </a>
+</div>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <a class="wordmark" href="index.html">Judicial AI <span>|</span> Portal</a>
+  <div style="display:flex; align-items:center; gap:1rem;">
+    <button class="header-search" type="button" aria-label="Search this site (Cmd+K)">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <span class="label">Search</span>
+      <kbd>&#8984;K</kbd>
+    </button>
+    <div class="header-badge"><a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">AI Teaching Lab</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>AI in <em>Chambers</em></h1>
+    <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
+    <div class="hero-meta">Draft v0 &nbsp;&middot;&nbsp; July 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
+  </div>
+</section>
+
+<!-- HERO FEATURE: the intellectual spine -->
+<section class="hero-feature" aria-labelledby="hero-feature-heading">
+  <div class="hero-feature-grid">
+    <div class="hero-feature-text">
+      <span class="hero-feature-kicker">The core idea</span>
+      <h2 id="hero-feature-heading">They don&rsquo;t retrieve. They <em>process</em>.</h2>
+      <p class="hero-feature-lede">Westlaw and Lexis find documents that already exist. That is retrieval, and you have learned to trust it. A large language model looks nothing up. It <strong>writes the most plausible next words</strong>, which is a fundamentally different operation. Grasp that one difference and the rest follows: why these tools make things up, why they carry bias, why neither is a defect awaiting a patch, and what the tools are actually safe for.</p>
+    </div>
+    <div class="hero-feature-ctas">
+      <a class="hero-feature-cta primary" href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">
+        <span><span class="cta-label">Start here</span>The bunny hill</span>
+        <span class="cta-arrow">&rarr;</span>
+      </a>
+      <a class="hero-feature-cta" href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">
+        <span><span class="cta-label">Go deeper</span>How these tools work</span>
+        <span class="cta-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW MAP -->
+<div class="overview-map">
+  <div class="overview-col active" data-nav="start">
+    <h3>Start Here</h3>
+    <ul>
+      <li><strong>The bunny hill</strong></li>
+      <li><strong>&ldquo;This sounds like cheating&rdquo;</strong></li>
+      <li><strong>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant&rdquo;</strong></li>
+      <li><strong>Experimenting safely</strong> on a private device</li>
+    </ul>
+  </div>
+  <div class="overview-col" data-nav="how-it-works">
+    <h3>How These Tools Work</h3>
+    <ul>
+      <li><strong>Retrieval vs. processing</strong></li>
+      <li><strong>Why they make things up</strong></li>
+      <li><strong>Why bias is built in</strong></li>
+      <li><strong>What this predicts</strong></li>
+    </ul>
+  </div>
+  <div class="overview-col featured" data-nav="use-cases">
+    <h3>Use Cases</h3>
+    <ul>
+      <li><strong>Safe and effective today</strong></li>
+      <li><strong>Promising, with care</strong></li>
+      <li><strong>Not worth the risk</strong></li>
+      <li><strong>A three-question test</strong></li>
+    </ul>
+  </div>
+  <div class="overview-col" data-nav="guardrails">
+    <h3>Guardrails</h3>
+    <ul>
+      <li><strong>The verification duty</strong></li>
+      <li><strong>Never delegated</strong></li>
+      <li><strong>Confidential material</strong></li>
+      <li><strong>Chambers practice</strong></li>
+    </ul>
+  </div>
+  <div class="overview-col" data-nav="tools">
+    <h3>Tools</h3>
+    <ul>
+      <li><strong>Authorization first</strong></li>
+      <li><strong>General assistants</strong></li>
+      <li><strong>Research tools with AI</strong></li>
+      <li><strong>How to choose</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav-wrap">
+  <nav class="tab-nav" role="tablist" aria-label="Portal sections">
+    <button class="tab-btn active" data-tab="start" role="tab" id="tab-btn-start" aria-selected="true" aria-controls="start">Start Here</button>
+    <button class="tab-btn" data-tab="how-it-works" role="tab" id="tab-btn-how-it-works" aria-selected="false" aria-controls="how-it-works" tabindex="-1">How These Tools Work</button>
+    <button class="tab-btn tab-btn-featured" data-tab="use-cases" role="tab" id="tab-btn-use-cases" aria-selected="false" aria-controls="use-cases" tabindex="-1">Use Cases</button>
+    <button class="tab-btn" data-tab="guardrails" role="tab" id="tab-btn-guardrails" aria-selected="false" aria-controls="guardrails" tabindex="-1">Guardrails</button>
+    <button class="tab-btn" data-tab="tools" role="tab" id="tab-btn-tools" aria-selected="false" aria-controls="tools" tabindex="-1">Tools</button>
+  </nav>
+</div>
+
+<!-- PAGE BODY -->
+<main class="page-body" id="main">
+
+  <!-- ═══ TAB 1: START HERE ═══ -->
+  <section class="tab-pane active" id="start" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
+
+    <p class="section-label">Start Here</p>
+    <h2 class="section-title">Learn on the <em>bunny hill</em></h2>
+    <p class="section-intro">Nobody learns to ski on a black diamond. You learn on the bunny hill, where falling costs you nothing. The same is true here. The way to find out what these tools can and cannot do is to use them on things that do not matter, on a device that is yours, until you have a feel for where they are strong and where they slide. That takes a few hours, not a semester.</p>
+
+    <div class="callout">
+      <h3>The one-paragraph version</h3>
+      <p>AI tools are not better search engines. They do not look things up. They generate plausible text, which is why they invent citations and why they carry the biases of what they were trained on. Neither problem is getting patched. Once you accept that, the useful question stops being <strong>&ldquo;when will they fix it?&rdquo;</strong> and becomes <strong>&ldquo;what is this actually safe for?&rdquo;</strong> The short answer today: safe when the source material is in front of the model and you check the output. Not safe when you are asking the model to supply the law, the facts, or the judgment from its own memory.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">The two objections</p>
+    <h2 class="section-title">What judges actually say</h2>
+    <p class="section-intro">Two objections come up more than any others. Both are reasonable. Neither is a reason to stay away entirely, and both point to real limits worth keeping.</p>
+
+    <div class="objection">
+      <h3>&ldquo;This sounds like cheating.&rdquo;</h3>
+      <p>The instinct behind this is sound, so start by naming what it is protecting. The judicial function is judgment: deciding what the case is about, weighing the arguments, and taking responsibility for the result. Hand that to a machine and you have given away the thing you were appointed to do.</p>
+      <p>But that is not what is at stake in most of these tasks. Judges already work with law clerks. A clerk reads the record, drafts, and proposes. The judge reads, revises, disagrees, and signs. Nobody thinks the clerk decided the case. <strong>The line is between delegating labor and delegating judgment</strong>, and it does not move because the drafter is software.</p>
+      <p>Where the instinct earns its keep is on the other side of that line. If you cannot say how a document was produced, cannot check it, and would not have written it yourself, then something has gone wrong, and it would have gone wrong with a human ghostwriter too. Keep the objection. Aim it at the right target.</p>
+    </div>
+
+    <div class="objection">
+      <h3>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant.&rdquo;</h3>
+      <p>You should be. Lawyers have been sanctioned in federal court for filing briefs containing citations to cases that do not exist. The fear of a fabricated citation appearing under your name in a published opinion is not squeamishness. It is an accurate read of the risk.</p>
+      <p>The useful thing about that risk is how specific it is. It is the risk of <strong>publishing something you did not verify</strong>. It has a matching cure: do not publish anything you did not verify. That is not an AI rule. It is the rule you already follow.</p>
+      <p>And the way to build the instincts that make verification quick rather than laborious is to practice where a fall costs nothing. Which brings you back to the bunny hill.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Getting on the hill</p>
+    <h2 class="section-title">Experiment on a private device, on things that don&rsquo;t matter</h2>
+
+    <div class="prose-section">
+      <p>Do your learning on your own device, your own account, and non-professional material. This is partly a confidence-building measure and partly a practical necessity: the Administrative Office has interim guidance in effect, and the list of AI tools authorized for court work is limited today. Chambers experimentation is not a live option for most judges right now. Personal experimentation is.</p>
+      <p>What to actually do:</p>
+    </div>
+
+    <ul class="tips-list">
+      <li><strong>Pay for it.</strong> Free tiers run weaker models with worse data terms. If you evaluate capability on a free tier, you will form a view of these tools that is a year or two out of date. Roughly twenty dollars a month buys the current models.</li>
+      <li><strong>Start with something you know cold.</strong> Give it a long document you have already read closely, and ask for a summary. You will see instantly where it is genuinely good and exactly where it slides. This single exercise is worth more than any explainer, including this one.</li>
+      <li><strong>Then give it something you know nothing about.</strong> Ask it to explain a technical subject you have never studied. Notice how confident it sounds. That confidence reads identically whether the answer is right or wrong, which is the most important thing to learn about these tools.</li>
+      <li><strong>Argue with it.</strong> Push back on an answer. Tell it it is wrong when it is not. See what it does. You are calibrating how much its agreement is worth.</li>
+      <li><strong>Give it a real, low-stakes job.</strong> Plan a trip. Draft a toast. Reorganize a chapter outline. Compare two insurance policies you actually hold. Work that has a result you can check.</li>
+      <li><strong>Try a task with the source in front of it, and the same task without.</strong> Paste in a document and ask a question about it. Then ask the same question with nothing pasted in. The difference in reliability is the whole ballgame, and it is the difference that organizes the <a href="#use-cases" onclick="activateTab('use-cases'); scrollToTabs(); return false;">Use Cases</a> below.</li>
+    </ul>
+
+    <div class="callout-gold callout">
+      <h3>What the bunny hill is for</h3>
+      <p>It is not for becoming an expert, and it is not a commitment to anything. It is for developing a working sense of when the tool is reliable, which is a judgment you can only get from use. A judge who has spent five hours on personal material has better intuitions about AI risk than one who has read every article about it.</p>
+      <p>Plenty of judges will finish this exercise and conclude the tools have no place in their chambers. That is a legitimate result, and an informed one. It is a different thing from never having looked.</p>
+    </div>
+
+  </section>
+
+  <!-- ═══ TAB 2: HOW THESE TOOLS WORK ═══ -->
+  <section class="tab-pane" id="how-it-works" role="tabpanel" aria-labelledby="tab-btn-how-it-works" tabindex="0">
+
+    <p class="section-label">The distinction that matters</p>
+    <h2 class="section-title">Retrieval and processing are <em>different operations</em></h2>
+    <p class="section-intro">This is the shortest possible explanation of these tools, and the only technical section on this site. There is no math in it. Everything practical on the other tabs comes out of it.</p>
+
+    <div class="prose-section">
+
+      <h3>What Westlaw does</h3>
+      <p>You type a query. Westlaw searches an index of documents that exist, ranks them, and hands them back. That is <strong>retrieval</strong>. If it returns a case, the case is real, because the system had to find it somewhere in order to return it. Provenance comes free.</p>
+      <p>Retrieval has a characteristic failure: it misses things. The case you needed was worded differently and never surfaced. That failure is familiar, and every judge and clerk has developed habits for managing it. You search again, from a different angle.</p>
+
+      <h3>What a large language model does</h3>
+      <p>Nothing gets looked up. The model was trained on an enormous quantity of text, and from that training it learned, in effect, what words tend to follow what other words in what contexts. When you give it a prompt, it produces an answer one piece at a time, each piece being the most plausible continuation of everything so far. That is <strong>processing</strong>, and it is not a lookup with extra steps. It is a different operation.</p>
+      <p>Nothing in that process consults a library. The output is not the result of a search. It is a construction, assembled to be plausible.</p>
+
+      <h3>Why it invents citations</h3>
+      <p>Now the important part. A fabricated citation is not a malfunction. It is the system working exactly as designed. Asked for authority, the model produces text that has the shape of authority: a plausible case name, a plausible reporter, a plausible year, a plausible pin cite. Producing that shape <em>is</em> the job. Whether the case exists is not a question the architecture ever asks, because the architecture has no mechanism for asking it.</p>
+      <p>This is why the industry term, <strong>hallucination</strong>, is misleading. It implies a lapse from an otherwise sound faculty, as though the model normally knows and occasionally slips. There is no faculty to lapse from. The model is doing the same thing when it is right and when it is wrong. You just happen to like one result better.</p>
+      <p>Which means: <strong>the question is not when this gets fixed.</strong> Models get better, and error rates fall. But making the text more plausible is what improvement <em>means</em> here, and more plausible fabrications are harder to catch, not easier. The kind of tool it is does not change.</p>
+
+      <h3>Why bias is built in the same way</h3>
+      <p>Same architecture, same consequence. The model produces what is probable given the text it was trained on, and that text is the accumulated written output of a society with all of its assumptions in it. Probable is not the same as fair, or accurate, or representative. Patterns that nobody would defend if they were stated out loud are still patterns, and the model reproduces them because reproducing patterns is what it does.</p>
+      <p>Vendors work hard to suppress the obvious cases, and they largely succeed at the obvious cases. The subtle ones are the ones that matter to a court, and they are not detectable by looking at any single output. This is a structural feature, not a settings problem.</p>
+
+      <h3>Four things this predicts</h3>
+      <ul>
+        <li><strong>Give the model the source and reliability rises sharply.</strong> When the relevant document is sitting in the prompt, the most plausible continuation is anchored to text the model can see. Errors drop a great deal. They do not drop to zero, and the model will still smooth over a distinction that matters, but this is the single largest lever you have.</li>
+        <li><strong>Ask it to work from memory and reliability is worst.</strong> No anchor, and fluent output regardless. This is precisely the mode in which a model invents a case, and it is why asking one to draft an opinion out of its own knowledge is the wrong use.</li>
+        <li><strong>Confidence carries no information.</strong> The tone of the answer is generated by the same process as the content of the answer. A wrong answer arrives in exactly the same voice as a right one. Hedging, when it appears, is a stylistic feature, not a reliability signal.</li>
+        <li><strong>It does not know what it does not know.</strong> Asking a model whether it is sure, or asking it to check its own work, produces more plausible text. It is not verification. Verification means going to the source.</li>
+      </ul>
+
+      <h3>A word about the &ldquo;grounded&rdquo; legal tools</h3>
+      <p>Westlaw and Lexis have built AI layers that put a retrieval step in front of the model: find the real documents first, then have the model summarize and synthesize them. That genuinely helps, and it is a meaningfully better risk profile than a general chatbot answering a legal question from memory.</p>
+      <p>It is not a cure. The retrieval step can miss, and the model still writes the summary, which means it can still mischaracterize what it found, and still smooth two cases into one proposition that neither supports. Grounding narrows the failure mode. It does not eliminate the need to read the case.</p>
+
+    </div>
+
+    <div class="callout">
+      <h3>The takeaway</h3>
+      <p>You are not being handed an unreliable version of a reliable tool. You are being handed a different kind of tool, one whose errors are inherent to how it produces anything at all. That is not a reason to refuse it. It is the information you need in order to use it well, because it tells you exactly where to put the tool: <strong>on tasks where the source material is in front of it and a human checks the result.</strong></p>
+    </div>
+
+  </section>
+
+  <!-- ═══ TAB 3: USE CASES (CORE) ═══ -->
+  <section class="tab-pane" id="use-cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
+
+    <p class="section-label">The core of this portal</p>
+    <h2 class="section-title">What judges can actually <em>do</em> with these tools</h2>
+    <p class="section-intro">Three buckets, sorted by risk rather than by capability. The sorting principle comes straight from the previous tab: <strong>a task is safer to the degree that the source material sits in front of the model and a human checks the output</strong>. It gets riskier as the model is asked to supply substance from its own memory, and riskiest when it is asked to supply judgment.</p>
+
+    <div class="draft-flag wide">
+      <span class="draft-flag-label">Draft &mdash; awaiting input</span>
+      <h4>This tab is deliberately thin, and that is the point</h4>
+      <p>The panel agreed to build this section from <strong>real use cases collected from sitting judges</strong>. That running list is being assembled by Hon. Maritza Dominguez Braswell and is not yet in hand. Until it arrives, this tab holds only the items the panel has actually discussed, plus a clearly labeled set of proposals for the panel to accept, reject, or correct.</p>
+      <p>Nothing here is a report of what judges are doing, except where it says so. Fabricated examples would be worse than gaps, so there are gaps.</p>
+      <p><strong>Panel:</strong> the fastest way to improve this portal is to send use cases. What did you try, what did you give the model, what came back, and did you keep it? Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
+    </div>
+
+    <!-- BUCKET 1 -->
+    <div class="bucket bucket-safe">
+      <div class="bucket-head">
+        <h3>Safe and effective today</h3>
+        <p>The source material is in front of the model. The output is checkable. A human checks it.</p>
+      </div>
+      <div class="bucket-body">
+
+        <div class="uc">
+          <h4>Drafting a case management order from a review of the initial pleadings<span class="uc-verified">Panel</span></h4>
+          <p>You hand the model the complaint, the answer, and whatever else is in the file. You ask for a draft scheduling or case management order. It reads what you gave it and produces a draft. You read the draft.</p>
+          <p class="why"><strong>Why it works:</strong> everything the model needs is in the prompt, so it is not reaching into memory for facts. The order is a form document with a known shape, so errors are conspicuous rather than subtle. And you would have read it anyway.</p>
+        </div>
+
+        <div class="draft-flag" style="margin: 1.5rem 0 0;">
+          <span class="draft-flag-label">Awaiting the use-case list</span>
+          <p>Additional confirmed items go here as judges report them.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BUCKET 2 -->
+    <div class="bucket bucket-care">
+      <div class="bucket-head">
+        <h3>Promising, with care</h3>
+        <p>Real value, real failure modes. Use only if you know what the failure mode is and have a way to catch it.</p>
+      </div>
+      <div class="bucket-body">
+        <div class="draft-flag" style="margin: 0;">
+          <span class="draft-flag-label">Draft &mdash; awaiting input</span>
+          <p>Empty pending the panel's use-case list. The proposals below are candidates for this bucket and the one above.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUCKET 3 -->
+    <div class="bucket bucket-no">
+      <div class="bucket-head">
+        <h3>Not worth the risk today</h3>
+        <p>The upside is small, the downside is career-defining, and the failure is exactly the one the architecture produces.</p>
+      </div>
+      <div class="bucket-body">
+
+        <div class="uc">
+          <h4>Asking a model to produce a first draft of a decisional document from its own knowledge<span class="uc-verified">Panel</span></h4>
+          <p>An opinion, an order resolving a contested motion, anything that decides something, generated from the model's memory rather than from the record you put in front of it.</p>
+          <p class="why"><strong>Why not:</strong> this is the worst case of the worst mode. No anchor, so the model supplies law and facts from a process that is generating plausibility, not truth. The output will be fluent, well-organized, and confident, which makes the errors harder to see, not easier. It invites exactly the failure for which lawyers have drawn sanctions in federal court. The time it saves is not worth what it risks.</p>
+        </div>
+
+        <div class="draft-flag" style="margin: 1.5rem 0 0;">
+          <span class="draft-flag-label">Awaiting the use-case list</span>
+          <p>Additional items go here. The proposals below include candidates.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PROPOSALS -->
+    <p class="section-label">For panel review</p>
+    <h2 class="section-title">Proposed additions, not yet vetted</h2>
+    <p class="proposal-note"><strong>Read this first.</strong> The items below are <em>proposals from R. Polk Wagner</em>, derived from the principle on the previous tab. They are not reports of judicial practice, and no judge has endorsed them. They are here so the panel has something concrete to argue with. Cut what is wrong, move what is misplaced, and replace all of it with the real list when it arrives.</p>
+
+    <h3 class="subhead">Proposed for &ldquo;safe and effective&rdquo;</h3>
+    <div class="card-grid">
+      <div class="card">
+        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Summarizing filings you have in hand</h3>
+        <p>Give the model the brief, ask for a structured summary with page cites, and spot-check the cites against the document. Useful for triage across a heavy motion calendar.</p>
+        <p><strong>Failure mode:</strong> it flattens a nuance the party was making. Spot-checking cites catches invented ones; it does not catch a summary that is subtly wrong about emphasis.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Plain-English explanation of a technical report</h3>
+        <p>Before you read an expert report on a subject outside your background, have the model explain the field's basic vocabulary and methods. You are orienting yourself, not learning the case.</p>
+        <p><strong>Failure mode:</strong> it will be confidently wrong about details. That is tolerable when the purpose is orientation and the report itself is the authority.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Restructuring your own draft</h3>
+        <p>You wrote it. You ask the model to reorganize, tighten, or flag where the reasoning jumps. Every idea in the output originated with you.</p>
+        <p><strong>Failure mode:</strong> it quietly changes a word that carried legal weight. Read the redline, not just the result.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-safe" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Adversarial review of your own draft</h3>
+        <p>Ask it to find internal inconsistencies, undefined terms, assertions with no support in the record you provided, and the strongest argument against your reasoning. It is a check on you, not a source of substance.</p>
+        <p><strong>Failure mode:</strong> it invents objections that sound serious and are not. You are the filter, which is fine, because you were always the filter.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead">Proposed for &ldquo;promising, with care&rdquo;</h3>
+    <div class="card-grid">
+      <div class="card">
+        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Identifying what is actually in dispute</h3>
+        <p>Give it both briefs and ask what the parties genuinely disagree about versus where they are talking past each other. A fast way into a case.</p>
+        <p><strong>The care:</strong> the model is drawn to symmetry and will manufacture a tidy dispute where the real one is lopsided. Treat the output as a hypothesis to test against the briefs.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Screening a voluminous record</h3>
+        <p>Ask it to surface passages in a large record bearing on a specific question. Genuinely powerful on documents no one has time to read end to end.</p>
+        <p><strong>The care:</strong> recall is not guaranteed. A hit is worth checking. <em>Absence</em> of a hit is not evidence of absence, and cannot be relied on for anything that matters.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Legal research inside Westlaw or Lexis AI</h3>
+        <p>The AI layers in the research tools retrieve first and then summarize, which is a real improvement over a chatbot answering from memory.</p>
+        <p><strong>The care:</strong> the model still writes the summary, so it can still mischaracterize a case it correctly found. Read the case. The AI layer changes where you start, not whether you finish.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag tag-care" style="margin-bottom:0.75rem;">Proposal</span>
+        <h3>Plain-language rewriting for pro se parties</h3>
+        <p>Rewriting an order you have already written into language a self-represented litigant can follow.</p>
+        <p><strong>The care:</strong> simplification changes meaning. Every rewrite has to be read against the original with the question of whether the legal effect survived intact.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead">Proposed for &ldquo;not worth the risk&rdquo;</h3>
+    <ul class="tips-list">
+      <li><strong>Asking a model what the law is</strong> and relying on the answer. This is the memory mode, and it is where fabricated citations come from.</li>
+      <li><strong>Any assessment of credibility.</strong> A model has no access to demeanor, no access to the record beyond what you paste, and produces confident text either way. There is nothing here to be gained and a great deal to be lost.</li>
+      <li><strong>Asking it to recommend an outcome.</strong> Even framed as a sanity check, this is delegation of the one thing that cannot be delegated. It also anchors you, which is a subtler harm than a wrong answer.</li>
+      <li><strong>Anything involving sealed, confidential, or non-public material</strong> in a tool that is not authorized for it. See <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a>.</li>
+      <li><strong>Sentencing.</strong> Not the calculation, not the comparison, not the framing. The individualized judgment is the entire point of the exercise.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <p class="section-label">A working test</p>
+    <h2 class="section-title">Three questions to sort any task</h2>
+    <p class="section-intro">When something new comes up and it is not on any list, ask these in order. They are the whole framework compressed.</p>
+
+    <ul class="tips-list">
+      <li><strong>1. Is the source material in front of the model, or is it working from memory?</strong> In front of it: the risk drops a lot. From memory: assume anything specific it tells you is unverified, including things that look like citations.</li>
+      <li><strong>2. Can I check the output, and will I?</strong> Not <em>could someone in principle</em>, but will you, on this task, on the day you actually do it. If checking the output is as much work as doing the task, the tool has bought you nothing and added a risk.</li>
+      <li><strong>3. Is any part of the judgment being handed over?</strong> Deciding what the case is about, what the evidence is worth, who is telling the truth, what the sentence should be. If yes, stop. That is not a workflow question, and no amount of verification cures it.</li>
+    </ul>
+
+  </section>
+
+  <!-- ═══ TAB 4: GUARDRAILS ═══ -->
+  <section class="tab-pane" id="guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
+
+    <p class="section-label">Guardrails</p>
+    <h2 class="section-title">The rules that make the rest of it <em>safe</em></h2>
+    <p class="section-intro">Four of these are settled and you can act on them today. One is genuinely open, and this portal is not going to pretend otherwise.</p>
+
+    <div class="prose-section">
+
+      <h3>1. The verification duty does not change</h3>
+      <p>Every proposition of law, every citation, every factual assertion, every number that leaves chambers is yours. That was true before any of this, and it is the reason none of this is as unfamiliar as it feels.</p>
+      <p>Two things about verification are worth stating flatly, because AI tools make them easy to blur:</p>
+      <ul>
+        <li><strong>Asking the model to check its own work is not verification.</strong> It produces more plausible text, generated the same way as the text you were checking. Verification means opening the case.</li>
+        <li><strong>Fluency is not accuracy.</strong> The strongest correlate of an unverified error making it into a final document is that the draft reads well. Good prose lowers your guard. Budget for that.</li>
+      </ul>
+      <p>The practical rule: if a document carries your name, you have read every source it cites. If that is impractical for a given task, the task is not one of the safe ones.</p>
+
+      <h3>2. Some things are never delegated</h3>
+      <p>Not to a model, not with verification, not as a first pass:</p>
+      <ul>
+        <li>The decision.</li>
+        <li>The weighing of evidence and the assessment of credibility.</li>
+        <li>The determination of what the case is actually about.</li>
+        <li>The individualized judgment in sentencing.</li>
+      </ul>
+      <p>The distinction that runs through this whole portal: <strong>labor can be delegated, judgment cannot.</strong> A model that reorganizes your reasoning is doing labor. A model that suggests what your reasoning should conclude is doing something else, and the fact that you retain a veto does not fix it. It anchors you, and anchoring is invisible from the inside.</p>
+
+      <h3>3. Confidential and non-public material</h3>
+      <p>Assume anything typed into an AI tool may be retained on someone else's servers and may be seen by someone else. Some enterprise agreements say otherwise, but the assumption should be the default, and the exceptions should be documented ones you have actually read.</p>
+      <p>That means, absent explicit authorization for the specific tool:</p>
+      <ul>
+        <li>No sealed material.</li>
+        <li>No grand jury material.</li>
+        <li>No presentence reports.</li>
+        <li>No draft opinions, bench memoranda, or deliberative chambers material.</li>
+        <li>No non-public communications among judges or chambers.</li>
+      </ul>
+      <p>This is where the private-device advice on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab does double duty. Keeping your experimentation on personal, non-court matters keeps you clear of this entire category while you are learning.</p>
+
+      <h3>4. Authorization comes before everything</h3>
+      <p>The Administrative Office has interim guidance in effect governing AI use in the courts, and the list of tools authorized for court work is limited. Before any AI tool touches court work, confirm what your court and the AO permit. Nothing on this portal is authorization, and nothing on it is a representation about what the AO's guidance says. Read the guidance, and ask your court's IT staff.</p>
+      <p>This is also why the honest advice today is that most judges' learning happens on a private device on non-professional matters. That is not a workaround. It is what the current rules leave available, and it is genuinely the right place to learn anyway.</p>
+
+      <h3>5. Chambers practice, which is the exposure nobody plans for</h3>
+      <p>Your law clerks have these tools on their phones. Some of them have been using them since law school and are considerably better at it than you are. The realistic risk to a chambers is not a judge who experiments deliberately. It is a clerk who used a tool for a draft and did not think to mention it, because in law school it was ordinary.</p>
+      <p>The fix is a conversation and a stated rule, whatever the rule turns out to be. Prohibition is a coherent choice. Permission with disclosure is a coherent choice. Silence is not a choice, it is just an unexamined policy. Have the conversation in the first week of the clerkship.</p>
+
+    </div>
+
+    <div class="draft-flag">
+      <span class="draft-flag-label">Open question &mdash; panel input needed</span>
+      <h4>Disclosure</h4>
+      <p>Whether, when, and how a court should disclose that AI assisted in preparing a document is unsettled. Courts are reaching different answers, and this portal is not going to invent a consensus that does not exist.</p>
+      <p><strong>Panel:</strong> this is worth discussing on the record in Traverse City. If we have a view, it belongs here. If we do not, saying so plainly is more useful to judges than a hedge.</p>
+    </div>
+
+    <div class="callout">
+      <h3>The whole thing in one line</h3>
+      <p>You sign it. Nothing about these tools changes that, and every guardrail on this page is a consequence of it.</p>
+    </div>
+
+  </section>
+
+  <!-- ═══ TAB 5: TOOLS ═══ -->
+  <section class="tab-pane" id="tools" role="tabpanel" aria-labelledby="tab-btn-tools" tabindex="0">
+
+    <p class="section-label">Tools</p>
+    <h2 class="section-title">What is out there, and how to choose</h2>
+    <p class="section-intro">A short field guide. It is written mainly to inform the personal, bunny-hill experimentation described on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab, because that is where most judges' learning can happen right now.</p>
+
+    <div class="draft-flag wide">
+      <span class="draft-flag-label">Read this before anything below</span>
+      <h4>Nothing here is authorized for court work by virtue of appearing on this page</h4>
+      <p>The Administrative Office has interim guidance in effect, and the list of AI tools authorized for use in the courts is limited. This page describes what exists in the market. It makes no representation that any of these tools is approved for judicial use, and it is not an endorsement of any vendor. <strong>Confirm with your court and the AO before any AI tool touches court work.</strong></p>
+    </div>
+
+    <h3 class="subhead">General-purpose assistants</h3>
+    <p class="subhead-note">These are the frontier chat tools. They are the ones to learn on, because they are the most capable and because everything else in the market is built on the same kind of model. Each has a paid tier at roughly twenty dollars a month, which is the tier that matters.</p>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>Claude</h3>
+        <p>Anthropic's assistant. Strong at long documents, careful writing, and analysis where following instructions precisely matters. Handles very long inputs, which is the property that matters most for record review.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>ChatGPT</h3>
+        <p>OpenAI's assistant, and the one most people have heard of. Broadly capable across writing, analysis, and research. The most widely used, which means the most third-party material exists explaining how to work with it.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Gemini</h3>
+        <p>Google's assistant. Strong on research and on inputs that mix text with images or video. Integrates with Google's own products, which is either useful or irrelevant depending on what you already use.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Microsoft Copilot</h3>
+        <p>Microsoft's assistant, embedded in Word, Outlook, and the rest of Office. Convenience is its main argument: it is already where you write. Less capable than the standalone tools above at hard analytical work.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://copilot.microsoft.com" target="_blank" rel="noopener">copilot.microsoft.com</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="subhead">Legal research tools with AI layers</h3>
+    <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not the same as safe. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>Westlaw AI-Assisted Research</h3>
+        <p>Thomson Reuters' AI layer over Westlaw. Natural-language questions answered against retrieved authority, with the underlying cases linked.</p>
+        <p><strong>The habit to keep:</strong> click through. The summary is a starting point for reading, not a substitute for it.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://legal.thomsonreuters.com/en/products/westlaw" target="_blank" rel="noopener">Westlaw</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Lexis+ AI</h3>
+        <p>LexisNexis's equivalent. Conversational research, summarization, and drafting against retrieved authority.</p>
+        <p><strong>The habit to keep:</strong> the same one. Read the case.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://www.lexisnexis.com/en-us/products/lexis-plus-ai.page" target="_blank" rel="noopener">Lexis+ AI</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="subhead-note">There is also a set of AI platforms built for law firms and legal departments, Harvey and Legora among them. They are aimed at practice workflows rather than judicial ones, and are unlikely to be relevant to chambers, but judges will hear the names from the bar.</p>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Choosing</p>
+    <h2 class="section-title">What actually distinguishes these tools</h2>
+
+    <ul class="tips-list">
+      <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the safe mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
+      <li><strong>How much it can hold at once.</strong> Tools differ enormously in how long an input they can take. If you want to work with a 400-page record, this is the specification that decides whether you can.</li>
+      <li><strong>The data terms.</strong> Whether your inputs are used for training, how long they are retained, and who can see them. This varies by vendor and by tier, and consumer tiers are typically the worst. Read the terms for the specific plan you are on, not the vendor's marketing page.</li>
+      <li><strong>Whether it can search the web.</strong> Useful for current information, and a second path by which unverified material enters your work. Know which mode you are in.</li>
+      <li><strong>Paid versus free.</strong> Free tiers run older, weaker models. If your view of what AI can do was formed on a free tier, that view is out of date. This matters for judges specifically, because an inaccurate sense of the ceiling produces both complacency and overreaction.</li>
+    </ul>
+
+    <div class="draft-flag wide">
+      <span class="draft-flag-label">Draft &mdash; awaiting input</span>
+      <h4>Matching use cases to tools</h4>
+      <p>The panel's stated goal is a matrix: for each real judicial use case, which tool actually does it best. That matrix cannot be built until the use-case list exists, so it is not here yet, and a speculative version would be worse than nothing.</p>
+      <p>It goes in this spot once the list from Hon. Maritza Dominguez Braswell arrives and the panel has vetted it.</p>
+    </div>
+
+  </section>
+
+  <!-- PANEL / ABOUT (always visible) -->
+  <div class="callout" style="margin-top:3rem; margin-bottom:0;">
+    <h3>About this portal</h3>
+    <p>This is a working draft prepared for the AI plenary of the <strong>2026 Judicial Conference of the Sixth Circuit</strong>, Traverse City, Thursday, August 27. It is a joint project of the panel, and it exists to be argued with. The plan is to build it into a resource judges actually use, which means the use cases have to come from judges.</p>
+    <ul class="panel-list">
+      <li><strong>Hon. John B. Nalbandian</strong> <span>&middot; United States Court of Appeals for the Sixth Circuit &middot; moderator</span></li>
+      <li><strong>Hon. Robert Jonker</strong> <span>&middot; United States District Court, Western District of Michigan &middot; organizer</span></li>
+      <li><strong>Hon. Maritza Dominguez Braswell</strong> <span>&middot; United States District Court, District of Colorado &middot; panelist</span></li>
+      <li><strong>R. Polk Wagner</strong> <span>&middot; University of Pennsylvania Carey Law School &middot; panelist</span></li>
+    </ul>
+  </div>
+
+  <!-- CONTACT FOOTER (always visible) -->
+  <div class="contact-footer">
+    <p><strong>This draft needs your corrections.</strong> Gaps are marked as gaps rather than filled with plausible fiction, which means the fastest way to improve it is to tell us what is wrong and to send real use cases.</p>
+    <a class="contact-btn" href="mailto:pwagner@law.upenn.edu">Send comments to Polk Wagner &rarr;</a>
+  </div>
+
+</main>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay" aria-hidden="true" inert>
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Site search">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <label for="search-input" class="visually-hidden">Search the Judicial AI Portal</label>
+      <input type="text" class="search-input" id="search-input" placeholder="Search the portal&hellip;" autocomplete="off" spellcheck="false" />
+    </div>
+    <div class="search-results" id="search-results">
+      <div class="search-empty">Type to search across all five tabs.</div>
+    </div>
+    <div class="search-footer-bar">
+      <span><kbd>&#8593;&#8595;</kbd>navigate</span>
+      <span><kbd>&#8629;</kbd>open</span>
+      <span><kbd>esc</kbd>close</span>
+    </div>
+  </div>
+</div>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  Draft for panel review &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">AI Teaching Lab</a> &middot; Last updated July 2026
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.tab-pane');
+  const paneIds = new Set([...panes].map(p => p.id));
+
+  function activateTab(target) {
+    const pane = document.getElementById(target);
+    if (!pane || !pane.classList.contains('tab-pane')) return;
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    panes.forEach(p => p.classList.remove('active'));
+    const btn = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+    if (btn) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      btn.setAttribute('tabindex', '0');
+    }
+    pane.classList.add('active');
+    document.querySelectorAll('.overview-col').forEach(c => c.classList.toggle('active', c.dataset.nav === target));
+  }
+
+  function scrollToTabs() {
+    window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 56, behavior: 'smooth' });
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activateTab(btn.dataset.tab);
+      scrollToTabs();
+    });
+  });
+
+  function activateFromHash() {
+    const target = location.hash.slice(1);
+    if (paneIds.has(target)) activateTab(target);
+  }
+  activateFromHash();
+  window.addEventListener('hashchange', activateFromHash);
+
+  document.querySelectorAll('.overview-col').forEach(col => {
+    col.addEventListener('click', () => {
+      activateTab(col.dataset.nav);
+      scrollToTabs();
+    });
+  });
+
+  // ── SITE SEARCH ──
+  const searchBtn = document.querySelector('.header-search');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const tabNames = {
+    'start': 'Start Here',
+    'how-it-works': 'How These Tools Work',
+    'use-cases': 'Use Cases',
+    'guardrails': 'Guardrails',
+    'tools': 'Tools'
+  };
+  let currentResults = [];
+  let focusedIdx = -1;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+  }
+  function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function openSearch() {
+    searchOverlay.classList.add('active');
+    searchOverlay.removeAttribute('inert');
+    searchOverlay.setAttribute('aria-hidden', 'false');
+    setTimeout(() => searchInput.focus(), 50);
+  }
+  function closeSearch() {
+    searchOverlay.classList.remove('active');
+    if (searchBtn) searchBtn.focus();
+    searchOverlay.setAttribute('inert', '');
+    searchOverlay.setAttribute('aria-hidden', 'true');
+    searchInput.value = '';
+    searchResults.innerHTML = '<div class="search-empty">Type to search across all five tabs.</div>';
+    currentResults = [];
+    focusedIdx = -1;
+  }
+
+  function performSearch(query) {
+    query = query.trim();
+    if (!query) {
+      searchResults.innerHTML = '<div class="search-empty">Type to search across all five tabs.</div>';
+      currentResults = [];
+      focusedIdx = -1;
+      return;
+    }
+    const lc = query.toLowerCase();
+    const re = new RegExp(escapeRegex(query), 'gi');
+    const matches = [];
+    const seen = new Set();
+
+    document.querySelectorAll('.tab-pane').forEach(tab => {
+      const tabId = tab.id;
+      const tabName = tabNames[tabId] || tabId;
+      tab.querySelectorAll('h2, h3, h4, p, li').forEach(el => {
+        if (el.closest('.search-overlay')) return;
+        const text = el.textContent.replace(/\s+/g, ' ').trim();
+        if (!text || !text.toLowerCase().includes(lc)) return;
+        if (seen.has(el)) return;
+        seen.add(el);
+
+        // Find a section title (nearest heading above, or this element if it's a heading).
+        // Climb ancestors too, so items nested in a <ul>/<div> still resolve to their heading.
+        let section = '';
+        if (el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4') {
+          section = text;
+        } else {
+          let node = el;
+          while (node && node !== tab && !section) {
+            let prev = node;
+            while ((prev = prev.previousElementSibling)) {
+              if (prev.tagName === 'H2' || prev.tagName === 'H3' || prev.tagName === 'H4') { section = prev.textContent.trim(); break; }
+            }
+            node = node.parentElement;
+          }
+          if (!section) {
+            const h2 = tab.querySelector('h2.section-title');
+            if (h2) section = h2.textContent.trim();
+          }
+        }
+
+        // Build snippet around the match
+        const idx = text.toLowerCase().indexOf(lc);
+        const start = Math.max(0, idx - 45);
+        const end = Math.min(text.length, idx + query.length + 75);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = escapeHtml(snippet).replace(re, m => `<mark>${m}</mark>`);
+
+        matches.push({ tabId, tabName, section, element: el, snippet });
+      });
+    });
+
+    const capped = matches.slice(0, 30);
+    currentResults = capped;
+    focusedIdx = capped.length > 0 ? 0 : -1;
+
+    if (capped.length === 0) {
+      searchResults.innerHTML = '<div class="search-no-results">No results for &ldquo;' + escapeHtml(query) + '&rdquo;.</div>';
+      return;
+    }
+
+    searchResults.innerHTML = capped.map((m, i) => `
+      <a class="search-result${i === 0 ? ' focused' : ''}" data-idx="${i}" href="#">
+        <div class="search-result-tab">${escapeHtml(m.tabName)}</div>
+        <div class="search-result-title">${escapeHtml(m.section || 'Match')}</div>
+        <div class="search-result-snippet">${m.snippet}</div>
+      </a>
+    `).join('');
+  }
+
+  function jumpToResult(result) {
+    closeSearch();
+    activateTab(result.tabId);
+    setTimeout(() => {
+      result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const orig = result.element.style.transition;
+      result.element.style.transition = 'background-color 0.6s';
+      const origBg = result.element.style.backgroundColor;
+      result.element.style.backgroundColor = '#EFE7D3';
+      setTimeout(() => {
+        result.element.style.backgroundColor = origBg;
+        setTimeout(() => { result.element.style.transition = orig; }, 700);
+      }, 1200);
+    }, 120);
+  }
+
+  function updateFocused() {
+    searchResults.querySelectorAll('.search-result').forEach((el, i) => {
+      el.classList.toggle('focused', i === focusedIdx);
+      if (i === focusedIdx) el.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
+  if (searchBtn) searchBtn.addEventListener('click', openSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  searchInput.addEventListener('input', e => performSearch(e.target.value));
+  searchResults.addEventListener('click', e => {
+    const result = e.target.closest('.search-result');
+    if (result) {
+      e.preventDefault();
+      const idx = parseInt(result.dataset.idx, 10);
+      if (currentResults[idx]) jumpToResult(currentResults[idx]);
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    const isOpen = searchOverlay.classList.contains('active');
+    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+      e.preventDefault();
+      isOpen ? closeSearch() : openSearch();
+      return;
+    }
+    if (!isOpen) return;
+    if (e.key === 'Escape') { closeSearch(); }
+    else if (e.key === 'ArrowDown' && currentResults.length) {
+      e.preventDefault();
+      focusedIdx = (focusedIdx + 1) % currentResults.length;
+      updateFocused();
+    } else if (e.key === 'ArrowUp' && currentResults.length) {
+      e.preventDefault();
+      focusedIdx = (focusedIdx - 1 + currentResults.length) % currentResults.length;
+      updateFocused();
+    } else if (e.key === 'Enter' && focusedIdx >= 0) {
+      e.preventDefault();
+      jumpToResult(currentResults[focusedIdx]);
+    }
+  });
+</script>
+</body>
+</html>
