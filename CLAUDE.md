@@ -116,7 +116,7 @@ toward it. If you see `#011F5B` or `#990000`, something has gone wrong.
 ## Deploy
 
 No build step. Static HTML, GitHub Pages from `main` root. `CNAME` pins
-`judicial-ai.ai-teaching-lab.org` — don't delete it.
+`judges.pennai.law` — don't delete it.
 
 **Before going live:** remove the `noindex` meta and the draft banner, flip the repo public,
 and confirm the DNS CNAME record exists.

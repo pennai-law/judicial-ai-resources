@@ -4,7 +4,7 @@ A plain-language resource on AI for federal judges and their chambers — what t
 actually are, what they're safe for today, what they aren't, and how to build confidence
 without taking on risk.
 
-- **Live:** https://judicial-ai.ai-teaching-lab.org/
+- **Live:** https://judges.pennai.law/
 - **Status:** 🚧 **Draft, for panel review.** Not announced, not published, `noindex`. Do not
   circulate beyond the panel.
 
