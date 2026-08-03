@@ -222,11 +222,13 @@
     line-height: 1.6;
     color: var(--ink);
   }
-  .back-link {
-    display: inline-block;
+  .back-wrap {
     margin-top: 3.5rem;
     padding-top: 1.75rem;
     border-top: 1px solid var(--rule);
+  }
+  .back-link {
+    display: inline-block;
     font-size: 14px;
     color: var(--oxblood);
     text-decoration: none;
@@ -306,7 +308,9 @@
   <h2>Attribution example</h2>
   <blockquote>Source: Judicial AI Portal, judges.pennai.law, CC BY 4.0</blockquote>
 
-  <a class="back-link" href="index.html">&larr; Back to the Judicial AI Portal</a>
+  <div class="back-wrap">
+    <a class="back-link" href="index.html">&larr; Back to the Judicial AI Portal</a>
+  </div>
 
 </main>
 
