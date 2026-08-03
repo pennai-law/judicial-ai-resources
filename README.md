@@ -5,8 +5,8 @@ actually are, what they're safe for today, what they aren't, and how to build co
 without taking on risk.
 
 - **Live:** https://judges.pennai.law/
-- **Status:** 🚧 **Draft, for panel review.** Not announced, not published, `noindex`. Do not
-  circulate beyond the panel.
+- **Status:** 🚧 **Draft, for panel review.** Publicly reachable but `noindex` and unannounced,
+  with a visible draft banner. Do not circulate beyond the panel.
 
 ## Where this came from
 

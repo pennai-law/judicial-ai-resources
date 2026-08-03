@@ -8,7 +8,8 @@ A plain-language AI resource for **federal judges and their chambers**, built fo
 at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City). A project of
 the Penn Carey Law AI Teaching Lab.
 
-**Status: draft, for panel review.** Not published, `noindex`, visible draft banner.
+**Status: draft, for panel review.** Publicly reachable at `judges.pennai.law`, but `noindex`
+and unannounced, with a visible draft banner.
 
 ## Audience — write for them, not at them
 
@@ -118,8 +119,10 @@ toward it. If you see `#011F5B` or `#990000`, something has gone wrong.
 No build step. Static HTML, GitHub Pages from `main` root. `CNAME` pins
 `judges.pennai.law` — don't delete it.
 
-**Before going live:** remove the `noindex` meta and the draft banner, flip the repo public,
-and confirm the DNS CNAME record exists.
+Done: the repo is public, Pages is enabled from `main` root, and the DNS CNAME
+(`judges` → `pennai-law.github.io`, GoDaddy zone `pennai.law`) resolves.
+
+**Still to do before launch:** remove the `noindex` meta and the draft banner.
 
 ## Conventions
 
