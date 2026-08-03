@@ -3,54 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>License — Penn Carey Law AI Resources</title>
-<meta name="description" content="Licensing for the Penn Carey Law AI Resources portal — content under CC BY 4.0, code under Apache 2.0.">
+<title>License — Judicial AI Portal</title>
+<!-- DRAFT: remove the robots tag below before this goes public. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://judges.pennai.law/license.html">
+<meta name="description" content="Licensing for the Judicial AI Portal — content under CC BY 4.0, code under Apache 2.0.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #011F5B;
-    --navy-mid: #0a2f78;
-    --red: #990000;
-    --cream: #FAF8F3;
-    --warm-gray: #F2EFE8;
-    --mid-gray: #6B6863;
-    --dark-gray: #3A3630;
-    --border: #D8D4CC;
+    /* ── The Slip Opinion ── */
+    --ivory:       #FCFAF5;
+    --ivory-deep:  #F5F1E8;
+    --ink:         #1A1815;
+    --ink-muted:   #5A554C;
+    --oxblood:     #6E2639;
+    --oxblood-deep:#551D2C;
+    --brass:       #9A7B33;
+    --rule:        #DED8CB;
+
+    --display: 'Libre Baskerville', 'Times New Roman', Georgia, serif;
+    --body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
-  /* Focus indicators for keyboard navigation (WCAG 2.4.7) */
+  /* ── ACCESSIBILITY ── */
   *:focus-visible {
-    outline: 2px solid var(--navy);
+    outline: 2px solid var(--oxblood);
     outline-offset: 2px;
-    border-radius: 2px;
   }
-  .site-header a:focus-visible,
-  .site-footer a:focus-visible {
-    outline-color: white;
-    outline-offset: 3px;
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--oxblood);
+    color: var(--ivory);
+    padding: 0.65rem 1.1rem;
+    text-decoration: none;
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 1000;
   }
+  .skip-link:focus { top: 1rem; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--dark-gray);
-    font-size: 15px;
-    line-height: 1.65;
+    font-family: var(--body);
+    font-optical-sizing: auto;
+    background: var(--ivory);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
   }
+
+  /* ── DRAFT BANNER — remove before publication ── */
+  .draft-banner {
+    background: var(--ivory);
+    border-top: 3px solid var(--oxblood);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 0.85rem 3rem;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .draft-banner strong {
+    display: inline-block;
+    font-family: var(--body);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    color: var(--oxblood);
+    border: 1px solid var(--oxblood);
+    padding: 2px 8px;
+    margin-right: 0.7rem;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+  .draft-banner span { color: var(--ink-muted); }
+  .draft-banner a { color: var(--oxblood); }
 
   /* ── LAB STRIPE (matches index.html) ── */
   .lab-stripe {
-    background: #FAF3DD;
-    border-bottom: 1px solid #E8DEB9;
-    padding: 0.9rem 3rem;
+    background: var(--ivory-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 3rem;
   }
   .lab-stripe-link {
     max-width: 1100px;
@@ -59,177 +105,190 @@
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
-    color: var(--dark-gray);
+    color: var(--ink-muted);
   }
   .lab-stripe-text {
     flex: 1;
     font-size: 14px;
-    color: var(--dark-gray);
-    line-height: 1.45;
+    color: var(--ink-muted);
+    line-height: 1.5;
   }
-  .lab-stripe-text strong { color: var(--navy); font-weight: 600; }
+  .lab-stripe-text strong { color: var(--ink); font-weight: 600; }
   .lab-stripe-cta {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #822024;
+    letter-spacing: 0.16em;
+    color: var(--oxblood);
     text-transform: uppercase;
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .lab-stripe-link:hover .lab-stripe-cta { text-decoration: underline; }
+  .lab-stripe-link:hover .lab-stripe-cta { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ── HEADER (matches index.html) ── */
   .site-header {
-    background: var(--navy);
-    color: white;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
     padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 60px;
     position: sticky;
     top: 0;
     z-index: 100;
   }
   .site-header .wordmark {
-    font-family: 'EB Garamond', serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 400;
     letter-spacing: 0.01em;
-    color: rgba(255,255,255,0.92);
+    color: var(--ink);
     text-decoration: none;
   }
-  .site-header .wordmark span {
-    color: rgba(255,255,255,0.5);
-    margin: 0 8px;
-  }
+  .site-header .wordmark span { color: var(--brass); margin: 0 9px; }
   .header-badge {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
+    color: var(--ink-muted);
   }
+  .header-badge a:hover { color: var(--oxblood); }
 
   /* ── PAGE BODY (license-specific) ── */
   .page-body {
     max-width: 760px;
     margin: 0 auto;
-    padding: 4.5rem 3rem 5rem;
+    padding: 4rem 3rem 5rem;
   }
   .breadcrumb {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-family: var(--body);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 0.6rem;
+    color: var(--oxblood);
+    margin-bottom: 0.9rem;
   }
   .breadcrumb a { color: inherit; text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
   h1 {
-    font-family: 'EB Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.15;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
+    font-family: var(--display);
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
   }
   .lead {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--mid-gray);
+    font-size: 18px;
+    color: var(--ink-muted);
     line-height: 1.7;
-    margin-bottom: 3rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2.5rem;
   }
   h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.3;
-    margin-top: 2.5rem;
-    margin-bottom: 0.6rem;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-top: 2.75rem;
+    margin-bottom: 0.7rem;
   }
   p {
-    font-size: 15px;
-    color: var(--dark-gray);
-    line-height: 1.75;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.72;
     margin-bottom: 1rem;
   }
-  p strong, p a strong { color: var(--navy); font-weight: 600; }
+  p strong, p a strong { color: var(--ink); font-weight: 600; }
   a {
-    color: var(--navy);
+    color: var(--oxblood);
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
+  a:hover { color: var(--oxblood-deep); }
   blockquote {
-    background: var(--warm-gray);
-    border-left: 3px solid var(--navy);
-    padding: 1rem 1.25rem;
+    background: var(--ivory-deep);
+    border-left: 3px solid var(--oxblood);
+    padding: 1.1rem 1.4rem;
     margin: 1.5rem 0;
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--dark-gray);
-    border-radius: 4px;
+    font-family: var(--display);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
   }
   .back-link {
     display: inline-block;
-    margin-top: 3rem;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--navy);
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--oxblood);
     text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1px;
   }
-  .back-link:hover { border-bottom-color: var(--navy); }
+  .back-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ── FOOTER ── */
   .site-footer {
-    background: var(--dark-gray);
-    color: rgba(255,255,255,0.78);
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--rule);
+    color: var(--ink-muted);
     text-align: center;
-    font-size: 12px;
-    padding: 1.5rem;
-    letter-spacing: 0.03em;
+    font-size: 13px;
+    padding: 2rem 1.5rem;
+    line-height: 1.7;
   }
-  .site-footer strong { color: white; font-weight: 500; }
-  .site-footer a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+  .site-footer strong { color: var(--ink); font-weight: 600; }
+  .site-footer a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .site-footer a:hover { color: var(--oxblood); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 720px) {
     .site-header { padding: 0 1.5rem; }
-    .page-body { padding: 3rem 1.5rem 4rem; }
-    h1 { font-size: 2rem; }
-    .lab-stripe { padding: 0.6rem 1rem; }
+    .page-body { padding: 2.75rem 1.5rem 4rem; }
+    h1 { font-size: 1.9rem; }
+    .lab-stripe { padding: 0.6rem 1.25rem; }
     .lab-stripe-link { gap: 0.75rem; }
     .lab-stripe-text { font-size: 13px; }
+    .draft-banner { padding: 0.8rem 1.25rem; text-align: left; }
+    .draft-banner strong { margin-bottom: 0.4rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- DRAFT BANNER — remove before publication -->
+<div class="draft-banner" role="note">
+  <strong>Draft v0</strong>
+  <span>Working draft circulated for panel review, not a published resource. Sections are incomplete, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
+</div>
+
 <!-- TOP STRIPE: AI Teaching Lab attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://ai-teaching-lab.org/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">A project of the <strong>AI Teaching Lab</strong> at Penn Carey Law &mdash; research, tools, and teaching on AI in legal education and practice.</span>
+    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>AI Teaching Lab</strong>.</span>
     <span class="lab-stripe-cta">Visit the Lab &rarr;</span>
   </a>
 </div>
 
 <!-- SITE HEADER -->
 <header class="site-header">
-  <a class="wordmark" href="index.html">Penn Carey Law <span>|</span> AI Resources</a>
+  <a class="wordmark" href="index.html">Judicial AI <span>|</span> Portal</a>
   <div class="header-badge"><a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">AI Teaching Lab</a></div>
 </header>
 
 <!-- LICENSE BODY -->
-<main class="page-body">
+<main class="page-body" id="main">
 
-  <p class="breadcrumb"><a href="index.html">&larr; AI Resources</a></p>
+  <p class="breadcrumb"><a href="index.html">&larr; Judicial AI Portal</a></p>
 
   <h1>License</h1>
   <p class="lead">How this site's content and code are licensed.</p>
@@ -253,7 +312,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html">CC BY 4.0</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener">Report Accessibility Issues and Get Help</a> &middot; Last updated May 9, 2026
+  Draft for panel review &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener">AI Teaching Lab</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener">Report Accessibility Issues and Get Help</a> &middot; Last updated July 2026
 </footer>
 
 </body>
