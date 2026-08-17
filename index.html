@@ -1007,6 +1007,76 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* ── PRINT ──
+     This audience prints. Without these rules the tab interface takes the page
+     with it: .tab-pane is display:none, so a printed copy carries only whichever
+     tab happened to be open — about 960 of 6,500 words — and nothing on the page
+     tells the reader the other four sections exist. Print every pane, and give
+     each one the heading its tab button was carrying on screen. */
+  @media print {
+    /* Ink economy: the ivory ground and oxblood display type are screen choices. */
+    :root { --ivory: #fff; --ivory-deep: #fff; --oxblood-wash: #fff; }
+    html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
+
+    /* Interactive chrome has no meaning on paper. */
+    .skip-link,
+    .tab-nav-wrap, .tab-nav,
+    .header-search, .search-overlay, .search-modal,
+    .lab-stripe-cta, .cta-arrow, .hero-feature-cta { display: none !important; }
+
+    /* Sticky positioning has no paginated equivalent — it overlaps content
+       instead of following it. Pin the header to the top of page one. */
+    .site-header { position: static !important; z-index: auto !important; }
+
+    /* The draft banner STAYS. A printed copy that does not say it is a draft is
+       the single most dangerous artifact this site could produce. */
+    .draft-banner {
+      border: 1.5pt solid #000 !important;
+      background: #fff !important;
+      padding: 8pt 10pt !important;
+      page-break-inside: avoid; break-inside: avoid;
+    }
+
+    /* Every pane prints, each starting a fresh page under its tab's name. */
+    .tab-pane { display: block !important; }
+    .tab-pane + .tab-pane { page-break-before: always; break-before: page; }
+    .tab-pane::before {
+      content: attr(data-print-title);
+      display: block;
+      font-family: var(--display);
+      font-size: 20pt;
+      letter-spacing: 0.02em;
+      border-bottom: 1pt solid #000;
+      padding-bottom: 6pt;
+      margin-bottom: 18pt;
+    }
+
+    /* The overview map is already a contents page — let it act as one. */
+    .overview-map { page-break-after: always; break-after: page; }
+    .overview-col { border-color: #000 !important; }
+
+    /* Keep units of argument intact across page breaks. */
+    .uc, .card, .callout, .callout-gold, .bucket, .objection, .draft-flag,
+    .prose-section, blockquote {
+      page-break-inside: avoid; break-inside: avoid;
+    }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    p { orphans: 3; widows: 3; }
+
+    /* A printed link is useless without its destination — but only expand real
+       external ones. In-page anchors would just print as noise. */
+    .page-body a[href^="http"]::after {
+      content: " <" attr(href) ">";
+      font-size: 8.5pt;
+      word-break: break-all;
+    }
+
+    a { color: #000 !important; text-decoration: underline; }
+    .site-footer { border-top: 1pt solid #000; font-size: 8.5pt; }
+
+    @page { margin: 0.75in; }
+  }
 </style>
 </head>
 <body>
@@ -1135,7 +1205,7 @@
 <main class="page-body" id="main">
 
   <!-- ═══ TAB 1: START HERE ═══ -->
-  <section class="tab-pane active" id="start" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
+  <section class="tab-pane active" id="start" data-print-title="Start Here" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
 
     <p class="section-label">Start Here</p>
     <h2 class="section-title">Learn on the <em>bunny hill</em></h2>
@@ -1194,7 +1264,7 @@
   </section>
 
   <!-- ═══ TAB 2: HOW THESE TOOLS WORK ═══ -->
-  <section class="tab-pane" id="how-it-works" role="tabpanel" aria-labelledby="tab-btn-how-it-works" tabindex="0">
+  <section class="tab-pane" id="how-it-works" data-print-title="How These Tools Work" role="tabpanel" aria-labelledby="tab-btn-how-it-works" tabindex="0">
 
     <p class="section-label">The distinction that matters</p>
     <h2 class="section-title">Retrieval and processing are <em>different operations</em></h2>
@@ -1241,7 +1311,7 @@
   </section>
 
   <!-- ═══ TAB 3: USE CASES (CORE) ═══ -->
-  <section class="tab-pane" id="use-cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
+  <section class="tab-pane" id="use-cases" data-print-title="Use Cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
 
     <p class="section-label">The core of this portal</p>
     <h2 class="section-title">What judges are actually <em>doing</em></h2>
@@ -1517,7 +1587,7 @@
   </section>
 
   <!-- ═══ TAB 4: GUARDRAILS ═══ -->
-  <section class="tab-pane" id="guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
+  <section class="tab-pane" id="guardrails" data-print-title="Guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
 
     <p class="section-label">Guardrails</p>
     <h2 class="section-title">The rules that make the rest of it <em>safe</em></h2>
@@ -1581,7 +1651,7 @@
   </section>
 
   <!-- ═══ TAB 5: TOOLS ═══ -->
-  <section class="tab-pane" id="tools" role="tabpanel" aria-labelledby="tab-btn-tools" tabindex="0">
+  <section class="tab-pane" id="tools" data-print-title="Tools" role="tabpanel" aria-labelledby="tab-btn-tools" tabindex="0">
 
     <p class="section-label">Tools</p>
     <h2 class="section-title">What is out there, and how to choose</h2>
