@@ -25,7 +25,7 @@ circulate it.
 | Panelist | Hon. Maritza Dominguez Braswell, U.S. Magistrate Judge, D. Colorado |
 | Panelist | R. Polk Wagner, Penn Carey Law |
 
-A project of the **Penn Carey Law AI Teaching Lab** (`github.com/ai-teaching-lab`).
+A project of the **Penn Carey Law AI Project** (`github.com/pennai-law`).
 
 ## The argument the site is built on
 
@@ -79,7 +79,7 @@ ornament: hairline rules, no drop shadows, no gradients, no pills, no emoji.
 
 - **Never fabricate.** No invented statistics, studies, cases, quotes, or standing orders.
   This is read by federal judges; a plausible-sounding fiction is worse than a visible gap.
-- **Names go through `NAMES.md` in the `ai-teaching-lab/judiciary` repo first.** Two have
+- **Names go through `NAMES.md` in the `pennai-law/judiciary` repo first.** Two have
   already been gotten wrong on this project. "Dominguez" is spelled with a **g**.
 - The **AO has interim guidance in effect** and its authorized-tool list is limited. That much
   is established. Do not characterize its specific contents.
@@ -88,5 +88,5 @@ ornament: hairline rules, no drop shadows, no gradients, no pills, no emoji.
 
 ## Related
 
-- `ai-teaching-lab/judiciary` (private) — the workstream, the talk, the source material.
-- `ai-teaching-lab/penn-law-ai-resources` (public) — the faculty portal this was adapted from.
+- `pennai-law/judiciary` (private) — the workstream, the talk, the source material.
+- `pennai-law/penn-law-ai-resources` (public) — the faculty portal this was adapted from.

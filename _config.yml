@@ -3,5 +3,6 @@
 # HTML; nothing here needs Jekyll processing — this only excludes dev files.
 exclude:
   - CLAUDE.md
+  - AGENTS.md
   - README.md
   - _config.yml

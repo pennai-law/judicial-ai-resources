@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-Guidance for Claude Code working in the Judicial AI Portal.
+Guidance for Codex working in the Judicial AI Portal.
 
 ## What this is
 
