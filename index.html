@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
-<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Draft for panel review.">
+<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Early release.">
 <meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -88,7 +88,7 @@
   a { color: var(--oxblood); }
   a:hover { color: var(--oxblood-deep); }
 
-  /* ── DRAFT BANNER ── */
+  /* ── EARLY-RELEASE BANNER ── */
   .draft-banner {
     background: var(--ivory);
     border-top: 3px solid var(--oxblood);
@@ -1029,8 +1029,9 @@
        instead of following it. Pin the header to the top of page one. */
     .site-header { position: static !important; z-index: auto !important; }
 
-    /* The draft banner STAYS. A printed copy that does not say it is a draft is
-       the single most dangerous artifact this site could produce. */
+    /* The early-release banner STAYS. A printed copy that does not say it is an
+       unreviewed early release is the single most dangerous artifact this site
+       could produce. */
     .draft-banner {
       border: 1.5pt solid #000 !important;
       background: #fff !important;
@@ -1084,10 +1085,10 @@
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- DRAFT BANNER — remove before publication -->
+<!-- EARLY-RELEASE BANNER — remove at full launch -->
 <div class="draft-banner" role="note">
-  <strong>Draft v0</strong>
-  <span>Working draft circulated for panel review, not a published resource. Sections are incomplete, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
+  <strong>Early release</strong>
+  <span>Written for the AI plenary at the 2026 Judicial Conference of the Sixth Circuit and shared with the judges there ahead of a wider release. Sections are still being filled in, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
 </div>
 
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
@@ -1116,7 +1117,7 @@
   <div class="hero-inner">
     <h1>AI in <em>Chambers</em></h1>
     <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
-    <div class="hero-meta">Draft v0 &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
+    <div class="hero-meta">Early release &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
   </div>
 </section>
 
@@ -1130,7 +1131,7 @@
     </div>
     <div class="hero-feature-ctas">
       <a class="hero-feature-cta primary" href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">
-        <span><span class="cta-label">Start here</span>The bunny hill</span>
+        <span><span class="cta-label">Start here</span>Where being wrong costs nothing</span>
         <span class="cta-arrow">&rarr;</span>
       </a>
       <a class="hero-feature-cta" href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">
@@ -1146,7 +1147,7 @@
   <div class="overview-col active" data-nav="start">
     <h3>Start Here</h3>
     <ul>
-      <li><strong>The bunny hill</strong></li>
+      <li><strong>Where being wrong costs nothing</strong></li>
       <li><strong>&ldquo;This sounds like cheating&rdquo;</strong></li>
       <li><strong>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant&rdquo;</strong></li>
       <li><strong>Experimenting safely</strong> on a private device</li>
@@ -1208,8 +1209,8 @@
   <section class="tab-pane active" id="start" data-print-title="Start Here" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
 
     <p class="section-label">Start Here</p>
-    <h2 class="section-title">Learn on the <em>bunny hill</em></h2>
-    <p class="section-intro">Nobody learns to ski on a black diamond. You learn on the bunny hill, where falling costs you nothing. The same is true here. The way to find out what these tools can and cannot do is to use them on things that do not matter, on a device that is yours, until you have a feel for where they are strong and where they slide. That takes a few hours, not a semester.</p>
+    <h2 class="section-title">Use it where being wrong <em>costs nothing</em></h2>
+    <p class="section-intro">You cannot calibrate a tool you have never used. The way to find out what these tools can and cannot do is to use them on things that do not matter &mdash; on a device that is yours, on material that is personal &mdash; until you have a feel for where they are strong and where they give way. That takes a few hours, not a semester.</p>
 
     <div class="callout">
       <h3>The one-paragraph version</h3>
@@ -1233,12 +1234,12 @@
       <h3>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant.&rdquo;</h3>
       <p>You should be. Lawyers have been sanctioned in federal court for filing briefs containing citations to cases that do not exist. The fear of a fabricated citation appearing under your name in a published opinion is not squeamishness. It is an accurate read of the risk.</p>
       <p>The useful thing about that risk is how specific it is. It is the risk of <strong>publishing something you did not verify</strong>. It has a matching cure: do not publish anything you did not verify. That is not an AI rule. It is the rule you already follow.</p>
-      <p>And the way to build the instincts that make verification quick rather than laborious is to practice where a fall costs nothing. Which brings you back to the bunny hill.</p>
+      <p>And the way to build the instincts that make verification quick rather than laborious is to practice where being wrong costs nothing. Which is the whole point of starting on personal material.</p>
     </div>
 
     <div class="divider"></div>
 
-    <p class="section-label">Getting on the hill</p>
+    <p class="section-label">Where to practice</p>
     <h2 class="section-title">Experiment on a private device, on things that don&rsquo;t matter</h2>
 
     <div class="prose-section">
@@ -1256,7 +1257,7 @@
     </ul>
 
     <div class="callout-gold callout">
-      <h3>What the bunny hill is for</h3>
+      <h3>What the first few hours are for</h3>
       <p>It is not for becoming an expert, and it is not a commitment to anything. It is for developing a working sense of when the tool is reliable, which is a judgment you can only get from use. A judge who has spent five hours on personal material has better intuitions about AI risk than one who has read every article about it.</p>
       <p>Plenty of judges will finish this exercise and conclude the tools have no place in their chambers. That is a legitimate result, and an informed one. It is a different thing from never having looked.</p>
     </div>
@@ -1655,7 +1656,7 @@
 
     <p class="section-label">Tools</p>
     <h2 class="section-title">What is out there, and how to choose</h2>
-    <p class="section-intro">A short field guide. It is written mainly to inform the personal, bunny-hill experimentation described on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab, because that is where most judges' learning can happen right now.</p>
+    <p class="section-intro">A short field guide. It is written mainly to inform the personal, low-stakes experimentation described on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab, because that is where most judges' learning can happen right now.</p>
 
     <div class="draft-flag wide">
       <span class="draft-flag-label">Read this before anything below</span>
@@ -1792,7 +1793,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  Draft for panel review &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
+  Early release &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
 </footer>
 
 <script>
