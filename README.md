@@ -61,9 +61,10 @@ file; don't delete it.
 
 ## Structure
 
-- `index.html` — the whole portal. Five tabs (Start Here · How These Tools Work · Use Cases ·
-  Guardrails · Tools), inline CSS/JS, Cmd+K search. Self-contained. Tab ids are stable for
-  deep links: `#start`, `#how-it-works`, `#use-cases`, `#guardrails`, `#tools`.
+- `index.html` — the whole portal. Six tabs (Start Here · How These Tools Work · Use Cases ·
+  Guardrails · Tools · How the Profession Is Adapting), inline CSS/JS, Cmd+K search.
+  Self-contained. Tab ids are stable for deep links: `#start`, `#how-it-works`, `#use-cases`,
+  `#guardrails`, `#tools`, `#adapting`.
 - `license.html` — CC BY 4.0 content, Apache 2.0 code.
 - `assets/` — favicons and tool logos.
 

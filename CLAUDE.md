@@ -41,7 +41,7 @@ That distinction is load-bearing for the entire site: it's what makes **hallucin
 bias legible as built-in features of the architecture, not bugs awaiting a patch**. A judge
 who gets this stops asking "when will they fix it?" and starts asking "what is this safe
 for?" Every other section derives from it — the use-case sorting principle, the three-question
-test, the guardrails. Keep them derived. Five disconnected tabs would be a worse site.
+test, the guardrails. Keep them derived. Six disconnected tabs would be a worse site.
 
 ## Accuracy — this is read by federal judges
 
