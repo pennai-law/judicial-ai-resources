@@ -5,8 +5,10 @@ actually are, what they're safe for today, what they aren't, and how to build co
 without taking on risk.
 
 - **Live:** https://judges.pennai.law/
-- **Status:** 🚧 **Draft, for panel review.** Publicly reachable but `noindex` and unannounced,
-  with a visible draft banner. Do not circulate beyond the panel.
+- **Status:** 📖 **Early release, for the Sixth Circuit conference.** Publicly reachable and
+  linked from the QR code on the closing slide of Polk's plenary deck, but `noindex` and
+  unannounced, with a visible early-release banner. Judges with the link may use it; it stays
+  out of search until the panel signs off.
 
 ## Where this came from
 
@@ -25,7 +27,7 @@ circulate it.
 | Panelist | Hon. Maritza Dominguez Braswell, U.S. Magistrate Judge, D. Colorado |
 | Panelist | R. Polk Wagner, Penn Carey Law |
 
-A project of the **Penn Carey Law AI Teaching Lab** (`github.com/ai-teaching-lab`).
+A project of the **Penn Carey Law AI Project** (`github.com/pennai-law`).
 
 ## The argument the site is built on
 
@@ -54,13 +56,15 @@ in with plausible guesses — it's going to federal judges.
 `/`). Push to `main` → live in a minute or two. The custom domain comes from the root `CNAME`
 file; don't delete it.
 
-⚠️ **Before launch:** remove the `noindex` meta tag and the draft banner from `index.html`.
+⚠️ **At full launch:** remove the `noindex` meta tag and the early-release banner from
+`index.html` **and** `license.html`.
 
 ## Structure
 
-- `index.html` — the whole portal. Five tabs (Start Here · How These Tools Work · Use Cases ·
-  Guardrails · Tools), inline CSS/JS, Cmd+K search. Self-contained. Tab ids are stable for
-  deep links: `#start`, `#how-it-works`, `#use-cases`, `#guardrails`, `#tools`.
+- `index.html` — the whole portal. Six tabs (Start Here · How These Tools Work · Use Cases ·
+  Guardrails · Tools · How the Profession Is Adapting), inline CSS/JS, Cmd+K search.
+  Self-contained. Tab ids are stable for deep links: `#start`, `#how-it-works`, `#use-cases`,
+  `#guardrails`, `#tools`, `#adapting`.
 - `license.html` — CC BY 4.0 content, Apache 2.0 code.
 - `assets/` — favicons and tool logos.
 
@@ -79,7 +83,7 @@ ornament: hairline rules, no drop shadows, no gradients, no pills, no emoji.
 
 - **Never fabricate.** No invented statistics, studies, cases, quotes, or standing orders.
   This is read by federal judges; a plausible-sounding fiction is worse than a visible gap.
-- **Names go through `NAMES.md` in the `ai-teaching-lab/judiciary` repo first.** Two have
+- **Names go through `NAMES.md` in the `pennai-law/judiciary` repo first.** Two have
   already been gotten wrong on this project. "Dominguez" is spelled with a **g**.
 - The **AO has interim guidance in effect** and its authorized-tool list is limited. That much
   is established. Do not characterize its specific contents.
@@ -88,5 +92,5 @@ ornament: hairline rules, no drop shadows, no gradients, no pills, no emoji.
 
 ## Related
 
-- `ai-teaching-lab/judiciary` (private) — the workstream, the talk, the source material.
-- `ai-teaching-lab/penn-law-ai-resources` (public) — the faculty portal this was adapted from.
+- `pennai-law/judiciary` (private) — the workstream, the talk, the source material.
+- `pennai-law/penn-law-ai-resources` (public) — the faculty portal this was adapted from.

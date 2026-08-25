@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
-<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Draft for panel review.">
+<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Early release.">
 <meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -88,7 +88,7 @@
   a { color: var(--oxblood); }
   a:hover { color: var(--oxblood-deep); }
 
-  /* ── DRAFT BANNER ── */
+  /* ── EARLY-RELEASE BANNER ── */
   .draft-banner {
     background: var(--ivory);
     border-top: 3px solid var(--oxblood);
@@ -994,6 +994,8 @@
     .objection { padding-left: 1.25rem; }
     .header-search .label { display: none; }
     .header-search kbd { display: none; }
+    /* The top stripe already carries the Project attribution at this width. */
+    .header-badge { display: none; }
     .search-overlay { padding: 5vh 0.75rem 0.75rem; }
     .search-modal { max-height: 90vh; }
   }
@@ -1005,6 +1007,125 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* ── PRINT ──
+     This audience prints. Without these rules the tab interface takes the page
+     with it: .tab-pane is display:none, so a printed copy carries only whichever
+     tab happened to be open — about 960 of 6,500 words — and nothing on the page
+     tells the reader the other four sections exist. Print every pane, and give
+     each one the heading its tab button was carrying on screen. */
+  /* ── ADOPTION FIGURE (How the Profession Is Adapting) ── */
+  .adopt-figure { margin: 2rem 0 2.5rem; }
+  .adopt-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--oxblood);
+    border-bottom: 1px solid var(--rule);
+  }
+  .adopt-cell {
+    padding: 1.5rem 1.5rem 1.4rem 0;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+  }
+  .adopt-cell:last-child { border-right: none; }
+  .adopt-cell:not(:first-child) { padding-left: 1.5rem; }
+  .adopt-num {
+    font-family: var(--display);
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    line-height: 1;
+    color: var(--oxblood);
+    font-weight: 400;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .adopt-what { margin: 0.7rem 0 auto; font-size: 0.97rem; line-height: 1.45; color: var(--ink); }
+  .adopt-src {
+    margin: 0.9rem 0 0;
+    padding-top: 0.55rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .adopt-note {
+    margin: 1rem 0 0;
+    font-size: 0.83rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    max-width: 62ch;
+  }
+  @media (max-width: 720px) {
+    .adopt-row { grid-template-columns: 1fr; }
+    .adopt-cell { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.2rem 0; }
+    .adopt-cell:last-child { border-bottom: none; }
+    .adopt-cell:not(:first-child) { padding-left: 0; }
+  }
+
+  @media print {
+    /* Ink economy: the ivory ground and oxblood display type are screen choices. */
+    :root { --ivory: #fff; --ivory-deep: #fff; --oxblood-wash: #fff; }
+    html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
+
+    /* Interactive chrome has no meaning on paper. */
+    .skip-link,
+    .tab-nav-wrap, .tab-nav,
+    .header-search, .search-overlay, .search-modal,
+    .lab-stripe-cta, .cta-arrow, .hero-feature-cta { display: none !important; }
+
+    /* Sticky positioning has no paginated equivalent — it overlaps content
+       instead of following it. Pin the header to the top of page one. */
+    .site-header { position: static !important; z-index: auto !important; }
+
+    /* The early-release banner STAYS. A printed copy that does not say it is an
+       unreviewed early release is the single most dangerous artifact this site
+       could produce. */
+    .draft-banner {
+      border: 1.5pt solid #000 !important;
+      background: #fff !important;
+      padding: 8pt 10pt !important;
+      page-break-inside: avoid; break-inside: avoid;
+    }
+
+    /* Every pane prints, each starting a fresh page under its tab's name. */
+    .tab-pane { display: block !important; }
+    .tab-pane + .tab-pane { page-break-before: always; break-before: page; }
+    .tab-pane::before {
+      content: attr(data-print-title);
+      display: block;
+      font-family: var(--display);
+      font-size: 20pt;
+      letter-spacing: 0.02em;
+      border-bottom: 1pt solid #000;
+      padding-bottom: 6pt;
+      margin-bottom: 18pt;
+    }
+
+    /* The overview map is already a contents page — let it act as one. */
+    .overview-map { page-break-after: always; break-after: page; }
+    .overview-col { border-color: #000 !important; }
+
+    /* Keep units of argument intact across page breaks. */
+    .uc, .card, .callout, .callout-gold, .bucket, .objection, .draft-flag,
+    .prose-section, blockquote {
+      page-break-inside: avoid; break-inside: avoid;
+    }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    p { orphans: 3; widows: 3; }
+
+    /* A printed link is useless without its destination — but only expand real
+       external ones. In-page anchors would just print as noise. */
+    .page-body a[href^="http"]::after {
+      content: " <" attr(href) ">";
+      font-size: 8.5pt;
+      word-break: break-all;
+    }
+
+    a { color: #000 !important; text-decoration: underline; }
+    .site-footer { border-top: 1pt solid #000; font-size: 8.5pt; }
+
+    @page { margin: 0.75in; }
+  }
 </style>
 </head>
 <body>
@@ -1012,17 +1133,17 @@
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- DRAFT BANNER — remove before publication -->
+<!-- EARLY-RELEASE BANNER — remove at full launch -->
 <div class="draft-banner" role="note">
-  <strong>Draft v0</strong>
-  <span>Working draft circulated for panel review, not a published resource. Sections are incomplete, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
+  <strong>Early release</strong>
+  <span>Written for the AI plenary at the 2026 Judicial Conference of the Sixth Circuit and shared with the judges there ahead of a wider release. Sections are still being filled in, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
 </div>
 
-<!-- TOP STRIPE: AI Teaching Lab attribution -->
+<!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
-  <a class="lab-stripe-link" href="https://ai-teaching-lab.org/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>AI Teaching Lab</strong>.</span>
-    <span class="lab-stripe-cta">Visit the Lab &rarr;</span>
+  <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
+    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
 
@@ -1035,7 +1156,7 @@
       <span class="label">Search</span>
       <kbd>&#8984;K</kbd>
     </button>
-    <div class="header-badge"><a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">AI Teaching Lab</a></div>
+    <div class="header-badge"><a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Penn Carey Law AI Project</a></div>
   </div>
 </header>
 
@@ -1044,7 +1165,7 @@
   <div class="hero-inner">
     <h1>AI in <em>Chambers</em></h1>
     <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
-    <div class="hero-meta">Draft v0 &nbsp;&middot;&nbsp; July 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
+    <div class="hero-meta">Early release &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
   </div>
 </section>
 
@@ -1058,7 +1179,7 @@
     </div>
     <div class="hero-feature-ctas">
       <a class="hero-feature-cta primary" href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">
-        <span><span class="cta-label">Start here</span>The bunny hill</span>
+        <span><span class="cta-label">Start here</span>Where being wrong costs nothing</span>
         <span class="cta-arrow">&rarr;</span>
       </a>
       <a class="hero-feature-cta" href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">
@@ -1074,7 +1195,7 @@
   <div class="overview-col active" data-nav="start">
     <h3>Start Here</h3>
     <ul>
-      <li><strong>The bunny hill</strong></li>
+      <li><strong>Where being wrong costs nothing</strong></li>
       <li><strong>&ldquo;This sounds like cheating&rdquo;</strong></li>
       <li><strong>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant&rdquo;</strong></li>
       <li><strong>Experimenting safely</strong> on a private device</li>
@@ -1116,6 +1237,15 @@
       <li><strong>How to choose</strong></li>
     </ul>
   </div>
+  <div class="overview-col" data-nav="adapting">
+    <h3>How the Profession Is Adapting</h3>
+    <ul>
+      <li><strong>Use is ahead of policy</strong></li>
+      <li><strong>What reaches your docket</strong></li>
+      <li><strong>What law schools did</strong></li>
+      <li><strong>Your next clerk</strong></li>
+    </ul>
+  </div>
 </div>
 
 <!-- TAB NAV -->
@@ -1126,6 +1256,7 @@
     <button class="tab-btn tab-btn-featured" data-tab="use-cases" role="tab" id="tab-btn-use-cases" aria-selected="false" aria-controls="use-cases" tabindex="-1">Use Cases</button>
     <button class="tab-btn" data-tab="guardrails" role="tab" id="tab-btn-guardrails" aria-selected="false" aria-controls="guardrails" tabindex="-1">Guardrails</button>
     <button class="tab-btn" data-tab="tools" role="tab" id="tab-btn-tools" aria-selected="false" aria-controls="tools" tabindex="-1">Tools</button>
+    <button class="tab-btn" data-tab="adapting" role="tab" id="tab-btn-adapting" aria-selected="false" aria-controls="adapting" tabindex="-1">How the Profession Is Adapting</button>
   </nav>
 </div>
 
@@ -1133,11 +1264,11 @@
 <main class="page-body" id="main">
 
   <!-- ═══ TAB 1: START HERE ═══ -->
-  <section class="tab-pane active" id="start" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
+  <section class="tab-pane active" id="start" data-print-title="Start Here" role="tabpanel" aria-labelledby="tab-btn-start" tabindex="0">
 
     <p class="section-label">Start Here</p>
-    <h2 class="section-title">Learn on the <em>bunny hill</em></h2>
-    <p class="section-intro">Nobody learns to ski on a black diamond. You learn on the bunny hill, where falling costs you nothing. The same is true here. The way to find out what these tools can and cannot do is to use them on things that do not matter, on a device that is yours, until you have a feel for where they are strong and where they slide. That takes a few hours, not a semester.</p>
+    <h2 class="section-title">Use it where being wrong <em>costs nothing</em></h2>
+    <p class="section-intro">You cannot calibrate a tool you have never used. The way to find out what these tools can and cannot do is to use them on things that do not matter &mdash; on a device that is yours, on material that is personal &mdash; until you have a feel for where they are strong and where they give way. That takes a few hours, not a semester.</p>
 
     <div class="callout">
       <h3>The one-paragraph version</h3>
@@ -1161,12 +1292,12 @@
       <h3>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant.&rdquo;</h3>
       <p>You should be. Lawyers have been sanctioned in federal court for filing briefs containing citations to cases that do not exist. The fear of a fabricated citation appearing under your name in a published opinion is not squeamishness. It is an accurate read of the risk.</p>
       <p>The useful thing about that risk is how specific it is. It is the risk of <strong>publishing something you did not verify</strong>. It has a matching cure: do not publish anything you did not verify. That is not an AI rule. It is the rule you already follow.</p>
-      <p>And the way to build the instincts that make verification quick rather than laborious is to practice where a fall costs nothing. Which brings you back to the bunny hill.</p>
+      <p>And the way to build the instincts that make verification quick rather than laborious is to practice where being wrong costs nothing. Which is the whole point of starting on personal material.</p>
     </div>
 
     <div class="divider"></div>
 
-    <p class="section-label">Getting on the hill</p>
+    <p class="section-label">Where to practice</p>
     <h2 class="section-title">Experiment on a private device, on things that don&rsquo;t matter</h2>
 
     <div class="prose-section">
@@ -1184,7 +1315,7 @@
     </ul>
 
     <div class="callout-gold callout">
-      <h3>What the bunny hill is for</h3>
+      <h3>What the first few hours are for</h3>
       <p>It is not for becoming an expert, and it is not a commitment to anything. It is for developing a working sense of when the tool is reliable, which is a judgment you can only get from use. A judge who has spent five hours on personal material has better intuitions about AI risk than one who has read every article about it.</p>
       <p>Plenty of judges will finish this exercise and conclude the tools have no place in their chambers. That is a legitimate result, and an informed one. It is a different thing from never having looked.</p>
     </div>
@@ -1192,7 +1323,7 @@
   </section>
 
   <!-- ═══ TAB 2: HOW THESE TOOLS WORK ═══ -->
-  <section class="tab-pane" id="how-it-works" role="tabpanel" aria-labelledby="tab-btn-how-it-works" tabindex="0">
+  <section class="tab-pane" id="how-it-works" data-print-title="How These Tools Work" role="tabpanel" aria-labelledby="tab-btn-how-it-works" tabindex="0">
 
     <p class="section-label">The distinction that matters</p>
     <h2 class="section-title">Retrieval and processing are <em>different operations</em></h2>
@@ -1239,7 +1370,7 @@
   </section>
 
   <!-- ═══ TAB 3: USE CASES (CORE) ═══ -->
-  <section class="tab-pane" id="use-cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
+  <section class="tab-pane" id="use-cases" data-print-title="Use Cases" role="tabpanel" aria-labelledby="tab-btn-use-cases" tabindex="0">
 
     <p class="section-label">The core of this portal</p>
     <h2 class="section-title">What judges are actually <em>doing</em></h2>
@@ -1515,7 +1646,7 @@
   </section>
 
   <!-- ═══ TAB 4: GUARDRAILS ═══ -->
-  <section class="tab-pane" id="guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
+  <section class="tab-pane" id="guardrails" data-print-title="Guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
 
     <p class="section-label">Guardrails</p>
     <h2 class="section-title">The rules that make the rest of it <em>safe</em></h2>
@@ -1579,11 +1710,11 @@
   </section>
 
   <!-- ═══ TAB 5: TOOLS ═══ -->
-  <section class="tab-pane" id="tools" role="tabpanel" aria-labelledby="tab-btn-tools" tabindex="0">
+  <section class="tab-pane" id="tools" data-print-title="Tools" role="tabpanel" aria-labelledby="tab-btn-tools" tabindex="0">
 
     <p class="section-label">Tools</p>
     <h2 class="section-title">What is out there, and how to choose</h2>
-    <p class="section-intro">A short field guide. It is written mainly to inform the personal, bunny-hill experimentation described on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab, because that is where most judges' learning can happen right now.</p>
+    <p class="section-intro">A short field guide. It is written mainly to inform the personal, low-stakes experimentation described on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab, because that is where most judges' learning can happen right now.</p>
 
     <div class="draft-flag wide">
       <span class="draft-flag-label">Read this before anything below</span>
@@ -1679,6 +1810,71 @@
 
   </section>
 
+  <!-- ═══ TAB 6: HOW THE PROFESSION IS ADAPTING ═══ -->
+  <section class="tab-pane" id="adapting" data-print-title="How the Profession Is Adapting" role="tabpanel" aria-labelledby="tab-btn-adapting" tabindex="0">
+
+    <p class="section-label">The bar</p>
+    <h2 class="section-title">The bar is ahead of its own <em>policies</em></h2>
+    <p class="section-intro">This tab is context rather than instruction. Nothing here tells you what to do in chambers &mdash; that is what <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a> is for. It is here because the adoption curve outside the courthouse is already shaping what arrives inside it, and that is worth seeing plainly.</p>
+
+    <div class="adopt-figure">
+      <div class="adopt-row">
+        <div class="adopt-cell">
+          <div class="adopt-num">69%</div>
+          <p class="adopt-what">of lawyers use these tools for work</p>
+          <p class="adopt-src">8am, 2026</p>
+        </div>
+        <div class="adopt-cell">
+          <div class="adopt-num">9%</div>
+          <p class="adopt-what">of firms have a written, enforced AI policy</p>
+          <p class="adopt-src">8am, 2026</p>
+        </div>
+        <div class="adopt-cell">
+          <div class="adopt-num">30%</div>
+          <p class="adopt-what">of lawyers, up from 11% a year earlier</p>
+          <p class="adopt-src">ABA, 2024</p>
+        </div>
+      </div>
+      <p class="adopt-note"><strong>Sources.</strong> 8am <em>Legal Industry Report 2026</em>, n&nbsp;&gt;&nbsp;1,300, surveyed September&ndash;October 2025; 8am is a legal software vendor, so read its levels with that in mind. ABA <em>Legal Technology Survey Report</em>, 2024 edition. The two disagree on how high the number is. They agree on the direction, and on the gap between use and governance.</p>
+    </div>
+
+    <div class="callout">
+      <h3>What that gap means for a court</h3>
+      <p>Filings reach you built with tools the filer&rsquo;s own firm does not govern. The sanctions cases are the visible tail of that, not the shape of it. The ordinary case is a brief that was drafted with assistance nobody recorded, nobody disclosed, and nobody had a written rule about.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Law schools</p>
+    <h2 class="section-title">The schools moved first, because we <em>had to</em></h2>
+
+    <div class="prose-section">
+      <p>Legal education did not get to deliberate. Students arrived in 2023 with these tools already in hand, and a school that waited would have been setting policy for a world that had moved on. The question was never whether to allow them. It was what competence with them looks like, and how to grade it.</p>
+      <p>Penn Carey Law put AI into the 1L curriculum the year ChatGPT launched. That is not a claim to have gotten it right. It is a claim about the timeline: the schools are two full graduating classes into this, which is why the people arriving in your chambers are not where you are.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Every 1L gets a real account</h3>
+        <p>Secure institutional accounts, extended to writing fellows and teaching assistants as well. Deliberately not a consumer login &mdash; the data terms and the model quality are both different, and students who learn on a free tier learn the wrong lessons about capability.</p>
+      </div>
+      <div class="card">
+        <h3>Legal-specific tools alongside general ones</h3>
+        <p>Harvey sits beside the general assistants rather than replacing them. Students see where a legal-specific tool earns its keep and where it does not, which is a judgment they will need on their first day of practice.</p>
+      </div>
+      <div class="card">
+        <h3>Verification is taught first</h3>
+        <p>Coursework runs from access to justice through AI in corporate practice, and Advanced Legal Research was expanded to take these tools seriously. The through-line is the same one on this portal: check the source.</p>
+      </div>
+    </div>
+
+    <div class="callout-gold callout">
+      <h3>What this means for your chambers</h3>
+      <p>Your next law clerk has never practiced law without these tools. They will not think of using one as a decision worth mentioning, because in law school it was ordinary. That is not a discipline problem and it does not respond to a discipline answer. It responds to a stated rule in the first week, whatever the rule turns out to be &mdash; which is the point made at the end of <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a>, arriving here from the other direction.</p>
+    </div>
+
+  </section>
+
   <!-- PANEL / ABOUT (always visible) -->
   <div class="callout" style="margin-top:3rem; margin-bottom:0;">
     <h3>About this portal</h3>
@@ -1708,7 +1904,7 @@
       <input type="text" class="search-input" id="search-input" placeholder="Search the portal&hellip;" autocomplete="off" spellcheck="false" />
     </div>
     <div class="search-results" id="search-results">
-      <div class="search-empty">Type to search across all five tabs.</div>
+      <div class="search-empty">Type to search across all six tabs.</div>
     </div>
     <div class="search-footer-bar">
       <span><kbd>&#8593;&#8595;</kbd>navigate</span>
@@ -1720,7 +1916,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  Draft for panel review &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://ai-teaching-lab.org/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">AI Teaching Lab</a> &middot; Last updated July 2026
+  Early release &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
 </footer>
 
 <script>
@@ -1782,7 +1978,8 @@
     'how-it-works': 'How These Tools Work',
     'use-cases': 'Use Cases',
     'guardrails': 'Guardrails',
-    'tools': 'Tools'
+    'tools': 'Tools',
+    'adapting': 'How the Profession Is Adapting'
   };
   let currentResults = [];
   let focusedIdx = -1;
@@ -1804,7 +2001,7 @@
     searchOverlay.setAttribute('inert', '');
     searchOverlay.setAttribute('aria-hidden', 'true');
     searchInput.value = '';
-    searchResults.innerHTML = '<div class="search-empty">Type to search across all five tabs.</div>';
+    searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
     currentResults = [];
     focusedIdx = -1;
   }
@@ -1812,7 +2009,7 @@
   function performSearch(query) {
     query = query.trim();
     if (!query) {
-      searchResults.innerHTML = '<div class="search-empty">Type to search across all five tabs.</div>';
+      searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
       currentResults = [];
       focusedIdx = -1;
       return;
