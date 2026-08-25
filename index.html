@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Judicial AI Portal — Draft</title>
-<!-- DRAFT: remove the robots tag below before this goes public. -->
+<title>Judicial AI Portal</title>
+<!-- Search indexing remains disabled until explicitly approved. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://judges.pennai.law/">
 <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
-<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Early release.">
+<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff.">
 <meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -87,34 +87,6 @@
 
   a { color: var(--oxblood); }
   a:hover { color: var(--oxblood-deep); }
-
-  /* ── EARLY-RELEASE BANNER ── */
-  .draft-banner {
-    background: var(--ivory);
-    border-top: 3px solid var(--oxblood);
-    border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 0.85rem 3rem;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-  }
-  .draft-banner strong {
-    display: inline-block;
-    font-family: var(--body);
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-size: 10.5px;
-    color: var(--oxblood);
-    border: 1px solid var(--oxblood);
-    padding: 2px 8px;
-    margin-right: 0.7rem;
-    white-space: nowrap;
-    vertical-align: 1px;
-  }
-  .draft-banner span { color: var(--ink-muted); }
-  .draft-banner a { color: var(--oxblood); }
 
   /* ── LAB STRIPE ── */
   .lab-stripe {
@@ -988,8 +960,6 @@
     .lab-stripe { padding: 0.6rem 1.25rem; }
     .lab-stripe-link { gap: 0.9rem; }
     .lab-stripe-text { font-size: 13px; }
-    .draft-banner { padding: 0.8rem 1.25rem; text-align: left; }
-    .draft-banner strong { margin-bottom: 0.4rem; }
     .bucket-head, .bucket-body { padding-left: 1.25rem; padding-right: 1.25rem; }
     .objection { padding-left: 1.25rem; }
     .header-search .label { display: none; }
@@ -1077,16 +1047,6 @@
        instead of following it. Pin the header to the top of page one. */
     .site-header { position: static !important; z-index: auto !important; }
 
-    /* The early-release banner STAYS. A printed copy that does not say it is an
-       unreviewed early release is the single most dangerous artifact this site
-       could produce. */
-    .draft-banner {
-      border: 1.5pt solid #000 !important;
-      background: #fff !important;
-      padding: 8pt 10pt !important;
-      page-break-inside: avoid; break-inside: avoid;
-    }
-
     /* Every pane prints, each starting a fresh page under its tab's name. */
     .tab-pane { display: block !important; }
     .tab-pane + .tab-pane { page-break-before: always; break-before: page; }
@@ -1133,16 +1093,10 @@
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- EARLY-RELEASE BANNER — remove at full launch -->
-<div class="draft-banner" role="note">
-  <strong>Early release</strong>
-  <span>Written for the AI plenary at the 2026 Judicial Conference of the Sixth Circuit and shared with the judges there ahead of a wider release. Sections are still being filled in, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
-</div>
-
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-text">Built and maintained by the <strong>Penn Carey Law AI Project</strong>.</span>
     <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
@@ -1165,7 +1119,6 @@
   <div class="hero-inner">
     <h1>AI in <em>Chambers</em></h1>
     <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
-    <div class="hero-meta">Early release &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
   </div>
 </section>
 
@@ -1381,13 +1334,6 @@
       <p>These are drawn from chambers participating in a <strong>federal judicial AI testbed</strong>: roughly forty use cases observed across about eighteen chambers. That matters, because it means this is <strong>observed practice rather than speculation</strong>. These are things judges and law clerks actually tried, with the results they actually reported, including the failures.</p>
       <p>They are reported here <strong>in aggregate, with the chambers de-identified.</strong> No judge, clerk, court, or case is named, and none will be. Where chambers reported conflicting experiences, this page says so rather than picking a winner.</p>
       <p>Reported figures are reported, not measured. When a chambers says a technique saves roughly an hour a page, that is their estimate of their own work, and it is presented as such.</p>
-    </div>
-
-    <div class="draft-flag wide">
-      <span class="draft-flag-label">Still to come</span>
-      <h4>This catalogue will grow</h4>
-      <p>Hon. Maritza Dominguez Braswell is assembling a further running list of judicial use cases. It is not yet in hand, and this tab will be expanded when it lands.</p>
-      <p><strong>Panel:</strong> the ask stands. What did you try, what did you give the model, what came back, and did you keep it? The failures are as useful as the successes. Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
     </div>
 
     <!-- ── BUCKET 1: SAFE ── -->
@@ -1695,11 +1641,9 @@
 
     </div>
 
-    <div class="draft-flag">
-      <span class="draft-flag-label">Open question &mdash; panel input needed</span>
-      <h4>Disclosure</h4>
+    <div class="callout">
+      <h3>Disclosure remains an open question</h3>
       <p>Whether, when, and how a court should disclose that AI assisted in preparing a document is unsettled. Courts are reaching different answers, and this portal is not going to invent a consensus that does not exist.</p>
-      <p><strong>Panel:</strong> this is worth discussing on the record in Traverse City. If we have a view, it belongs here. If we do not, saying so plainly is more useful to judges than a hedge.</p>
     </div>
 
     <div class="callout">
@@ -1801,13 +1745,6 @@
       <li><strong>Paid versus free.</strong> Free tiers run older, weaker models. If your view of what AI can do was formed on a free tier, that view is out of date. This matters for judges specifically, because an inaccurate sense of the ceiling produces both complacency and overreaction.</li>
     </ul>
 
-    <div class="draft-flag wide">
-      <span class="draft-flag-label">Draft &mdash; awaiting input</span>
-      <h4>Matching use cases to tools</h4>
-      <p>The panel's stated goal is a matrix: for each real judicial use case, which tool actually does it best. That matrix cannot be built until the use-case list exists, so it is not here yet, and a speculative version would be worse than nothing.</p>
-      <p>It goes in this spot once the list from Hon. Maritza Dominguez Braswell arrives and the panel has vetted it.</p>
-    </div>
-
   </section>
 
   <!-- ═══ TAB 6: HOW THE PROFESSION IS ADAPTING ═══ -->
@@ -1875,21 +1812,9 @@
 
   </section>
 
-  <!-- PANEL / ABOUT (always visible) -->
-  <div class="callout" style="margin-top:3rem; margin-bottom:0;">
-    <h3>About this portal</h3>
-    <p>This is a working draft prepared for the AI plenary of the <strong>2026 Judicial Conference of the Sixth Circuit</strong>, Traverse City, Thursday, August 27. It is a joint project of the panel, and it exists to be argued with. The plan is to build it into a resource judges actually use, which means the use cases have to come from judges.</p>
-    <ul class="panel-list">
-      <li><strong>Hon. John B. Nalbandian</strong> <span>&middot; United States Court of Appeals for the Sixth Circuit &middot; moderator</span></li>
-      <li><strong>Hon. Robert Jonker</strong> <span>&middot; United States District Court, Western District of Michigan &middot; organizer</span></li>
-      <li><strong>Hon. Maritza Dominguez Braswell</strong> <span>&middot; United States District Court, District of Colorado &middot; panelist</span></li>
-      <li><strong>R. Polk Wagner</strong> <span>&middot; University of Pennsylvania Carey Law School &middot; panelist</span></li>
-    </ul>
-  </div>
-
   <!-- CONTACT FOOTER (always visible) -->
   <div class="contact-footer">
-    <p><strong>This draft needs your corrections.</strong> Gaps are marked as gaps rather than filled with plausible fiction, which means the fastest way to improve it is to tell us what is wrong and to send real use cases.</p>
+    <p><strong>Comments and corrections are welcome.</strong> Please report errors, omissions, or unclear guidance.</p>
     <a class="contact-btn" href="mailto:pwagner@law.upenn.edu">Send comments to Polk Wagner &rarr;</a>
   </div>
 
@@ -1916,7 +1841,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  Early release &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
+  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
 </footer>
 
 <script>
