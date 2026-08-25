@@ -5,10 +5,10 @@ actually are, what they're safe for today, what they aren't, and how to build co
 without taking on risk.
 
 - **Live:** https://judges.pennai.law/
-- **Status:** 📖 **Early release, for the Sixth Circuit conference.** Publicly reachable and
-  linked from the QR code on the closing slide of Polk's plenary deck, but `noindex` and
-  unannounced, with a visible early-release banner. Judges with the link may use it; it stays
-  out of search until the panel signs off.
+- **Status:** **Published for the Sixth Circuit conference.** Publicly reachable and linked
+  from the QR code on the closing slide of Polk's plenary deck. The site remains `noindex`
+  and unannounced; judges with the link may use it, but it stays out of search until indexing
+  is explicitly approved.
 
 ## Where this came from
 
@@ -56,8 +56,8 @@ in with plausible guesses — it's going to federal judges.
 `/`). Push to `main` → live in a minute or two. The custom domain comes from the root `CNAME`
 file; don't delete it.
 
-⚠️ **At full launch:** remove the `noindex` meta tag and the early-release banner from
-`index.html` **and** `license.html`.
+If search discovery is approved, remove the `noindex` meta tag from `index.html` and
+`license.html`.
 
 ## Structure
 

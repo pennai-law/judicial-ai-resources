@@ -8,10 +8,10 @@ A plain-language AI resource for **federal judges and their chambers**, built fo
 at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City). A project of
 the Penn Carey Law AI Project.
 
-**Status: early release for the Sixth Circuit conference.** Publicly reachable at
+**Status: published for the Sixth Circuit conference.** Publicly reachable at
 `judges.pennai.law` and reached by the QR code on the closing slide of Polk's Aug 27 plenary
-deck, but `noindex` and unannounced, with a visible early-release banner. Judges with the link
-may use it; it stays out of search until the panel signs off.
+deck. It remains `noindex` and unannounced; judges with the link may use it, but it stays out
+of search until indexing is explicitly approved.
 
 ## Audience — write for them, not at them
 
@@ -124,8 +124,8 @@ No build step. Static HTML, GitHub Pages from `main` root. `CNAME` pins
 Done: the repo is public, Pages is enabled from `main` root, and the DNS CNAME
 (`judges` → `pennai-law.github.io`, GoDaddy zone `pennai.law`) resolves.
 
-**Still to do at full launch:** remove the `noindex` meta and the early-release banner
-from both `index.html` and `license.html`.
+**Still to do if search discovery is approved:** remove the `noindex` meta from both
+`index.html` and `license.html`.
 
 ## Conventions
 
