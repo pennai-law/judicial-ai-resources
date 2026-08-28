@@ -1,3 +1,4 @@
+  document.documentElement.classList.add('js');
   const tabs = document.querySelectorAll('.tab-btn');
   const panes = document.querySelectorAll('.tab-pane');
   const paneIds = new Set([...panes].map(p => p.id));

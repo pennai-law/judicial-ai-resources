@@ -68,6 +68,10 @@ class VerifyPortalTests(unittest.TestCase):
         self.assertIn('href="assets/portal.css"', index)
         self.assertIn('href="assets/portal.css"', license_page)
         self.assertIn('type="module" src="assets/portal.js"', index)
+        css = (root / "assets/portal.css").read_text(encoding="utf-8")
+        script = (root / "assets/portal.js").read_text(encoding="utf-8")
+        self.assertIn(".js .tab-pane", css)
+        self.assertIn("classList.add('js')", script)
 
     def test_public_release_and_evidence_sections(self):
         root = Path(__file__).resolve().parents[1]

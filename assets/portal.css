@@ -382,8 +382,8 @@
     margin: 0 auto;
     padding: 4rem 3rem 6rem;
   }
-  .tab-pane { display: none; }
-  .tab-pane.active { display: block; }
+  .js .tab-pane { display: none; }
+  .js .tab-pane.active { display: block; }
 
   /* ── SECTION HEADINGS ── */
   .section-label {
