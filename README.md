@@ -1,96 +1,51 @@
 # Judicial AI Portal
 
-A plain-language resource on AI for federal judges and their chambers — what these tools
-actually are, what they're safe for today, what they aren't, and how to build confidence
-without taking on risk.
+A practical, plain-language resource for federal judges and chambers staff: use cases, failure modes, guardrails, tools, court developments, and source notes.
 
 - **Live:** https://judges.pennai.law/
-- **Status:** **Published for the Sixth Circuit conference.** Publicly reachable and linked
-  from the QR code on the closing slide of Polk's plenary deck. The site remains `noindex`
-  and unannounced; judges with the link may use it, but it stays out of search until indexing
-  is explicitly approved.
-
-## Where this came from
-
-Polk Wagner is presenting on the AI plenary at the **2026 Judicial Conference of the Sixth
-Circuit** (Traverse City, Thursday, August 27). On the panel's July 13 planning call, the
-group agreed to build a joint web portal for judges — matching **use cases to the best
-tools, plus best practices**. Polk took the action item to build the first draft and
-circulate it.
-
-**The panel:**
-
-| Role | Person |
-|---|---|
-| Moderator, presiding | Hon. John B. Nalbandian, U.S. Circuit Judge, Sixth Circuit |
-| Panel organizer | Hon. Robert Jonker, U.S. District Judge, W.D. Michigan |
-| Panelist | Hon. Maritza Dominguez Braswell, U.S. Magistrate Judge, D. Colorado |
-| Panelist | R. Polk Wagner, Penn Carey Law |
-
-A project of the **Penn Carey Law AI Project** (`github.com/pennai-law`).
-
-## The argument the site is built on
-
-AI tools are **fundamentally different** from the legal research tools judges already trust.
-Westlaw and Lexis **retrieve**. Large language models **process**. They are not better search
-engines.
-
-That distinction is the whole point, because it's what makes **hallucination and bias legible
-as built-in features of how the tool works, not bugs to be patched out**. A judge who
-understands this stops asking "when will they fix it?" and starts asking "what is this
-actually safe for?" — and that question is what tells them how to limit risk.
-
-## Known gaps in this draft
-
-The site visibly marks what it doesn't know rather than inventing filler. Do not fill these
-in with plausible guesses — it's going to federal judges.
-
-- **Use Cases** — the core tab — carries only the two examples the panel actually discussed.
-  It is waiting on **Judge Dominguez Braswell's running list of real judge use cases**.
-- The **use-case → tool matching matrix** can't be built until that list arrives.
-- **Disclosure** is marked an open question, not given a manufactured answer.
-
-## Deploy
-
-**No build step.** Static HTML, served by GitHub Pages ("Deploy from a branch," `main`, root
-`/`). Push to `main` → live in a minute or two. The custom domain comes from the root `CNAME`
-file; don't delete it.
-
-If search discovery is approved, remove the `noindex` meta tag from `index.html` and
-`license.html`.
+- **Deployment:** GitHub Pages from `main`, repository root
+- **Build:** None
 
 ## Structure
 
-- `index.html` — the whole portal. Six tabs (Start Here · How These Tools Work · Use Cases ·
-  Guardrails · Tools · How the Profession Is Adapting), inline CSS/JS, Cmd+K search.
-  Self-contained. Tab ids are stable for deep links: `#start`, `#how-it-works`, `#use-cases`,
-  `#guardrails`, `#tools`, `#adapting`.
-- `license.html` — CC BY 4.0 content, Apache 2.0 code.
-- `assets/` — favicons and tool logos.
+- **Start Here** — low-risk personal learning and the three-question test.
+- **How These Tools Work** — retrieval, generation, context limits, and bias.
+- **Use Cases** — observed practice sorted by risk.
+- **Guardrails** — authorization, confidentiality, supervision, verification, and a printable chambers assessment.
+- **Tools** — capabilities and dated product examples; listing is not authorization.
+- **What Courts See** — AI-assisted filings, professional adoption, and effects reaching chambers.
+- **Sources** — what each source supports and its principal limitation.
+
+The argument remains load-bearing: retrieval systems retrieve existing material; an AI model generates. Many legal products combine both. That distinction explains why source boundaries and independent verification still matter.
+
+## Files
+
+- `index.html` — semantic content.
+- `assets/portal.css` — screen, responsive, and print presentation.
+- `assets/portal.js` — tab navigation, search, legacy fragments, and assessment printing.
+- `license.html` — licensing and attribution.
+- `scripts/verify_portal.py` — evidence and editorial checks.
+- `tests/test_verify_portal.py` — verifier tests.
+
+## Verify
+
+```bash
+python3 -m unittest tests/test_verify_portal.py -v
+node --check assets/portal.js
+python3 scripts/verify_portal.py index.html license.html
+git diff --check
+```
+
+## Editorial rules
+
+- Never fabricate a statistic, study, case, quotation, standing order, or institution.
+- Keep testbed material de-identified. Private sources never enter this public repository.
+- Separate observed practice, survey findings, published guidance, recommendations, and proposals.
+- State denominators, populations, periods, and limitations when they affect interpretation.
+- Do not call a task universally safe or claim reliable detection of AI-generated writing.
+- Trace public AO claims to the October 21, 2025 letter from AO Director Robert J. Conrad Jr.
+- Check names against `NAMES.md` in the private judiciary repository.
 
 ## Design
 
-**"The Slip Opinion."** Warm ivory ground (`#FCFAF5`), near-black warm ink (`#1A1815`),
-oxblood accent (`#6E2639`), brass hairline rules (`#9A7B33`). Serif throughout — Libre
-Baskerville for display, Source Serif 4 for body. Google Fonts is the only external
-dependency.
-
-The look is deliberately **not** the faculty portal's, and deliberately not Penn's brand. The
-audience is federal judges; the register is a published opinion, not a web app. Restraint over
-ornament: hairline rules, no drop shadows, no gradients, no pills, no emoji.
-
-## Rules
-
-- **Never fabricate.** No invented statistics, studies, cases, quotes, or standing orders.
-  This is read by federal judges; a plausible-sounding fiction is worse than a visible gap.
-- **Names go through `NAMES.md` in the `pennai-law/judiciary` repo first.** Two have
-  already been gotten wrong on this project. "Dominguez" is spelled with a **g**.
-- The **AO has interim guidance in effect** and its authorized-tool list is limited. That much
-  is established. Do not characterize its specific contents.
-- Sensitive source material lives in Box (`AI Teaching Lab/Judiciary/sixth-circuit-2026/`),
-  never in this repo — which is **public**.
-
-## Related
-
-- `pennai-law/judiciary` (private) — the workstream, the talk, the source material.
-- `pennai-law/penn-law-ai-resources` (public) — the faculty portal this was adapted from.
+The visual register is “The Slip Opinion”: ivory, warm ink, oxblood, brass rules, and serif typography. It should read like a published judicial resource, not a software dashboard.

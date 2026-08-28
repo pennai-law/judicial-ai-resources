@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>License — Judicial AI Portal</title>
-<!-- Search indexing remains disabled until explicitly approved. -->
-<meta name="robots" content="noindex, nofollow">
+<!-- DRAFT: remove the robots tag below before this goes public. -->
 <link rel="canonical" href="https://judges.pennai.law/license.html">
 <meta name="description" content="Licensing for the Judicial AI Portal — content under CC BY 4.0, code under Apache 2.0.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -14,235 +13,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    /* ── The Slip Opinion ── */
-    --ivory:       #FCFAF5;
-    --ivory-deep:  #F5F1E8;
-    --ink:         #1A1815;
-    --ink-muted:   #5A554C;
-    --oxblood:     #6E2639;
-    --oxblood-deep:#551D2C;
-    --brass:       #9A7B33;
-    --rule:        #DED8CB;
-
-    --display: 'Libre Baskerville', 'Times New Roman', Georgia, serif;
-    --body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  /* ── ACCESSIBILITY ── */
-  *:focus-visible {
-    outline: 2px solid var(--oxblood);
-    outline-offset: 2px;
-  }
-  .skip-link {
-    position: absolute;
-    top: -100px;
-    left: 1rem;
-    background: var(--oxblood);
-    color: var(--ivory);
-    padding: 0.65rem 1.1rem;
-    text-decoration: none;
-    font-family: var(--body);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    z-index: 1000;
-  }
-  .skip-link:focus { top: 1rem; }
-
-  body {
-    font-family: var(--body);
-    font-optical-sizing: auto;
-    background: var(--ivory);
-    color: var(--ink);
-    font-size: 17px;
-    line-height: 1.72;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── LAB STRIPE (matches index.html) ── */
-  .lab-stripe {
-    background: var(--ivory-deep);
-    border-bottom: 1px solid var(--rule);
-    padding: 0.5rem 3rem;
-  }
-  .lab-stripe-link {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-decoration: none;
-    color: var(--ink-muted);
-  }
-  .lab-stripe-text {
-    flex: 1;
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-  .lab-stripe-text strong { color: var(--ink); font-weight: 600; }
-  .lab-stripe-cta {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    color: var(--oxblood);
-    text-transform: uppercase;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .lab-stripe-link:hover .lab-stripe-cta { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* ── HEADER (matches index.html) ── */
-  .site-header {
-    background: var(--ivory);
-    border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .site-header .wordmark {
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .site-header .wordmark span { color: var(--brass); margin: 0 9px; }
-  .header-badge {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-  .header-badge a:hover { color: var(--oxblood); }
-
-  /* ── PAGE BODY (license-specific) ── */
-  .page-body {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 4rem 3rem 5rem;
-  }
-  .breadcrumb {
-    font-family: var(--body);
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 0.9rem;
-  }
-  .breadcrumb a { color: inherit; text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  h1 {
-    font-family: var(--display);
-    font-size: 2.3rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 0.7rem;
-  }
-  .lead {
-    font-size: 18px;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    padding-bottom: 1.75rem;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 2.5rem;
-  }
-  h2 {
-    font-family: var(--display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.35;
-    margin-top: 2.75rem;
-    margin-bottom: 0.7rem;
-  }
-  p {
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.72;
-    margin-bottom: 1rem;
-  }
-  p strong, p a strong { color: var(--ink); font-weight: 600; }
-  a {
-    color: var(--oxblood);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  a:hover { color: var(--oxblood-deep); }
-  blockquote {
-    background: var(--ivory-deep);
-    border-left: 3px solid var(--oxblood);
-    padding: 1.1rem 1.4rem;
-    margin: 1.5rem 0;
-    font-family: var(--display);
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink);
-  }
-  .back-wrap {
-    margin-top: 3.5rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--rule);
-  }
-  .back-link {
-    display: inline-block;
-    font-size: 14px;
-    color: var(--oxblood);
-    text-decoration: none;
-  }
-  .back-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    background: var(--ivory-deep);
-    border-top: 1px solid var(--rule);
-    color: var(--ink-muted);
-    text-align: center;
-    font-size: 13px;
-    padding: 2rem 1.5rem;
-    line-height: 1.7;
-  }
-  .site-footer strong { color: var(--ink); font-weight: 600; }
-  .site-footer a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
-  .site-footer a:hover { color: var(--oxblood); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
-    .site-header { padding: 0 1.5rem; }
-    .page-body { padding: 2.75rem 1.5rem 4rem; }
-    h1 { font-size: 1.9rem; }
-    .lab-stripe { padding: 0.6rem 1.25rem; }
-    .lab-stripe-link { gap: 0.75rem; }
-    .lab-stripe-text { font-size: 13px; }
-    /* The top stripe already carries the Project attribution at this width. */
-    .header-badge { display: none; }
-  }
-</style>
+<link rel="stylesheet" href="assets/portal.css">
 </head>
 <body>
 
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- EARLY-RELEASE BANNER — remove at full launch -->
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">Built and maintained by the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
     <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
