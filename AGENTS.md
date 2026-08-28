@@ -30,7 +30,7 @@ two-part antitheses whose symmetry substitutes for a point. Max 1–2 em-dashes 
 ## The spine — don't lose it
 
 AI tools are **fundamentally different** from the legal research tools judges already trust.
-Westlaw and Lexis **retrieve**. Large language models **process**.
+Search retrieves. An AI model generates.
 
 That distinction is load-bearing for the entire site: it's what makes **hallucination and
 bias legible as built-in features of the architecture, not bugs awaiting a patch**. A judge
@@ -48,8 +48,6 @@ know, the page says so.
 - A "Judicial AI Consortium" of 350+ judges.
 - A "USC/MIT study" on a pro se litigation spike.
 - Any characterization of a claimed February 2026 AO update; no public version has been located.
-  effect, and the authorized-tool list **is** limited — that much is established. Its
-  contents are not.)
 - Any specific court's standing order.
 
 **Names:** check `NAMES.md` in `pennai-law/judiciary` before writing anyone's name. Two

@@ -8,11 +8,6 @@ A plain-language AI resource for **federal judges and their chambers**, built fo
 at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City). A project of
 the Penn Carey Law AI Project.
 
-**Status: early release for the Sixth Circuit conference.** Publicly reachable at
-`judges.pennai.law` and reached by the QR code on the closing slide of Polk's Aug 27 plenary
-deck, but `noindex` and unannounced, with a visible early-release banner. Judges with the link
-may use it; it stays out of search until the panel signs off.
-
 ## Audience — write for them, not at them
 
 Article III district and circuit judges, magistrate judges, chambers staff. They span "I
@@ -35,7 +30,7 @@ two-part antitheses whose symmetry substitutes for a point. Max 1–2 em-dashes 
 ## The spine — don't lose it
 
 AI tools are **fundamentally different** from the legal research tools judges already trust.
-Westlaw and Lexis **retrieve**. Large language models **process**.
+Search retrieves. An AI model generates.
 
 That distinction is load-bearing for the entire site: it's what makes **hallucination and
 bias legible as built-in features of the architecture, not bugs awaiting a patch**. A judge
@@ -52,9 +47,7 @@ know, the page says so.
 **Currently unverified — do NOT state as fact:**
 - A "Judicial AI Consortium" of 350+ judges.
 - A "USC/MIT study" on a pro se litigation spike.
-- The specific contents of the AO interim guidance. (That guidance **exists** and is in
-  effect, and the authorized-tool list **is** limited — that much is established. Its
-  contents are not.)
+- Any characterization of a claimed February 2026 AO update; no public version has been located.
 - Any specific court's standing order.
 
 **Names:** check `NAMES.md` in `pennai-law/judiciary` before writing anyone's name. Two
@@ -92,9 +85,6 @@ in Drive. **Neither belongs in this repo.**
 whole ballgame with this audience. Proposals stay in a clearly fenced section, labeled as
 proposals. **Never fill a gap with a plausible example.**
 
-Still outstanding: **Judge Dominguez Braswell's running list of use cases.** The catalogue grows
-when it lands.
-
 ## Do not claim AI can detect AI-generated writing
 
 One testbed office reported that it can. That is almost certainly wrong and it contradicts Polk's
@@ -123,9 +113,6 @@ No build step. Static HTML, GitHub Pages from `main` root. `CNAME` pins
 
 Done: the repo is public, Pages is enabled from `main` root, and the DNS CNAME
 (`judges` → `pennai-law.github.io`, GoDaddy zone `pennai.law`) resolves.
-
-**Still to do at full launch:** remove the `noindex` meta and the early-release banner
-from both `index.html` and `license.html`.
 
 ## Conventions
 
