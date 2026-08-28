@@ -82,6 +82,8 @@ class VerifyPortalTests(unittest.TestCase):
         self.assertNotIn("early release", combined)
         self.assertIn('id="chambers-assessment"', index)
         self.assertIn('id="sources"', index)
+        self.assertIn("Evaluate a task", index)
+        self.assertIn("Set guardrails", index)
         self.assertIn("112 of 502", index)
         self.assertIn("22.3%", index)
         self.assertIn("october 21, 2025", index.lower())
