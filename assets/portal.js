@@ -24,6 +24,8 @@
   function scrollToTabs() {
     window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 56, behavior: 'smooth' });
   }
+  window.activateTab = activateTab;
+  window.scrollToTabs = scrollToTabs;
 
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -57,7 +59,8 @@
     'use-cases': 'Use Cases',
     'guardrails': 'Guardrails',
     'tools': 'Tools',
-    'adapting': 'How the Profession Is Adapting'
+    'adapting': 'What Courts See',
+    'sources': 'Sources and Guidance'
   };
   let currentResults = [];
   let focusedIdx = -1;
@@ -79,7 +82,7 @@
     searchOverlay.setAttribute('inert', '');
     searchOverlay.setAttribute('aria-hidden', 'true');
     searchInput.value = '';
-    searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
+    searchResults.innerHTML = '<div class="search-empty">Type to search across all seven sections.</div>';
     currentResults = [];
     focusedIdx = -1;
   }
@@ -87,7 +90,7 @@
   function performSearch(query) {
     query = query.trim();
     if (!query) {
-      searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
+      searchResults.innerHTML = '<div class="search-empty">Type to search across all seven sections.</div>';
       currentResults = [];
       focusedIdx = -1;
       return;
@@ -213,3 +216,12 @@
       jumpToResult(currentResults[focusedIdx]);
     }
   });
+
+  const assessmentPrint = document.querySelector('[data-print-assessment]');
+  if (assessmentPrint) {
+    assessmentPrint.addEventListener('click', () => {
+      document.body.classList.add('print-assessment');
+      window.print();
+    });
+    window.addEventListener('afterprint', () => document.body.classList.remove('print-assessment'));
+  }

@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Judicial AI Portal — Draft</title>
-<!-- DRAFT: remove the robots tag below before this goes public. -->
-<meta name="robots" content="noindex, nofollow">
+<title>Judicial AI Portal</title>
 <link rel="canonical" href="https://judges.pennai.law/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://judges.pennai.law/">
@@ -14,7 +12,7 @@
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
-<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Early release.">
+<meta name="twitter:description" content="Use cases, guardrails, and sources for federal judges and chambers staff.">
 <meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -29,16 +27,10 @@
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- EARLY-RELEASE BANNER — remove at full launch -->
-<div class="draft-banner" role="note">
-  <strong>Early release</strong>
-  <span>Written for the AI plenary at the 2026 Judicial Conference of the Sixth Circuit and shared with the judges there ahead of a wider release. Sections are still being filled in, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
-</div>
-
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-text">A practical resource for federal judges and chambers staff, maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
     <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
@@ -59,9 +51,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <h1>AI in <em>Chambers</em></h1>
-    <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
-    <div class="hero-meta">Early release &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
+    <h1>Judicial AI <em>Field Guide</em></h1>
+    <p class="hero-sub">Evaluate a task, identify the risks, and preserve human judgment.</p>
   </div>
 </section>
 
@@ -70,8 +61,8 @@
   <div class="hero-feature-grid">
     <div class="hero-feature-text">
       <span class="hero-feature-kicker">The core idea</span>
-      <h2 id="hero-feature-heading">They don&rsquo;t retrieve. They <em>process</em>.</h2>
-      <p class="hero-feature-lede">Westlaw and Lexis find documents that already exist. That is retrieval, and you have learned to trust it. A large language model looks nothing up. It <strong>writes the most plausible next words</strong>, which is a fundamentally different operation. Grasp that one difference and the rest follows: why these tools make things up, why they carry bias, why neither is a defect awaiting a patch, and what the tools are actually safe for.</p>
+      <h2 id="hero-feature-heading">Retrieval systems retrieve. An AI model <em>generates</em>.</h2>
+      <p class="hero-feature-lede">Many legal AI products combine retrieval and generation: the product retrieves authority or documents, then an AI model generates a response. That source boundary matters, but generated prose remains fallible. The practical questions are what the system received, what it may invent or omit, and how a human will verify the result.</p>
     </div>
     <div class="hero-feature-ctas">
       <a class="hero-feature-cta primary" href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">
@@ -109,7 +100,7 @@
   <div class="overview-col featured" data-nav="use-cases">
     <h3>Use Cases</h3>
     <ul>
-      <li><strong>Safe and effective today</strong></li>
+      <li><strong>Lower risk if authorized</strong></li>
       <li><strong>Promising, with care</strong></li>
       <li><strong>Not worth the risk</strong></li>
       <li><strong>A three-question test</strong></li>
@@ -134,7 +125,7 @@
     </ul>
   </div>
   <div class="overview-col" data-nav="adapting">
-    <h3>How the Profession Is Adapting</h3>
+    <h3>What Courts See</h3>
     <ul>
       <li><strong>Use is ahead of policy</strong></li>
       <li><strong>What reaches your docket</strong></li>
@@ -152,7 +143,8 @@
     <button class="tab-btn tab-btn-featured" data-tab="use-cases" role="tab" id="tab-btn-use-cases" aria-selected="false" aria-controls="use-cases" tabindex="-1">Use Cases</button>
     <button class="tab-btn" data-tab="guardrails" role="tab" id="tab-btn-guardrails" aria-selected="false" aria-controls="guardrails" tabindex="-1">Guardrails</button>
     <button class="tab-btn" data-tab="tools" role="tab" id="tab-btn-tools" aria-selected="false" aria-controls="tools" tabindex="-1">Tools</button>
-    <button class="tab-btn" data-tab="adapting" role="tab" id="tab-btn-adapting" aria-selected="false" aria-controls="adapting" tabindex="-1">How the Profession Is Adapting</button>
+    <button class="tab-btn" data-tab="adapting" role="tab" id="tab-btn-adapting" aria-selected="false" aria-controls="adapting" tabindex="-1">What Courts See</button>
+    <button class="tab-btn" data-tab="sources" role="tab" id="tab-btn-sources" aria-selected="false" aria-controls="sources" tabindex="-1">Sources</button>
   </nav>
 </div>
 
@@ -279,17 +271,12 @@
       <p>Reported figures are reported, not measured. When a chambers says a technique saves roughly an hour a page, that is their estimate of their own work, and it is presented as such.</p>
     </div>
 
-    <div class="draft-flag wide">
-      <span class="draft-flag-label">Still to come</span>
-      <h4>This catalogue will grow</h4>
-      <p>Hon. Maritza Dominguez Braswell is assembling a further running list of judicial use cases. It is not yet in hand, and this tab will be expanded when it lands.</p>
-      <p><strong>Panel:</strong> the ask stands. What did you try, what did you give the model, what came back, and did you keep it? The failures are as useful as the successes. Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
-    </div>
+
 
     <!-- ── BUCKET 1: SAFE ── -->
     <div class="bucket bucket-safe">
       <div class="bucket-head">
-        <h3>Safe and effective today</h3>
+        <h3>Lower risk if authorized</h3>
         <p>The source material is in front of the model. The output is checkable. A human checks it.</p>
       </div>
       <div class="bucket-body">
@@ -582,7 +569,7 @@
       <p>This is where the private-device advice on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab does double duty. Keeping your experimentation on personal, non-court matters keeps you clear of this entire category while you are learning.</p>
 
       <h3>4. Authorization comes before everything</h3>
-      <p>The Administrative Office has interim guidance in effect governing AI use in the courts, and the list of tools authorized for court work is limited. Before any AI tool touches court work, confirm what your court and the AO permit. Nothing on this portal is authorization, and nothing on it is a representation about what the AO's guidance says. Read the guidance, and ask your court's IT staff.</p>
+      <p>A public October 21, 2025 letter from AO Director Robert J. Conrad Jr. describes interim guidance distributed Judiciary-wide on July 31, 2025. It addresses accountability, confidentiality, security, education, independent verification, core judicial functions, and possible disclosure. Before any AI tool touches court work, confirm what your court and the AO permit.</p>
       <p>This is also why the honest advice today is that most judges' learning happens on a private device on non-professional matters. That is not a workaround. It is what the current rules leave available, and it is genuinely the right place to learn anyway.</p>
 
       <h3>5. Chambers practice, which is the exposure nobody plans for</h3>
@@ -591,11 +578,23 @@
 
     </div>
 
-    <div class="draft-flag">
-      <span class="draft-flag-label">Open question &mdash; panel input needed</span>
+    <div class="callout">
+      <span class="section-label">Open question</span>
       <h4>Disclosure</h4>
       <p>Whether, when, and how a court should disclose that AI assisted in preparing a document is unsettled. Courts are reaching different answers, and this portal is not going to invent a consensus that does not exist.</p>
-      <p><strong>Panel:</strong> this is worth discussing on the record in Traverse City. If we have a view, it belongs here. If we do not, saying so plainly is more useful to judges than a hedge.</p>
+    </div>
+
+    <div class="assessment" id="chambers-assessment">
+      <div class="assessment-head"><div><p class="section-label">Beyond the standing order</p><h3>A chambers self-assessment</h3></div><button type="button" data-print-assessment>Print assessment</button></div>
+      <ol class="assessment-list">
+        <li><label><input type="checkbox"> We have identified how AI is appearing in filings, evidence, discovery, and proposed orders.</label></li>
+        <li><label><input type="checkbox"> The judge knows which AI tools clerks, interns, and staff use.</label></li>
+        <li><label><input type="checkbox"> Our written rule addresses permitted tasks, prohibited material, internal disclosure, and verification.</label></li>
+        <li><label><input type="checkbox"> The team can recognize hallucinations, false quotations, prompt injection, synthetic evidence, automation bias, and confidentiality leakage.</label></li>
+        <li><label><input type="checkbox"> Our workflow identifies the points at which AI output must not supply or anchor judgment.</label></li>
+        <li><label><input type="checkbox"> We know which authority and policy govern disclosure for a particular use.</label></li>
+      </ol>
+      <p class="why"><strong>Use it as a conversation guide.</strong> Answers remain on this device and are not saved.</p>
     </div>
 
     <div class="callout">
@@ -707,7 +706,7 @@
   </section>
 
   <!-- ═══ TAB 6: HOW THE PROFESSION IS ADAPTING ═══ -->
-  <section class="tab-pane" id="adapting" data-print-title="How the Profession Is Adapting" role="tabpanel" aria-labelledby="tab-btn-adapting" tabindex="0">
+  <section class="tab-pane" id="adapting" data-print-title="What Courts See" role="tabpanel" aria-labelledby="tab-btn-adapting" tabindex="0">
 
     <p class="section-label">The bar</p>
     <h2 class="section-title">The bar is ahead of its own <em>policies</em></h2>
@@ -771,22 +770,22 @@
 
   </section>
 
-  <!-- PANEL / ABOUT (always visible) -->
+  <section class="tab-pane source-library" id="sources" data-print-title="Sources and Guidance" role="tabpanel" aria-labelledby="tab-btn-sources" tabindex="0">
+    <p class="section-label">Evidence and limitations</p>
+    <h2 class="section-title">Sources and current guidance</h2>
+    <p class="section-intro">Each note states what the source supports and where its limits lie.</p>
+
+    <article data-source="sedona-federal-survey" data-source-type="survey" data-reviewed="2026-08-28"><h3>Artificial Intelligence in Federal Courts</h3><p>Supports reported use, attitudes, tasks, and chambers policies among responding federal judges.</p><p data-field="limitation"><strong>Limitation:</strong> 112 of 502 sampled judges responded, a 22.3% response rate. Item totals vary, and only six appellate judges responded.</p><a href="https://www.thesedonaconference.org/sites/default/files/publications/Artificial_Intelligence_in_Federal_Courts_preprint_0.pdf" target="_blank" rel="noopener">Read the preprint</a></article>
+    <article data-source="ao-conrad-letter" data-source-type="official-letter" data-reviewed="2026-08-28"><h3>AO Director letter, October 21, 2025</h3><p>Publicly describes interim guidance distributed July 31, 2025.</p><p data-field="limitation"><strong>Limitation:</strong> The letter summarizes the guidance; it is not the full guidance and does not establish a February 2026 update.</p><a href="https://www.grassley.senate.gov/imo/media/doc/ao_to_grassley_re_judiciary_use_of_ai.pdf" target="_blank" rel="noopener">Read the letter</a></article>
+    <article data-source="shah-levy-pro-se" data-source-type="working-paper" data-reviewed="2026-08-28"><h3>Access to Justice in the Age of AI</h3><p>Documents federal pro se filing and docket trends during the generative-AI period.</p><p data-field="limitation"><strong>Limitation:</strong> This is a working paper. It reports an association, not proof that AI caused the increase.</p><a href="https://avshah1.github.io/assets/pdf/papers/pro-se/Pro_Se_Automation.pdf" target="_blank" rel="noopener">Read the paper</a></article>
+    <article data-source="charlotin-tracker" data-source-type="live-tracker" data-reviewed="2026-08-28"><h3>AI Hallucination Cases Database</h3><p>Collects judicial matters involving alleged, implied, or found AI-related fabrication and misrepresentation.</p><p data-field="limitation"><strong>Limitation:</strong> It changes continually, uses inclusion judgments, and does not measure incidence across all filings.</p><a href="https://www.damiencharlotin.com/hallucinations/" target="_blank" rel="noopener">Open the tracker</a></article>
+    <article data-source="sedona-guidelines" data-source-type="guidance" data-reviewed="2026-08-28"><h3>Navigating AI in the Judiciary</h3><p>Provides public judicial use cases and guidance on verification, confidentiality, bias, and responsibility.</p><p data-field="limitation"><strong>Limitation:</strong> Professional guidance is not binding federal policy or product authorization.</p><a href="https://www.thesedonaconference.org/node/10896" target="_blank" rel="noopener">Read the guidelines</a></article>
+    <article data-source="tr-professional-services-2026" data-source-type="industry-survey" data-reviewed="2026-08-28"><h3>2026 AI in Professional Services Report</h3><p>Provides cross-sector adoption and use-case context.</p><p data-field="limitation"><strong>Limitation:</strong> Toplines combine legal, tax, accounting, risk, fraud, and government respondents; they are not lawyer-only statistics.</p><a href="https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/reports/2026-ai-in-professional-services-report.pdf" target="_blank" rel="noopener">Read the report</a></article>
+  </section>
+
   <div class="callout" style="margin-top:3rem; margin-bottom:0;">
     <h3>About this portal</h3>
-    <p>This is a working draft prepared for the AI plenary of the <strong>2026 Judicial Conference of the Sixth Circuit</strong>, Traverse City, Thursday, August 27. It is a joint project of the panel, and it exists to be argued with. The plan is to build it into a resource judges actually use, which means the use cases have to come from judges.</p>
-    <ul class="panel-list">
-      <li><strong>Hon. John B. Nalbandian</strong> <span>&middot; United States Court of Appeals for the Sixth Circuit &middot; moderator</span></li>
-      <li><strong>Hon. Robert Jonker</strong> <span>&middot; United States District Court, Western District of Michigan &middot; organizer</span></li>
-      <li><strong>Hon. Maritza Dominguez Braswell</strong> <span>&middot; United States District Court, District of Colorado &middot; panelist</span></li>
-      <li><strong>R. Polk Wagner</strong> <span>&middot; University of Pennsylvania Carey Law School &middot; panelist</span></li>
-    </ul>
-  </div>
-
-  <!-- CONTACT FOOTER (always visible) -->
-  <div class="contact-footer">
-    <p><strong>This draft needs your corrections.</strong> Gaps are marked as gaps rather than filled with plausible fiction, which means the fastest way to improve it is to tell us what is wrong and to send real use cases.</p>
-    <a class="contact-btn" href="mailto:pwagner@law.upenn.edu">Send comments to Polk Wagner &rarr;</a>
+    <p>Maintained by R. Polk Wagner with support from the Penn Carey Law AI Project. It does not speak for any court, the Judicial Conference, or the Administrative Office of the U.S. Courts.</p>
   </div>
 
 </main>
@@ -800,7 +799,7 @@
       <input type="text" class="search-input" id="search-input" placeholder="Search the portal&hellip;" autocomplete="off" spellcheck="false" />
     </div>
     <div class="search-results" id="search-results">
-      <div class="search-empty">Type to search across all six tabs.</div>
+      <div class="search-empty">Type to search across all seven sections.</div>
     </div>
     <div class="search-footer-bar">
       <span><kbd>&#8593;&#8595;</kbd>navigate</span>
@@ -812,7 +811,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  Early release &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
+  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 28, 2026
 </footer>
 
 <script type="module" src="assets/portal.js"></script>

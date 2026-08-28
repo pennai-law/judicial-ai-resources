@@ -69,6 +69,21 @@ class VerifyPortalTests(unittest.TestCase):
         self.assertIn('href="assets/portal.css"', license_page)
         self.assertIn('type="module" src="assets/portal.js"', index)
 
+    def test_public_release_and_evidence_sections(self):
+        root = Path(__file__).resolve().parents[1]
+        index = (root / "index.html").read_text(encoding="utf-8")
+        license_page = (root / "license.html").read_text(encoding="utf-8")
+        combined = (index + license_page).lower()
+        self.assertNotIn("noindex", combined)
+        self.assertNotIn("early release", combined)
+        self.assertIn('id="chambers-assessment"', index)
+        self.assertIn('id="sources"', index)
+        self.assertIn("112 of 502", index)
+        self.assertIn("22.3%", index)
+        self.assertIn("october 21, 2025", index.lower())
+        self.assertIn("working paper", index.lower())
+        self.assertNotIn("a2j", index.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
