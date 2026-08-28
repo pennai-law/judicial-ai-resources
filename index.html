@@ -8,12 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://judges.pennai.law/">
 <meta property="og:title" content="Judicial AI Portal">
-<meta property="og:description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<meta property="og:description" content="A practical guide for federal judges and chambers staff: use cases, risks, guardrails, and sources.">
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
 <meta name="twitter:description" content="Use cases, guardrails, and sources for federal judges and chambers staff.">
-<meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<meta name="description" content="A practical guide for federal judges and chambers staff: use cases, risks, guardrails, and sources.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -160,7 +160,7 @@
 
     <div class="callout">
       <h3>The one-paragraph version</h3>
-      <p>AI tools are not better search engines. They do not look things up. They generate plausible text, which is why they invent citations and why they carry the biases of what they were trained on. Neither problem is getting patched. Once you accept that, the useful question stops being <strong>&ldquo;when will they fix it?&rdquo;</strong> and becomes <strong>&ldquo;what is this actually safe for?&rdquo;</strong> The short answer today: safe when the source material is in front of the model and you check the output. Not safe when you are asking the model to supply the law, the facts, or the judgment from its own memory.</p>
+      <p>Retrieval systems return stored material. An AI model generates a response from learned patterns. Many legal products combine the two: the product retrieves authority, then an AI model generates an answer from it. A bounded source lowers risk, but generated prose still requires verification. The useful question is not whether the tool is generally safe. It is whether this task is authorized, source-grounded, checkable, and free of delegated judgment.</p>
     </div>
 
     <div class="divider"></div>
@@ -362,7 +362,7 @@
         <div class="uc">
           <h4>Brainstorm analogous legal problems<span class="uc-verified">Observed</span></h4>
           <p>Ask for many options, then prune. One chambers reports surfacing analogies they had not considered.</p>
-          <p class="why"><strong>Why this is safe despite drawing on the model's memory:</strong> you are asking for candidates, not authority. Nothing it offers goes anywhere until you have checked it yourself. The model is generating leads, and you are the one deciding whether any of them is real.</p>
+          <p class="why"><strong>Why this is lower risk despite drawing on the model's memory:</strong> you are asking for candidates, not authority. Nothing it offers goes anywhere until you have checked it yourself. The model is generating leads, and you are the one deciding whether any of them is real.</p>
         </div>
 
       </div>
@@ -447,8 +447,8 @@
         <div class="callout">
           <h3>Asking a long trial transcript what it contains</h3>
           <p>One chambers uploaded a long trial transcript and asked whether something appeared in the record. The model <strong>fabricated quotations and invented witness names.</strong> Summarizing first, which fixes so much else, did not fix this.</p>
-          <p><strong>Sit with why this one surprises people.</strong> The transcript <em>was</em> in front of the model. By the test this site has been giving you, that should have made it safe. It did not, and the reason is worth knowing: the document exceeded what the model can actually hold and attend to at once, so it filled the gaps the only way it knows how, by generating.</p>
-          <p><strong>The lesson, and it is a hard one: "I uploaded it" is not the same as "the model read it."</strong> Attaching a document is not a guarantee that the whole document is in play. On a very long record, the safe-mode assumption quietly stops holding, and nothing in the interface tells you it has stopped.</p>
+          <p><strong>Sit with why this one surprises people.</strong> The transcript <em>was</em> in front of the model. By the test this site has been giving you, that should have lowered the risk. It did not, and the reason is worth knowing: the document exceeded what the model can actually hold and attend to at once, so it filled the gaps the only way it knows how, by generating.</p>
+          <p><strong>The lesson, and it is a hard one: "I uploaded it" is not the same as "the model read it."</strong> Attaching a document is not a guarantee that the whole document is in play. On a very long record, the source-grounded assumption quietly stops holding, and nothing in the interface tells you it has stopped.</p>
         </div>
 
         <div class="uc">
@@ -501,6 +501,21 @@
         <p>Feed in the day's briefs, listen to the summary on the way to the courthouse. Possibly the highest-upside idea in the record, and easy to see why it appeals.</p>
         <p><strong>Provenance, stated plainly:</strong> this is <strong>second-hand</strong>. It reached the record as "another judge told me," and no chambers in the testbed reported doing it. Treat it as a rumor of a good idea, which is what it is.</p>
       </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory</span>
+        <h3>A subject-matter primer before an expert hearing</h3>
+        <p>Use the output to identify vocabulary and questions, then verify every substantive claim against authoritative sources.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory</span>
+        <h3>Public procedural guidance</h3>
+        <p>Potentially useful for authorized, public-facing self-help material. It should not become case-specific assistance or an ex parte channel.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory · high sensitivity</span>
+        <h3>Settlement-conference preparation</h3>
+        <p>Consider only with specific authorization, secure tooling, careful treatment of confidential information, independent review, and appropriate party consent.</p>
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -532,7 +547,7 @@
   <section class="tab-pane" id="guardrails" data-print-title="Guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
 
     <p class="section-label">Guardrails</p>
-    <h2 class="section-title">The rules that make the rest of it <em>safe</em></h2>
+    <h2 class="section-title">The rules that make lower-risk use <em>possible</em></h2>
     <p class="section-intro">Four of these are settled and you can act on them today. One is genuinely open, and this portal is not going to pretend otherwise.</p>
 
     <div class="prose-section">
@@ -544,7 +559,7 @@
         <li><strong>Asking the model to check its own work is not verification.</strong> It produces more plausible text, generated the same way as the text you were checking. Verification means opening the case.</li>
         <li><strong>Fluency is not accuracy.</strong> The strongest correlate of an unverified error making it into a final document is that the draft reads well. Good prose lowers your guard. Budget for that.</li>
       </ul>
-      <p>The practical rule: if a document carries your name, you have read every source it cites. If that is impractical for a given task, the task is not one of the safe ones.</p>
+      <p>The practical rule: if a document carries your name, you have read every source it cites. If that is impractical for a given task, the task is not one of the lower-risk tasks.</p>
 
       <h3>2. Some things are never delegated</h3>
       <p>Not to a model, not with verification, not as a first pass:</p>
@@ -657,7 +672,7 @@
     </div>
 
     <h3 class="subhead">Legal research tools with AI layers</h3>
-    <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not the same as safe. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
+    <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not risk-free. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
 
     <div class="card-grid">
 
@@ -689,7 +704,7 @@
     <h2 class="section-title">What actually distinguishes these tools</h2>
 
     <ul class="tips-list">
-      <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the safe mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
+      <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the source-grounded mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
       <li><strong>How much it can hold at once.</strong> Tools differ enormously in how long an input they can take. If you want to work with a 400-page record, this is the specification that decides whether you can.</li>
       <li><strong>The data terms.</strong> Whether your inputs are used for training, how long they are retained, and who can see them. This varies by vendor and by tier, and consumer tiers are typically the worst. Read the terms for the specific plan you are on, not the vendor's marketing page.</li>
       <li><strong>Whether it can search the web.</strong> Useful for current information, and a second path by which unverified material enters your work. Know which mode you are in.</li>
