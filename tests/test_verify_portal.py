@@ -59,6 +59,16 @@ class VerifyPortalTests(unittest.TestCase):
         html = VALID.replace("2026-08-28", "2020-01-01")
         self.assertTrue(any("stale" in error.lower() for error in self.verify(html, stale_days=365)))
 
+    def test_presentation_and_script_are_external(self):
+        root = Path(__file__).resolve().parents[1]
+        index = (root / "index.html").read_text(encoding="utf-8")
+        license_page = (root / "license.html").read_text(encoding="utf-8")
+        self.assertNotIn("<style>", index)
+        self.assertNotIn("<style>", license_page)
+        self.assertIn('href="assets/portal.css"', index)
+        self.assertIn('href="assets/portal.css"', license_page)
+        self.assertIn('type="module" src="assets/portal.js"', index)
+
 
 if __name__ == "__main__":
     unittest.main()
