@@ -3,1146 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Judicial AI Portal — Draft</title>
-<!-- DRAFT: remove the robots tag below before this goes public. -->
-<meta name="robots" content="noindex, nofollow">
+<title>Judicial AI Portal</title>
 <link rel="canonical" href="https://judges.pennai.law/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://judges.pennai.law/">
 <meta property="og:title" content="Judicial AI Portal">
-<meta property="og:description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<meta property="og:description" content="A practical guide for federal judges and chambers staff: use cases, risks, guardrails, and sources.">
 <meta property="og:image" content="https://judges.pennai.law/assets/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judicial AI Portal">
-<meta name="twitter:description" content="Use cases, guardrails, and tools for federal judges and chambers staff. Early release.">
-<meta name="description" content="A working guide for federal judges and chambers staff: what AI tools are, what they are safe for today, and how to find out for yourself.">
+<meta name="twitter:description" content="Use cases, guardrails, and sources for federal judges and chambers staff.">
+<meta name="description" content="A practical guide for federal judges and chambers staff: use cases, risks, guardrails, and sources.">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    /* ── The Slip Opinion ── */
-    --ivory:       #FCFAF5;  /* page ground */
-    --ivory-deep:  #F5F1E8;  /* secondary ground: stripes, table heads */
-    --oxblood-wash:#F7F0F1;  /* faint accent ground for callouts */
-    --ink:         #1A1815;  /* body text — warm near-black   16.98:1 on ivory */
-    --ink-muted:   #5A554C;  /* secondary text                 7.09:1 on ivory */
-    --oxblood:     #6E2639;  /* sole accent: links, rules     10.07:1 on ivory */
-    --oxblood-deep:#551D2C;  /* hover */
-    --brass:       #9A7B33;  /* HAIRLINES + ORNAMENT ONLY — never a fill, never text (3.83:1) */
-    --rule:        #DED8CB;  /* warm hairline */
-    --rule-soft:   #EAE5DA;
-
-    --display: 'Libre Baskerville', 'Times New Roman', Georgia, serif;
-    --body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
-    --measure: 68ch;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  /* ── ACCESSIBILITY ── */
-  .visually-hidden {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-  }
-  .skip-link {
-    position: absolute;
-    top: -100px;
-    left: 1rem;
-    background: var(--oxblood);
-    color: var(--ivory);
-    padding: 0.65rem 1.1rem;
-    text-decoration: none;
-    font-family: var(--body);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    z-index: 1000;
-    transition: top 0.15s;
-  }
-  .skip-link:focus { top: 0.5rem; }
-
-  /* Focus indicators (WCAG 2.4.7) — one treatment; all grounds are light now. */
-  *:focus-visible {
-    outline: 2px solid var(--oxblood);
-    outline-offset: 2px;
-    border-radius: 0;
-  }
-
-  body {
-    font-family: var(--body);
-    font-optical-sizing: auto;
-    background: var(--ivory);
-    color: var(--ink);
-    font-size: 17px;
-    line-height: 1.72;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--oxblood); }
-  a:hover { color: var(--oxblood-deep); }
-
-  /* ── EARLY-RELEASE BANNER ── */
-  .draft-banner {
-    background: var(--ivory);
-    border-top: 3px solid var(--oxblood);
-    border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 0.85rem 3rem;
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: center;
-  }
-  .draft-banner strong {
-    display: inline-block;
-    font-family: var(--body);
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-size: 10.5px;
-    color: var(--oxblood);
-    border: 1px solid var(--oxblood);
-    padding: 2px 8px;
-    margin-right: 0.7rem;
-    white-space: nowrap;
-    vertical-align: 1px;
-  }
-  .draft-banner span { color: var(--ink-muted); }
-  .draft-banner a { color: var(--oxblood); }
-
-  /* ── LAB STRIPE ── */
-  .lab-stripe {
-    background: var(--ivory-deep);
-    border-bottom: 1px solid var(--rule);
-    padding: 0.5rem 3rem;
-  }
-  .lab-stripe-link {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-decoration: none;
-    color: var(--ink-muted);
-  }
-  .lab-stripe-text {
-    flex: 1;
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-  .lab-stripe-text strong { color: var(--ink); font-weight: 600; }
-  .lab-stripe-cta {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    color: var(--oxblood);
-    text-transform: uppercase;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .lab-stripe-link:hover .lab-stripe-cta { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* ── SEARCH ── */
-  .header-search {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--ink-muted);
-    font-family: var(--body);
-    font-size: 13.5px;
-    font-weight: 400;
-    padding: 4px 10px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .header-search:hover { border-color: var(--oxblood); color: var(--oxblood); }
-  .header-search svg { flex-shrink: 0; }
-  .header-search kbd {
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--ink-muted);
-  }
-  .search-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26, 24, 21, 0.45);
-    z-index: 200;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 10vh 1.5rem 1.5rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.18s;
-  }
-  .search-overlay.active { opacity: 1; pointer-events: auto; }
-  .search-modal {
-    background: var(--ivory);
-    border: 1px solid var(--ink);
-    border-radius: 2px;
-    width: 100%;
-    max-width: 640px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    max-height: 80vh;
-  }
-  .search-input-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1.1rem 1.4rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .search-input-wrap svg { color: var(--ink-muted); flex-shrink: 0; }
-  .search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 0;
-    font-family: var(--body);
-    font-size: 17px;
-    color: var(--ink);
-    background: transparent;
-  }
-  .search-input::placeholder { color: var(--ink-muted); }
-  .search-results { overflow-y: auto; max-height: 56vh; }
-  .search-empty, .search-no-results {
-    padding: 2rem 1.5rem;
-    text-align: center;
-    color: var(--ink-muted);
-    font-size: 14px;
-  }
-  .search-result {
-    display: block;
-    padding: 0.85rem 1.4rem;
-    border-bottom: 1px solid var(--rule-soft);
-    text-decoration: none;
-    color: var(--ink);
-    cursor: pointer;
-    transition: background 0.08s;
-  }
-  .search-result:last-child { border-bottom: none; }
-  .search-result:hover, .search-result.focused { background: var(--ivory-deep); }
-  .search-result-tab {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 4px;
-  }
-  .search-result-title {
-    font-family: var(--display);
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.35;
-    margin-bottom: 3px;
-  }
-  .search-result-snippet {
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-  /* Highlight uses a brass RULE, not a brass fill. */
-  .search-result mark {
-    background: transparent;
-    color: var(--ink);
-    font-weight: 600;
-    border-bottom: 2px solid var(--brass);
-  }
-  .search-footer-bar {
-    display: flex;
-    gap: 1.25rem;
-    padding: 0.6rem 1.4rem;
-    background: var(--ivory-deep);
-    border-top: 1px solid var(--rule);
-    font-size: 11.5px;
-    color: var(--ink-muted);
-  }
-  .search-footer-bar kbd {
-    border: 1px solid var(--rule);
-    padding: 1px 5px;
-    font-family: var(--body);
-    font-size: 10.5px;
-    color: var(--ink);
-    margin-right: 5px;
-  }
-
-  /* ── HEADER ── */
-  .site-header {
-    background: var(--ivory);
-    border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .site-header .wordmark {
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .site-header .wordmark span { color: var(--brass); margin: 0 9px; }
-  .header-badge {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-  .header-badge a:hover { color: var(--oxblood); }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--ivory);
-    padding: 4rem 3rem 3rem;
-    border-bottom: 1px solid var(--brass);
-  }
-  .hero-inner { max-width: 1100px; margin: 0 auto; }
-  .hero h1 {
-    font-family: var(--display);
-    font-size: clamp(2rem, 4.2vw, 3rem);
-    font-weight: 400;
-    line-height: 1.18;
-    color: var(--ink);
-    margin-bottom: 1rem;
-    letter-spacing: -0.005em;
-  }
-  .hero h1 em { font-style: italic; color: var(--oxblood); }
-  .hero-sub {
-    font-size: 19px;
-    font-weight: 300;
-    color: var(--ink-muted);
-    max-width: var(--measure);
-    line-height: 1.65;
-    margin-bottom: 1.6rem;
-  }
-  .hero-meta {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--rule);
-    max-width: var(--measure);
-  }
-
-  /* ── NAV TABS ── */
-  .tab-nav-wrap {
-    background: var(--ivory);
-    border-bottom: 1px solid var(--rule);
-    position: sticky;
-    top: 60px;
-    z-index: 90;
-  }
-  .tab-nav {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 3rem;
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-btn {
-    font-family: var(--body);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    padding: 0 1.35rem;
-    height: 52px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 0.18s, border-color 0.18s;
-  }
-  .tab-btn:first-child { padding-left: 0; }
-  .tab-btn:hover { color: var(--ink); }
-  .tab-btn.active {
-    color: var(--oxblood);
-    border-bottom-color: var(--oxblood);
-  }
-  /* "CORE" marker: letterspaced type, no pill. */
-  .tab-btn-featured::after {
-    content: "\00B7 Core";
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: var(--oxblood);
-    margin-left: 0.45rem;
-  }
-
-  /* ── LAYOUT ── */
-  .page-body {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 3rem 6rem;
-  }
-  .tab-pane { display: none; }
-  .tab-pane.active { display: block; }
-
-  /* ── SECTION HEADINGS ── */
-  .section-label {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: var(--display);
-    font-size: 2.05rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.25;
-    margin-bottom: 0.9rem;
-    max-width: var(--measure);
-  }
-  .section-title em { font-style: italic; color: var(--oxblood); }
-  .section-intro {
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--ink-muted);
-    max-width: var(--measure);
-    line-height: 1.72;
-    margin-bottom: 3rem;
-  }
-  .section-intro strong { color: var(--ink); font-weight: 600; }
-
-  /* ── CARDS: hairline boxes on the ivory ground. Flat. ── */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-  .card {
-    background: transparent;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 1.6rem 1.75rem;
-    transition: border-color 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-  .card:hover { border-color: var(--brass); }
-  .card h3 {
-    font-family: var(--display);
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
-    line-height: 1.35;
-  }
-  .card p {
-    font-size: 15px;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    flex: 1;
-  }
-  .card p + p { margin-top: 0.7rem; }
-  .card p strong { color: var(--ink); font-weight: 600; }
-  .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 1rem;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    text-decoration: none;
-  }
-  .card-link::after { content: '\2192'; font-size: 13px; transition: transform 0.15s; }
-  .card-link:hover::after { transform: translateX(3px); }
-  .card-links {
-    margin-top: 1rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--rule-soft);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1.25rem;
-  }
-  .card-links .card-link { margin-top: 0; }
-
-  /* ── TAGS: letterspaced type, no pills, no fills ── */
-  .resource-tag {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    display: inline-block;
-    padding: 0 0 0.35rem;
-    border-bottom: 1px solid var(--brass);
-    margin-bottom: 0.9rem;
-  }
-  .tag-no { color: var(--oxblood); border-bottom-color: var(--oxblood); }
-
-  /* ── PROSE ── */
-  .prose-section { max-width: var(--measure); }
-  .prose-section h3 {
-    font-family: var(--display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.7rem;
-    margin-top: 2.4rem;
-    line-height: 1.35;
-  }
-  .prose-section h3:first-child { margin-top: 0; }
-  .prose-section p {
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.78;
-    margin-bottom: 1.1rem;
-  }
-  .prose-section strong { color: var(--ink); font-weight: 700; }
-  .prose-section ul { margin: 0 0 1.4rem 1.3rem; padding: 0; }
-  .prose-section ul li {
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.78;
-    margin-bottom: 0.5rem;
-    padding-left: 0.3rem;
-  }
-  .prose-section ul li::marker { color: var(--brass); }
-
-  /* ── CALLOUT: faint oxblood ground, oxblood rule ── */
-  .callout {
-    background: var(--oxblood-wash);
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--oxblood);
-    border-radius: 2px;
-    color: var(--ink);
-    padding: 2rem 2.25rem;
-    margin-bottom: 2.5rem;
-    max-width: 860px;
-  }
-  .callout h3 {
-    font-family: var(--display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--oxblood);
-    margin-bottom: 0.85rem;
-  }
-  .callout p {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.75;
-  }
-  .callout p + p { margin-top: 0.8rem; }
-  .callout strong { color: var(--ink); font-weight: 700; }
-
-  /* Gold variant → brass-ruled, ivory-deep ground */
-  .callout-gold {
-    background: var(--ivory-deep);
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--brass);
-  }
-  .callout-gold h3 { color: var(--ink); }
-  .callout-gold p { color: var(--ink); }
-  .callout-gold ul { list-style: none; padding: 0; margin: 0.85rem 0 0; }
-  .callout-gold ul li {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.75;
-    padding: 0.35rem 0 0.35rem 1.35rem;
-    position: relative;
-  }
-  .callout-gold ul li::before {
-    content: '\2014';
-    position: absolute;
-    left: 0;
-    color: var(--oxblood);
-  }
-
-  /* ── OBJECTIONS ── */
-  .objection {
-    background: transparent;
-    border-top: 1px solid var(--rule);
-    border-left: 3px solid var(--oxblood);
-    padding: 1.6rem 0 1.6rem 1.75rem;
-    margin-bottom: 2rem;
-    max-width: var(--measure);
-  }
-  .objection h3 {
-    font-family: var(--display);
-    font-size: 1.35rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--oxblood);
-    margin-bottom: 0.9rem;
-    line-height: 1.35;
-  }
-  .objection p {
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.78;
-    margin-bottom: 1rem;
-  }
-  .objection p:last-child { margin-bottom: 0; }
-  .objection strong { color: var(--ink); font-weight: 700; }
-
-  /* ── TIPS LIST ── */
-  .tips-list {
-    max-width: var(--measure);
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2.5rem;
-  }
-  .tips-list li {
-    font-size: 17px;
-    color: var(--ink);
-    line-height: 1.78;
-    padding: 0.85rem 0 0.85rem 1.6rem;
-    position: relative;
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  .tips-list li:last-child { border-bottom: none; }
-  .tips-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 1.55rem;
-    width: 8px;
-    height: 1px;
-    background: var(--brass);
-  }
-  .tips-list li strong { color: var(--ink); font-weight: 700; }
-
-  /* ── USE-CASE BUCKETS ── */
-  .bucket {
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    background: transparent;
-    margin-bottom: 2.5rem;
-    overflow: hidden;
-  }
-  .bucket-head {
-    padding: 1.3rem 1.85rem;
-    background: var(--ivory-deep);
-    border-bottom: 1px solid var(--rule);
-  }
-  .bucket-head h3 {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: 0.3rem;
-    color: var(--ink);
-  }
-  .bucket-head p {
-    font-size: 15px;
-    line-height: 1.65;
-    margin: 0;
-    color: var(--ink-muted);
-  }
-  /* Rank is carried by the top rule: ink → brass → oxblood */
-  .bucket-safe { border-top: 3px solid var(--ink); }
-  .bucket-care { border-top: 3px solid var(--brass); }
-  .bucket-no   { border-top: 3px solid var(--oxblood); }
-  .bucket-no .bucket-head h3 { color: var(--oxblood); }
-
-  .bucket-body { padding: 1.75rem 1.85rem; }
-  .bucket-body > p { font-size: 16px; line-height: 1.78; color: var(--ink); margin-bottom: 1rem; }
-  .bucket-body > p:last-child { margin-bottom: 0; }
-
-  .uc { padding: 1.35rem 0; border-top: 1px solid var(--rule-soft); }
-  .uc:first-child { border-top: none; padding-top: 0; }
-  .uc h4 {
-    font-family: var(--display);
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    line-height: 1.45;
-  }
-  .uc p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin: 0; }
-  .uc p + p { margin-top: 0.6rem; }
-  .uc .why { font-size: 15px; color: var(--ink-muted); }
-  .uc .why strong { color: var(--ink); font-weight: 700; }
-  .uc-verified {
-    display: inline-block;
-    font-family: var(--body);
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-left: 0.55rem;
-    vertical-align: 2px;
-    white-space: nowrap;
-  }
-  .uc-verified::before { content: '\2014\00A0'; color: var(--brass); }
-
-  /* ── DRAFT / AWAITING-INPUT FLAG ── */
-  .draft-flag {
-    border: 1px dashed var(--oxblood);
-    border-radius: 2px;
-    background: var(--oxblood-wash);
-    padding: 1.5rem 1.75rem;
-    margin: 1.75rem 0;
-    max-width: var(--measure);
-  }
-  .draft-flag.wide { max-width: none; }
-  .draft-flag-label {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    padding: 0 0 0.4rem;
-    border-bottom: 1px solid var(--oxblood);
-    margin-bottom: 1rem;
-  }
-  .draft-flag h4 {
-    font-family: var(--display);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
-    line-height: 1.4;
-  }
-  .draft-flag p {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.75;
-    margin-bottom: 0.7rem;
-  }
-  .draft-flag p:last-child { margin-bottom: 0; }
-  .draft-flag strong { color: var(--oxblood); font-weight: 700; }
-
-  /* ── PROPOSAL NOTE ── */
-  .proposal-note {
-    font-size: 15px;
-    color: var(--ink-muted);
-    font-style: italic;
-    background: var(--ivory-deep);
-    border-left: 1px solid var(--brass);
-    padding: 0.9rem 1.2rem;
-    margin: 0 0 2rem;
-    line-height: 1.7;
-    max-width: 860px;
-  }
-  .proposal-note strong { font-style: normal; color: var(--ink); font-weight: 700; }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--rule);
-    margin: 3.5rem 0;
-  }
-
-  /* ── HERO FEATURE ── */
-  .hero-feature {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 3rem;
-    background: var(--ivory);
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero-feature-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 3.5rem;
-    align-items: start;
-  }
-  .hero-feature-kicker {
-    display: inline-block;
-    font-family: var(--body);
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    padding: 0 0 0.45rem;
-    border-bottom: 1px solid var(--oxblood);
-    margin-bottom: 1.4rem;
-  }
-  .hero-feature h2 {
-    font-family: var(--display);
-    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-    font-weight: 400;
-    line-height: 1.28;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .hero-feature h2 em { color: var(--oxblood); font-style: italic; }
-  .hero-feature-lede {
-    font-size: 17px;
-    line-height: 1.78;
-    color: var(--ink);
-    max-width: var(--measure);
-  }
-  .hero-feature-lede strong { color: var(--ink); font-weight: 700; }
-  .hero-feature-ctas { display: flex; flex-direction: column; gap: 0; }
-  .hero-feature-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    background: transparent;
-    border: none;
-    border-top: 1px solid var(--rule);
-    color: var(--ink);
-    text-decoration: none;
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 400;
-    transition: color 0.15s;
-  }
-  .hero-feature-cta:last-child { border-bottom: 1px solid var(--rule); }
-  .hero-feature-cta:hover { color: var(--oxblood); }
-  .hero-feature-cta .cta-label {
-    display: block;
-    font-family: var(--body);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 5px;
-  }
-  .hero-feature-cta .cta-arrow {
-    font-size: 18px;
-    color: var(--brass);
-    flex-shrink: 0;
-    transition: transform 0.15s;
-  }
-  .hero-feature-cta:hover .cta-arrow { transform: translateX(3px); }
-  .hero-feature-cta.primary { border-top-color: var(--oxblood); border-top-width: 2px; }
-
-  /* ── OVERVIEW MAP ── */
-  .overview-map {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 3rem 2.5rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
-  }
-  .overview-col {
-    cursor: pointer;
-    padding: 0;
-    border: none;
-    border-top: 1px solid var(--rule);
-    background: transparent;
-    transition: border-color 0.2s;
-  }
-  .overview-col:hover { border-top-color: var(--oxblood); }
-  .overview-col.featured { border-top: 2px solid var(--brass); }
-  .overview-col.active { border-top: 2px solid var(--oxblood); }
-  .overview-col h3 {
-    font-family: var(--display);
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin: 0.9rem 0 0.7rem;
-    line-height: 1.3;
-  }
-  .overview-col.active h3 { color: var(--oxblood); }
-  .overview-col ul { list-style: none; padding: 0; }
-  .overview-col ul li {
-    font-size: 14px;
-    color: var(--ink-muted);
-    padding: 0.2rem 0;
-    line-height: 1.5;
-  }
-  .overview-col ul li strong { color: var(--ink); font-weight: 600; }
-
-  /* ── PANEL LIST ── */
-  .panel-list { list-style: none; padding: 0; margin: 1.2rem 0 0; }
-  .panel-list li {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.6;
-    padding: 0.45rem 0;
-    border-top: 1px solid var(--rule);
-  }
-  .panel-list li strong { color: var(--ink); font-weight: 700; }
-  .panel-list li span { color: var(--ink-muted); }
-
-  /* ── CONTACT FOOTER ── */
-  .contact-footer {
-    background: transparent;
-    border-top: 1px solid var(--brass);
-    padding: 2rem 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 3.5rem;
-  }
-  .contact-footer p {
-    font-size: 16px;
-    color: var(--ink-muted);
-    max-width: 560px;
-    line-height: 1.7;
-  }
-  .contact-footer p strong { color: var(--ink); font-weight: 700; }
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: transparent;
-    color: var(--oxblood);
-    border: 1px solid var(--oxblood);
-    border-radius: 2px;
-    font-family: var(--body);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.18s, color 0.18s;
-  }
-  .contact-btn:hover { background: var(--oxblood); color: var(--ivory); }
-
-  /* ── SITE FOOTER ── */
-  .site-footer {
-    background: var(--ivory-deep);
-    border-top: 1px solid var(--rule);
-    color: var(--ink-muted);
-    text-align: center;
-    font-size: 13px;
-    padding: 2rem 1.5rem;
-    line-height: 1.7;
-  }
-  .site-footer strong { color: var(--ink); font-weight: 600; }
-  .site-footer a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
-  .site-footer a:hover { color: var(--oxblood); }
-
-  /* ── SUBHEAD (group headings inside a tab) ── */
-  .subhead {
-    font-family: var(--display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.35;
-    margin: 3rem 0 0.7rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--brass);
-    max-width: var(--measure);
-  }
-  .subhead-note {
-    font-size: 16px;
-    color: var(--ink-muted);
-    margin-bottom: 1.75rem;
-    max-width: var(--measure);
-    line-height: 1.72;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1000px) {
-    .overview-map { grid-template-columns: repeat(3, 1fr); }
-    .hero-feature { padding: 2.5rem 2rem; }
-    .hero-feature-grid { grid-template-columns: 1fr; gap: 2rem; }
-  }
-  @media (max-width: 720px) {
-    .overview-map { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.25rem; }
-    .card-grid { grid-template-columns: 1fr; }
-    .hero { padding: 2.5rem 1.5rem 2rem; }
-    .hero-feature { padding: 2rem 1.5rem; }
-    .site-header { padding: 0 1.5rem; }
-    .tab-nav { padding: 0 1.5rem; }
-    .tab-btn:first-child { padding-left: 0; }
-    .page-body { padding: 2.5rem 1.5rem 4rem; }
-    .contact-footer { flex-direction: column; align-items: flex-start; }
-    .lab-stripe { padding: 0.6rem 1.25rem; }
-    .lab-stripe-link { gap: 0.9rem; }
-    .lab-stripe-text { font-size: 13px; }
-    .draft-banner { padding: 0.8rem 1.25rem; text-align: left; }
-    .draft-banner strong { margin-bottom: 0.4rem; }
-    .bucket-head, .bucket-body { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .objection { padding-left: 1.25rem; }
-    .header-search .label { display: none; }
-    .header-search kbd { display: none; }
-    /* The top stripe already carries the Project attribution at this width. */
-    .header-badge { display: none; }
-    .search-overlay { padding: 5vh 0.75rem 0.75rem; }
-    .search-modal { max-height: 90vh; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  /* ── PRINT ──
-     This audience prints. Without these rules the tab interface takes the page
-     with it: .tab-pane is display:none, so a printed copy carries only whichever
-     tab happened to be open — about 960 of 6,500 words — and nothing on the page
-     tells the reader the other four sections exist. Print every pane, and give
-     each one the heading its tab button was carrying on screen. */
-  /* ── ADOPTION FIGURE (How the Profession Is Adapting) ── */
-  .adopt-figure { margin: 2rem 0 2.5rem; }
-  .adopt-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 2px solid var(--oxblood);
-    border-bottom: 1px solid var(--rule);
-  }
-  .adopt-cell {
-    padding: 1.5rem 1.5rem 1.4rem 0;
-    border-right: 1px solid var(--rule);
-    display: flex;
-    flex-direction: column;
-  }
-  .adopt-cell:last-child { border-right: none; }
-  .adopt-cell:not(:first-child) { padding-left: 1.5rem; }
-  .adopt-num {
-    font-family: var(--display);
-    font-size: clamp(2.2rem, 5vw, 3.1rem);
-    line-height: 1;
-    color: var(--oxblood);
-    font-weight: 400;
-    font-variant-numeric: lining-nums tabular-nums;
-  }
-  .adopt-what { margin: 0.7rem 0 auto; font-size: 0.97rem; line-height: 1.45; color: var(--ink); }
-  .adopt-src {
-    margin: 0.9rem 0 0;
-    padding-top: 0.55rem;
-    font-size: 0.74rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-  .adopt-note {
-    margin: 1rem 0 0;
-    font-size: 0.83rem;
-    line-height: 1.55;
-    color: var(--ink-muted);
-    max-width: 62ch;
-  }
-  @media (max-width: 720px) {
-    .adopt-row { grid-template-columns: 1fr; }
-    .adopt-cell { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.2rem 0; }
-    .adopt-cell:last-child { border-bottom: none; }
-    .adopt-cell:not(:first-child) { padding-left: 0; }
-  }
-
-  @media print {
-    /* Ink economy: the ivory ground and oxblood display type are screen choices. */
-    :root { --ivory: #fff; --ivory-deep: #fff; --oxblood-wash: #fff; }
-    html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; }
-
-    /* Interactive chrome has no meaning on paper. */
-    .skip-link,
-    .tab-nav-wrap, .tab-nav,
-    .header-search, .search-overlay, .search-modal,
-    .lab-stripe-cta, .cta-arrow, .hero-feature-cta { display: none !important; }
-
-    /* Sticky positioning has no paginated equivalent — it overlaps content
-       instead of following it. Pin the header to the top of page one. */
-    .site-header { position: static !important; z-index: auto !important; }
-
-    /* The early-release banner STAYS. A printed copy that does not say it is an
-       unreviewed early release is the single most dangerous artifact this site
-       could produce. */
-    .draft-banner {
-      border: 1.5pt solid #000 !important;
-      background: #fff !important;
-      padding: 8pt 10pt !important;
-      page-break-inside: avoid; break-inside: avoid;
-    }
-
-    /* Every pane prints, each starting a fresh page under its tab's name. */
-    .tab-pane { display: block !important; }
-    .tab-pane + .tab-pane { page-break-before: always; break-before: page; }
-    .tab-pane::before {
-      content: attr(data-print-title);
-      display: block;
-      font-family: var(--display);
-      font-size: 20pt;
-      letter-spacing: 0.02em;
-      border-bottom: 1pt solid #000;
-      padding-bottom: 6pt;
-      margin-bottom: 18pt;
-    }
-
-    /* The overview map is already a contents page — let it act as one. */
-    .overview-map { page-break-after: always; break-after: page; }
-    .overview-col { border-color: #000 !important; }
-
-    /* Keep units of argument intact across page breaks. */
-    .uc, .card, .callout, .callout-gold, .bucket, .objection, .draft-flag,
-    .prose-section, blockquote {
-      page-break-inside: avoid; break-inside: avoid;
-    }
-    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    p { orphans: 3; widows: 3; }
-
-    /* A printed link is useless without its destination — but only expand real
-       external ones. In-page anchors would just print as noise. */
-    .page-body a[href^="http"]::after {
-      content: " <" attr(href) ">";
-      font-size: 8.5pt;
-      word-break: break-all;
-    }
-
-    a { color: #000 !important; text-decoration: underline; }
-    .site-footer { border-top: 1pt solid #000; font-size: 8.5pt; }
-
-    @page { margin: 0.75in; }
-  }
-</style>
+<link rel="stylesheet" href="assets/portal.css">
 </head>
 <body>
 
 <!-- Skip link for keyboard navigation (WCAG 2.4.1 Bypass Blocks) -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- EARLY-RELEASE BANNER — remove at full launch -->
-<div class="draft-banner" role="note">
-  <strong>Early release</strong>
-  <span>Written for the AI plenary at the 2026 Judicial Conference of the Sixth Circuit and shared with the judges there ahead of a wider release. Sections are still being filled in, and nothing here has been reviewed or approved by any court, the Judicial Conference, or the Administrative Office. Comments to <a href="mailto:pwagner@law.upenn.edu">R. Polk Wagner</a>.</span>
-</div>
-
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">Prepared with the AI panel of the 2026 Judicial Conference of the Sixth Circuit. Built and maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-text">A practical resource for federal judges and chambers staff, maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
     <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
@@ -1163,9 +51,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <h1>AI in <em>Chambers</em></h1>
-    <p class="hero-sub">A working guide for federal judges and chambers staff. What these tools are, what they are safe for today, what they are not, and how to find out for yourself without putting anything at risk.</p>
-    <div class="hero-meta">Early release &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Prepared for the AI plenary, 2026 Judicial Conference of the Sixth Circuit</div>
+    <h1>Judicial AI <em>Field Guide</em></h1>
+    <p class="hero-sub">Evaluate a task, identify the risks, and preserve human judgment.</p>
   </div>
 </section>
 
@@ -1174,16 +61,16 @@
   <div class="hero-feature-grid">
     <div class="hero-feature-text">
       <span class="hero-feature-kicker">The core idea</span>
-      <h2 id="hero-feature-heading">They don&rsquo;t retrieve. They <em>process</em>.</h2>
-      <p class="hero-feature-lede">Westlaw and Lexis find documents that already exist. That is retrieval, and you have learned to trust it. A large language model looks nothing up. It <strong>writes the most plausible next words</strong>, which is a fundamentally different operation. Grasp that one difference and the rest follows: why these tools make things up, why they carry bias, why neither is a defect awaiting a patch, and what the tools are actually safe for.</p>
+      <h2 id="hero-feature-heading">Search retrieves. An AI model <em>generates</em>.</h2>
+      <p class="hero-feature-lede">Many legal AI products combine retrieval and generation: the product retrieves authority or documents, then an AI model generates a response. That source boundary matters, but generated prose remains fallible. The practical questions are what the system received, what it may invent or omit, and how a human will verify the result.</p>
     </div>
     <div class="hero-feature-ctas">
-      <a class="hero-feature-cta primary" href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">
-        <span><span class="cta-label">Start here</span>Where being wrong costs nothing</span>
+      <a class="hero-feature-cta primary" href="#use-cases" onclick="activateTab('use-cases'); scrollToTabs(); return false;">
+        <span><span class="cta-label">The field guide</span>Evaluate a task</span>
         <span class="cta-arrow">&rarr;</span>
       </a>
-      <a class="hero-feature-cta" href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">
-        <span><span class="cta-label">Go deeper</span>How these tools work</span>
+      <a class="hero-feature-cta" href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">
+        <span><span class="cta-label">Chambers practice</span>Set guardrails</span>
         <span class="cta-arrow">&rarr;</span>
       </a>
     </div>
@@ -1204,7 +91,7 @@
   <div class="overview-col" data-nav="how-it-works">
     <h3>How These Tools Work</h3>
     <ul>
-      <li><strong>Retrieval vs. processing</strong></li>
+      <li><strong>Search vs. generation</strong></li>
       <li><strong>Why they make things up</strong></li>
       <li><strong>Why bias is built in</strong></li>
       <li><strong>What this predicts</strong></li>
@@ -1213,7 +100,7 @@
   <div class="overview-col featured" data-nav="use-cases">
     <h3>Use Cases</h3>
     <ul>
-      <li><strong>Safe and effective today</strong></li>
+      <li><strong>Lower risk if authorized</strong></li>
       <li><strong>Promising, with care</strong></li>
       <li><strong>Not worth the risk</strong></li>
       <li><strong>A three-question test</strong></li>
@@ -1238,7 +125,7 @@
     </ul>
   </div>
   <div class="overview-col" data-nav="adapting">
-    <h3>How the Profession Is Adapting</h3>
+    <h3>What Courts See</h3>
     <ul>
       <li><strong>Use is ahead of policy</strong></li>
       <li><strong>What reaches your docket</strong></li>
@@ -1256,7 +143,8 @@
     <button class="tab-btn tab-btn-featured" data-tab="use-cases" role="tab" id="tab-btn-use-cases" aria-selected="false" aria-controls="use-cases" tabindex="-1">Use Cases</button>
     <button class="tab-btn" data-tab="guardrails" role="tab" id="tab-btn-guardrails" aria-selected="false" aria-controls="guardrails" tabindex="-1">Guardrails</button>
     <button class="tab-btn" data-tab="tools" role="tab" id="tab-btn-tools" aria-selected="false" aria-controls="tools" tabindex="-1">Tools</button>
-    <button class="tab-btn" data-tab="adapting" role="tab" id="tab-btn-adapting" aria-selected="false" aria-controls="adapting" tabindex="-1">How the Profession Is Adapting</button>
+    <button class="tab-btn" data-tab="adapting" role="tab" id="tab-btn-adapting" aria-selected="false" aria-controls="adapting" tabindex="-1">What Courts See</button>
+    <button class="tab-btn" data-tab="sources" role="tab" id="tab-btn-sources" aria-selected="false" aria-controls="sources" tabindex="-1">Sources</button>
   </nav>
 </div>
 
@@ -1272,7 +160,7 @@
 
     <div class="callout">
       <h3>The one-paragraph version</h3>
-      <p>AI tools are not better search engines. They do not look things up. They generate plausible text, which is why they invent citations and why they carry the biases of what they were trained on. Neither problem is getting patched. Once you accept that, the useful question stops being <strong>&ldquo;when will they fix it?&rdquo;</strong> and becomes <strong>&ldquo;what is this actually safe for?&rdquo;</strong> The short answer today: safe when the source material is in front of the model and you check the output. Not safe when you are asking the model to supply the law, the facts, or the judgment from its own memory.</p>
+      <p>Search retrieves stored material. An AI model generates a response from learned patterns. Many legal products combine the two: the product retrieves authority, then an AI model generates an answer from it. A bounded source lowers risk, but generated prose still requires verification. The useful question is not whether the tool is generally safe. It is whether this task is authorized, source-grounded, checkable, and free of delegated judgment.</p>
     </div>
 
     <div class="divider"></div>
@@ -1383,17 +271,12 @@
       <p>Reported figures are reported, not measured. When a chambers says a technique saves roughly an hour a page, that is their estimate of their own work, and it is presented as such.</p>
     </div>
 
-    <div class="draft-flag wide">
-      <span class="draft-flag-label">Still to come</span>
-      <h4>This catalogue will grow</h4>
-      <p>Hon. Maritza Dominguez Braswell is assembling a further running list of judicial use cases. It is not yet in hand, and this tab will be expanded when it lands.</p>
-      <p><strong>Panel:</strong> the ask stands. What did you try, what did you give the model, what came back, and did you keep it? The failures are as useful as the successes. Send to <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
-    </div>
+
 
     <!-- ── BUCKET 1: SAFE ── -->
     <div class="bucket bucket-safe">
       <div class="bucket-head">
-        <h3>Safe and effective today</h3>
+        <h3>Lower risk if authorized</h3>
         <p>The source material is in front of the model. The output is checkable. A human checks it.</p>
       </div>
       <div class="bucket-body">
@@ -1479,7 +362,7 @@
         <div class="uc">
           <h4>Brainstorm analogous legal problems<span class="uc-verified">Observed</span></h4>
           <p>Ask for many options, then prune. One chambers reports surfacing analogies they had not considered.</p>
-          <p class="why"><strong>Why this is safe despite drawing on the model's memory:</strong> you are asking for candidates, not authority. Nothing it offers goes anywhere until you have checked it yourself. The model is generating leads, and you are the one deciding whether any of them is real.</p>
+          <p class="why"><strong>Why this is lower risk despite drawing on the model's memory:</strong> you are asking for candidates, not authority. Nothing it offers goes anywhere until you have checked it yourself. The model is generating leads, and you are the one deciding whether any of them is real.</p>
         </div>
 
       </div>
@@ -1564,8 +447,8 @@
         <div class="callout">
           <h3>Asking a long trial transcript what it contains</h3>
           <p>One chambers uploaded a long trial transcript and asked whether something appeared in the record. The model <strong>fabricated quotations and invented witness names.</strong> Summarizing first, which fixes so much else, did not fix this.</p>
-          <p><strong>Sit with why this one surprises people.</strong> The transcript <em>was</em> in front of the model. By the test this site has been giving you, that should have made it safe. It did not, and the reason is worth knowing: the document exceeded what the model can actually hold and attend to at once, so it filled the gaps the only way it knows how, by generating.</p>
-          <p><strong>The lesson, and it is a hard one: "I uploaded it" is not the same as "the model read it."</strong> Attaching a document is not a guarantee that the whole document is in play. On a very long record, the safe-mode assumption quietly stops holding, and nothing in the interface tells you it has stopped.</p>
+          <p><strong>Sit with why this one surprises people.</strong> The transcript <em>was</em> in front of the model. By the test this site has been giving you, that should have lowered the risk. It did not, and the reason is worth knowing: the document exceeded what the model can actually hold and attend to at once, so it filled the gaps the only way it knows how, by generating.</p>
+          <p><strong>The lesson, and it is a hard one: "I uploaded it" is not the same as "the model read it."</strong> Attaching a document is not a guarantee that the whole document is in play. On a very long record, the source-grounded assumption quietly stops holding, and nothing in the interface tells you it has stopped.</p>
         </div>
 
         <div class="uc">
@@ -1618,6 +501,21 @@
         <p>Feed in the day's briefs, listen to the summary on the way to the courthouse. Possibly the highest-upside idea in the record, and easy to see why it appeals.</p>
         <p><strong>Provenance, stated plainly:</strong> this is <strong>second-hand</strong>. It reached the record as "another judge told me," and no chambers in the testbed reported doing it. Treat it as a rumor of a good idea, which is what it is.</p>
       </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory</span>
+        <h3>A subject-matter primer before an expert hearing</h3>
+        <p>Use the output to identify vocabulary and questions, then verify every substantive claim against authoritative sources.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory</span>
+        <h3>Public procedural guidance</h3>
+        <p>Potentially useful for authorized, public-facing self-help material. It should not become case-specific assistance or an ex parte channel.</p>
+      </div>
+      <div class="card">
+        <span class="resource-tag">Judge Dominguez Braswell's inventory · high sensitivity</span>
+        <h3>Settlement-conference preparation</h3>
+        <p>Consider only with specific authorization, secure tooling, careful treatment of confidential information, independent review, and appropriate party consent.</p>
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -1649,7 +547,7 @@
   <section class="tab-pane" id="guardrails" data-print-title="Guardrails" role="tabpanel" aria-labelledby="tab-btn-guardrails" tabindex="0">
 
     <p class="section-label">Guardrails</p>
-    <h2 class="section-title">The rules that make the rest of it <em>safe</em></h2>
+    <h2 class="section-title">The rules that make lower-risk use <em>possible</em></h2>
     <p class="section-intro">Four of these are settled and you can act on them today. One is genuinely open, and this portal is not going to pretend otherwise.</p>
 
     <div class="prose-section">
@@ -1661,7 +559,7 @@
         <li><strong>Asking the model to check its own work is not verification.</strong> It produces more plausible text, generated the same way as the text you were checking. Verification means opening the case.</li>
         <li><strong>Fluency is not accuracy.</strong> The strongest correlate of an unverified error making it into a final document is that the draft reads well. Good prose lowers your guard. Budget for that.</li>
       </ul>
-      <p>The practical rule: if a document carries your name, you have read every source it cites. If that is impractical for a given task, the task is not one of the safe ones.</p>
+      <p>The practical rule: if a document carries your name, you have read every source it cites. If that is impractical for a given task, the task is not one of the lower-risk tasks.</p>
 
       <h3>2. Some things are never delegated</h3>
       <p>Not to a model, not with verification, not as a first pass:</p>
@@ -1686,7 +584,7 @@
       <p>This is where the private-device advice on the <a href="#start" onclick="activateTab('start'); scrollToTabs(); return false;">Start Here</a> tab does double duty. Keeping your experimentation on personal, non-court matters keeps you clear of this entire category while you are learning.</p>
 
       <h3>4. Authorization comes before everything</h3>
-      <p>The Administrative Office has interim guidance in effect governing AI use in the courts, and the list of tools authorized for court work is limited. Before any AI tool touches court work, confirm what your court and the AO permit. Nothing on this portal is authorization, and nothing on it is a representation about what the AO's guidance says. Read the guidance, and ask your court's IT staff.</p>
+      <p>A public October 21, 2025 letter from AO Director Robert J. Conrad Jr. describes interim guidance distributed Judiciary-wide on July 31, 2025. It addresses accountability, confidentiality, security, education, independent verification, core judicial functions, and possible disclosure. Before any AI tool touches court work, confirm what your court and the AO permit.</p>
       <p>This is also why the honest advice today is that most judges' learning happens on a private device on non-professional matters. That is not a workaround. It is what the current rules leave available, and it is genuinely the right place to learn anyway.</p>
 
       <h3>5. Chambers practice, which is the exposure nobody plans for</h3>
@@ -1695,11 +593,23 @@
 
     </div>
 
-    <div class="draft-flag">
-      <span class="draft-flag-label">Open question &mdash; panel input needed</span>
+    <div class="callout">
+      <span class="section-label">Open question</span>
       <h4>Disclosure</h4>
       <p>Whether, when, and how a court should disclose that AI assisted in preparing a document is unsettled. Courts are reaching different answers, and this portal is not going to invent a consensus that does not exist.</p>
-      <p><strong>Panel:</strong> this is worth discussing on the record in Traverse City. If we have a view, it belongs here. If we do not, saying so plainly is more useful to judges than a hedge.</p>
+    </div>
+
+    <div class="assessment" id="chambers-assessment">
+      <div class="assessment-head"><div><p class="section-label">Beyond the standing order</p><h3>A chambers self-assessment</h3></div><button type="button" data-print-assessment>Print assessment</button></div>
+      <ol class="assessment-list">
+        <li><label><input type="checkbox"> We have identified how AI is appearing in filings, evidence, discovery, and proposed orders.</label></li>
+        <li><label><input type="checkbox"> The judge knows which AI tools clerks, interns, and staff use.</label></li>
+        <li><label><input type="checkbox"> Our written rule addresses permitted tasks, prohibited material, internal disclosure, and verification.</label></li>
+        <li><label><input type="checkbox"> The team can recognize hallucinations, false quotations, prompt injection, synthetic evidence, automation bias, and confidentiality leakage.</label></li>
+        <li><label><input type="checkbox"> Our workflow identifies the points at which AI output must not supply or anchor judgment.</label></li>
+        <li><label><input type="checkbox"> We know which authority and policy govern disclosure for a particular use.</label></li>
+      </ol>
+      <p class="why"><strong>Use it as a conversation guide.</strong> Answers remain on this device and are not saved.</p>
     </div>
 
     <div class="callout">
@@ -1762,7 +672,7 @@
     </div>
 
     <h3 class="subhead">Legal research tools with AI layers</h3>
-    <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not the same as safe. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
+    <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not risk-free. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
 
     <div class="card-grid">
 
@@ -1794,7 +704,7 @@
     <h2 class="section-title">What actually distinguishes these tools</h2>
 
     <ul class="tips-list">
-      <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the safe mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
+      <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the source-grounded mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
       <li><strong>How much it can hold at once.</strong> Tools differ enormously in how long an input they can take. If you want to work with a 400-page record, this is the specification that decides whether you can.</li>
       <li><strong>The data terms.</strong> Whether your inputs are used for training, how long they are retained, and who can see them. This varies by vendor and by tier, and consumer tiers are typically the worst. Read the terms for the specific plan you are on, not the vendor's marketing page.</li>
       <li><strong>Whether it can search the web.</strong> Useful for current information, and a second path by which unverified material enters your work. Know which mode you are in.</li>
@@ -1811,7 +721,7 @@
   </section>
 
   <!-- ═══ TAB 6: HOW THE PROFESSION IS ADAPTING ═══ -->
-  <section class="tab-pane" id="adapting" data-print-title="How the Profession Is Adapting" role="tabpanel" aria-labelledby="tab-btn-adapting" tabindex="0">
+  <section class="tab-pane" id="adapting" data-print-title="What Courts See" role="tabpanel" aria-labelledby="tab-btn-adapting" tabindex="0">
 
     <p class="section-label">The bar</p>
     <h2 class="section-title">The bar is ahead of its own <em>policies</em></h2>
@@ -1875,22 +785,22 @@
 
   </section>
 
-  <!-- PANEL / ABOUT (always visible) -->
+  <section class="tab-pane source-library" id="sources" data-print-title="Sources and Guidance" role="tabpanel" aria-labelledby="tab-btn-sources" tabindex="0">
+    <p class="section-label">Evidence and limitations</p>
+    <h2 class="section-title">Sources and current guidance</h2>
+    <p class="section-intro">Each note states what the source supports and where its limits lie.</p>
+
+    <article data-source="sedona-federal-survey" data-source-type="survey" data-reviewed="2026-08-28"><h3>Artificial Intelligence in Federal Courts</h3><p>Supports reported use, attitudes, tasks, and chambers policies among responding federal judges.</p><p data-field="limitation"><strong>Limitation:</strong> 112 of 502 sampled judges responded, a 22.3% response rate. Item totals vary, and only six appellate judges responded.</p><a href="https://www.thesedonaconference.org/sites/default/files/publications/Artificial_Intelligence_in_Federal_Courts_preprint_0.pdf" target="_blank" rel="noopener">Read the preprint</a></article>
+    <article data-source="ao-conrad-letter" data-source-type="official-letter" data-reviewed="2026-08-28"><h3>AO Director letter, October 21, 2025</h3><p>Publicly describes interim guidance distributed July 31, 2025.</p><p data-field="limitation"><strong>Limitation:</strong> The letter summarizes the guidance; it is not the full guidance and does not establish a February 2026 update.</p><a href="https://www.grassley.senate.gov/imo/media/doc/ao_to_grassley_re_judiciary_use_of_ai.pdf" target="_blank" rel="noopener">Read the letter</a></article>
+    <article data-source="shah-levy-pro-se" data-source-type="working-paper" data-reviewed="2026-08-28"><h3>Access to Justice in the Age of AI</h3><p>Documents federal pro se filing and docket trends during the generative-AI period.</p><p data-field="limitation"><strong>Limitation:</strong> This is a working paper. It reports an association, not proof that AI caused the increase.</p><a href="https://avshah1.github.io/assets/pdf/papers/pro-se/Pro_Se_Automation.pdf" target="_blank" rel="noopener">Read the paper</a></article>
+    <article data-source="charlotin-tracker" data-source-type="live-tracker" data-reviewed="2026-08-28"><h3>AI Hallucination Cases Database</h3><p>Collects judicial matters involving alleged, implied, or found AI-related fabrication and misrepresentation.</p><p data-field="limitation"><strong>Limitation:</strong> It changes continually, uses inclusion judgments, and does not measure incidence across all filings.</p><a href="https://www.damiencharlotin.com/hallucinations/" target="_blank" rel="noopener">Open the tracker</a></article>
+    <article data-source="sedona-guidelines" data-source-type="guidance" data-reviewed="2026-08-28"><h3>Navigating AI in the Judiciary</h3><p>Provides public judicial use cases and guidance on verification, confidentiality, bias, and responsibility.</p><p data-field="limitation"><strong>Limitation:</strong> Professional guidance is not binding federal policy or product authorization.</p><a href="https://www.thesedonaconference.org/node/10896" target="_blank" rel="noopener">Read the guidelines</a></article>
+    <article data-source="tr-professional-services-2026" data-source-type="industry-survey" data-reviewed="2026-08-28"><h3>2026 AI in Professional Services Report</h3><p>Provides cross-sector adoption and use-case context.</p><p data-field="limitation"><strong>Limitation:</strong> Toplines combine legal, tax, accounting, risk, fraud, and government respondents; they are not lawyer-only statistics.</p><a href="https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/reports/2026-ai-in-professional-services-report.pdf" target="_blank" rel="noopener">Read the report</a></article>
+  </section>
+
   <div class="callout" style="margin-top:3rem; margin-bottom:0;">
     <h3>About this portal</h3>
-    <p>This is a working draft prepared for the AI plenary of the <strong>2026 Judicial Conference of the Sixth Circuit</strong>, Traverse City, Thursday, August 27. It is a joint project of the panel, and it exists to be argued with. The plan is to build it into a resource judges actually use, which means the use cases have to come from judges.</p>
-    <ul class="panel-list">
-      <li><strong>Hon. John B. Nalbandian</strong> <span>&middot; United States Court of Appeals for the Sixth Circuit &middot; moderator</span></li>
-      <li><strong>Hon. Robert Jonker</strong> <span>&middot; United States District Court, Western District of Michigan &middot; organizer</span></li>
-      <li><strong>Hon. Maritza Dominguez Braswell</strong> <span>&middot; United States District Court, District of Colorado &middot; panelist</span></li>
-      <li><strong>R. Polk Wagner</strong> <span>&middot; University of Pennsylvania Carey Law School &middot; panelist</span></li>
-    </ul>
-  </div>
-
-  <!-- CONTACT FOOTER (always visible) -->
-  <div class="contact-footer">
-    <p><strong>This draft needs your corrections.</strong> Gaps are marked as gaps rather than filled with plausible fiction, which means the fastest way to improve it is to tell us what is wrong and to send real use cases.</p>
-    <a class="contact-btn" href="mailto:pwagner@law.upenn.edu">Send comments to Polk Wagner &rarr;</a>
+    <p>Maintained by R. Polk Wagner with support from the Penn Carey Law AI Project. It does not speak for any court, the Judicial Conference, or the Administrative Office of the U.S. Courts.</p>
   </div>
 
 </main>
@@ -1904,7 +814,7 @@
       <input type="text" class="search-input" id="search-input" placeholder="Search the portal&hellip;" autocomplete="off" spellcheck="false" />
     </div>
     <div class="search-results" id="search-results">
-      <div class="search-empty">Type to search across all six tabs.</div>
+      <div class="search-empty">Type to search across all seven sections.</div>
     </div>
     <div class="search-footer-bar">
       <span><kbd>&#8593;&#8595;</kbd>navigate</span>
@@ -1916,225 +826,9 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  Early release &middot; &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 2026
+  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 28, 2026
 </footer>
 
-<script>
-  const tabs = document.querySelectorAll('.tab-btn');
-  const panes = document.querySelectorAll('.tab-pane');
-  const paneIds = new Set([...panes].map(p => p.id));
-
-  function activateTab(target) {
-    const pane = document.getElementById(target);
-    if (!pane || !pane.classList.contains('tab-pane')) return;
-    tabs.forEach(t => {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-      t.setAttribute('tabindex', '-1');
-    });
-    panes.forEach(p => p.classList.remove('active'));
-    const btn = document.querySelector(`.tab-btn[data-tab="${target}"]`);
-    if (btn) {
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      btn.setAttribute('tabindex', '0');
-    }
-    pane.classList.add('active');
-    document.querySelectorAll('.overview-col').forEach(c => c.classList.toggle('active', c.dataset.nav === target));
-  }
-
-  function scrollToTabs() {
-    window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 56, behavior: 'smooth' });
-  }
-
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activateTab(btn.dataset.tab);
-      scrollToTabs();
-    });
-  });
-
-  function activateFromHash() {
-    const target = location.hash.slice(1);
-    if (paneIds.has(target)) activateTab(target);
-  }
-  activateFromHash();
-  window.addEventListener('hashchange', activateFromHash);
-
-  document.querySelectorAll('.overview-col').forEach(col => {
-    col.addEventListener('click', () => {
-      activateTab(col.dataset.nav);
-      scrollToTabs();
-    });
-  });
-
-  // ── SITE SEARCH ──
-  const searchBtn = document.querySelector('.header-search');
-  const searchOverlay = document.getElementById('search-overlay');
-  const searchInput = document.getElementById('search-input');
-  const searchResults = document.getElementById('search-results');
-  const tabNames = {
-    'start': 'Start Here',
-    'how-it-works': 'How These Tools Work',
-    'use-cases': 'Use Cases',
-    'guardrails': 'Guardrails',
-    'tools': 'Tools',
-    'adapting': 'How the Profession Is Adapting'
-  };
-  let currentResults = [];
-  let focusedIdx = -1;
-
-  function escapeHtml(s) {
-    return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
-  }
-  function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-
-  function openSearch() {
-    searchOverlay.classList.add('active');
-    searchOverlay.removeAttribute('inert');
-    searchOverlay.setAttribute('aria-hidden', 'false');
-    setTimeout(() => searchInput.focus(), 50);
-  }
-  function closeSearch() {
-    searchOverlay.classList.remove('active');
-    if (searchBtn) searchBtn.focus();
-    searchOverlay.setAttribute('inert', '');
-    searchOverlay.setAttribute('aria-hidden', 'true');
-    searchInput.value = '';
-    searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
-    currentResults = [];
-    focusedIdx = -1;
-  }
-
-  function performSearch(query) {
-    query = query.trim();
-    if (!query) {
-      searchResults.innerHTML = '<div class="search-empty">Type to search across all six tabs.</div>';
-      currentResults = [];
-      focusedIdx = -1;
-      return;
-    }
-    const lc = query.toLowerCase();
-    const re = new RegExp(escapeRegex(query), 'gi');
-    const matches = [];
-    const seen = new Set();
-
-    document.querySelectorAll('.tab-pane').forEach(tab => {
-      const tabId = tab.id;
-      const tabName = tabNames[tabId] || tabId;
-      tab.querySelectorAll('h2, h3, h4, p, li').forEach(el => {
-        if (el.closest('.search-overlay')) return;
-        const text = el.textContent.replace(/\s+/g, ' ').trim();
-        if (!text || !text.toLowerCase().includes(lc)) return;
-        if (seen.has(el)) return;
-        seen.add(el);
-
-        // Find a section title (nearest heading above, or this element if it's a heading).
-        // Climb ancestors too, so items nested in a <ul>/<div> still resolve to their heading.
-        let section = '';
-        if (el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4') {
-          section = text;
-        } else {
-          let node = el;
-          while (node && node !== tab && !section) {
-            let prev = node;
-            while ((prev = prev.previousElementSibling)) {
-              if (prev.tagName === 'H2' || prev.tagName === 'H3' || prev.tagName === 'H4') { section = prev.textContent.trim(); break; }
-            }
-            node = node.parentElement;
-          }
-          if (!section) {
-            const h2 = tab.querySelector('h2.section-title');
-            if (h2) section = h2.textContent.trim();
-          }
-        }
-
-        // Build snippet around the match
-        const idx = text.toLowerCase().indexOf(lc);
-        const start = Math.max(0, idx - 45);
-        const end = Math.min(text.length, idx + query.length + 75);
-        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-        snippet = escapeHtml(snippet).replace(re, m => `<mark>${m}</mark>`);
-
-        matches.push({ tabId, tabName, section, element: el, snippet });
-      });
-    });
-
-    const capped = matches.slice(0, 30);
-    currentResults = capped;
-    focusedIdx = capped.length > 0 ? 0 : -1;
-
-    if (capped.length === 0) {
-      searchResults.innerHTML = '<div class="search-no-results">No results for &ldquo;' + escapeHtml(query) + '&rdquo;.</div>';
-      return;
-    }
-
-    searchResults.innerHTML = capped.map((m, i) => `
-      <a class="search-result${i === 0 ? ' focused' : ''}" data-idx="${i}" href="#">
-        <div class="search-result-tab">${escapeHtml(m.tabName)}</div>
-        <div class="search-result-title">${escapeHtml(m.section || 'Match')}</div>
-        <div class="search-result-snippet">${m.snippet}</div>
-      </a>
-    `).join('');
-  }
-
-  function jumpToResult(result) {
-    closeSearch();
-    activateTab(result.tabId);
-    setTimeout(() => {
-      result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      const orig = result.element.style.transition;
-      result.element.style.transition = 'background-color 0.6s';
-      const origBg = result.element.style.backgroundColor;
-      result.element.style.backgroundColor = '#EFE7D3';
-      setTimeout(() => {
-        result.element.style.backgroundColor = origBg;
-        setTimeout(() => { result.element.style.transition = orig; }, 700);
-      }, 1200);
-    }, 120);
-  }
-
-  function updateFocused() {
-    searchResults.querySelectorAll('.search-result').forEach((el, i) => {
-      el.classList.toggle('focused', i === focusedIdx);
-      if (i === focusedIdx) el.scrollIntoView({ block: 'nearest' });
-    });
-  }
-
-  if (searchBtn) searchBtn.addEventListener('click', openSearch);
-  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
-  searchInput.addEventListener('input', e => performSearch(e.target.value));
-  searchResults.addEventListener('click', e => {
-    const result = e.target.closest('.search-result');
-    if (result) {
-      e.preventDefault();
-      const idx = parseInt(result.dataset.idx, 10);
-      if (currentResults[idx]) jumpToResult(currentResults[idx]);
-    }
-  });
-
-  document.addEventListener('keydown', e => {
-    const isOpen = searchOverlay.classList.contains('active');
-    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
-      e.preventDefault();
-      isOpen ? closeSearch() : openSearch();
-      return;
-    }
-    if (!isOpen) return;
-    if (e.key === 'Escape') { closeSearch(); }
-    else if (e.key === 'ArrowDown' && currentResults.length) {
-      e.preventDefault();
-      focusedIdx = (focusedIdx + 1) % currentResults.length;
-      updateFocused();
-    } else if (e.key === 'ArrowUp' && currentResults.length) {
-      e.preventDefault();
-      focusedIdx = (focusedIdx - 1 + currentResults.length) % currentResults.length;
-      updateFocused();
-    } else if (e.key === 'Enter' && focusedIdx >= 0) {
-      e.preventDefault();
-      jumpToResult(currentResults[focusedIdx]);
-    }
-  });
-</script>
+<script type="module" src="assets/portal.js"></script>
 </body>
 </html>
