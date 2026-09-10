@@ -8,6 +8,9 @@ A plain-language AI resource for **federal judges and their chambers**, built fo
 at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City). A project of
 the Penn Carey Law AI Project.
 
+**Status: launched.** Live and indexable at `judges.pennai.law` since Aug 28, 2026. The
+`noindex` meta and the early-release banner are gone; don't reintroduce either.
+
 ## Audience — write for them, not at them
 
 Article III district and circuit judges, magistrate judges, chambers staff. They span "I
@@ -117,5 +120,5 @@ Done: the repo is public, Pages is enabled from `main` root, and the DNS CNAME
 ## Conventions
 
 - Branch + PR for substantive changes; keep `main` deployable.
-- The repo is **public** (or will be) — no chambers material, no judicial correspondence, no
+- The repo is **public** — no chambers material, no judicial correspondence, no
   credentials. That lives in Box: `AI Teaching Lab/Judiciary/sixth-circuit-2026/`.
