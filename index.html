@@ -243,7 +243,7 @@
     </div>
 
     <ul class="tips-list">
-      <li><strong>Pay for it.</strong> Free tiers run weaker models with worse data terms. If you evaluate capability on a free tier, you will form a view of these tools that is a year or two out of date. Roughly twenty dollars a month buys the current models.</li>
+      <li><strong>Pay for it.</strong> Free tiers run weaker models. If you evaluate capability on a free tier, you will form a view of these tools that is a year or two out of date. Roughly twenty dollars a month buys the current models. It does not by itself buy better data terms. Those are a separate check, described under <a href="#data-terms">Tools</a>.</li>
       <li><strong>Start with something you know cold.</strong> Give it a long document you have already read closely, and ask for a summary. You will see instantly where it is genuinely good and exactly where it slides. This single exercise is worth more than any explainer, including this one.</li>
       <li><strong>Then give it something you know nothing about.</strong> Ask it to explain a technical subject you have never studied. Notice how confident it sounds. That confidence reads identically whether the answer is right or wrong, which is the most important thing to learn about these tools.</li>
       <li><strong>Argue with it.</strong> Push back on an answer. Tell it it is wrong when it is not. See what it does. You are calibrating how much its agreement is worth.</li>
@@ -480,6 +480,7 @@
         <div class="uc">
           <h4>Proofread<span class="uc-verified">Observed</span></h4>
           <p>Typos, affect versus effect, and checking the arithmetic in settlement figures. Unglamorous and reliable.</p>
+          <p class="why"><strong>This portal&rsquo;s advice, not part of the report:</strong> recompute any figure you will rely on. A model that says the numbers add up has produced a sentence, not a calculation.</p>
         </div>
 
         <div class="uc">
@@ -496,11 +497,12 @@
         <div class="uc">
           <h4>A custom assistant for scheduling orders<span class="uc-verified">Observed</span></h4>
           <p>Holiday-aware, built once and reused. It generates <em>dates</em>, not prose, which is exactly the kind of narrow, checkable output that suits these tools.</p>
+          <p class="why"><strong>This portal&rsquo;s advice, not part of the report:</strong> checkable is the operative word. Count the dates against a calendar before the order issues. What a custom assistant is, in plain terms, is under <a href="#custom-assistants">Tools</a>.</p>
         </div>
 
         <div class="uc">
           <h4>A custom assistant for guilty-plea colloquies<span class="uc-verified">Observed</span></h4>
-          <p>Built from a stack of prior scripts.</p>
+          <p>Built from a stack of prior scripts. What a custom assistant is, in plain terms, is under <a href="#custom-assistants">Tools</a>.</p>
           <p class="why"><strong>The generalization is the useful part:</strong> anything with a repetitive script is a good candidate. If your chambers produces the same document with the same bones twenty times a year, that is where to start.</p>
         </div>
 
@@ -566,6 +568,7 @@
           <h4>A custom assistant over a closed set of cases, for a recurring multi-factor test<span class="uc-verified">Observed</span></h4>
           <p>If your circuit has a multi-factor test you apply constantly, one chambers built an assistant loaded with ten cases applying it, deliberately chosen to cut in both directions.</p>
           <p class="why"><strong>Two rules they stress.</strong> First, <strong>load the cases going both ways</strong>: a lopsided library produces a lopsided analysis, and it will read as authoritative either way. Second, <strong>instruct the model not to draw on outside knowledge</strong>, which is what keeps it inside the closed universe you built. The cost of even-handed loading is that the analysis sometimes comes back wishy-washy. That is the correct trade, and a wishy-washy answer is a far better failure than a confident wrong one.</p>
+          <p>What a custom assistant is, and why its attached files are not always read whole, is under <a href="#custom-assistants">Tools</a>.</p>
         </div>
 
         <div class="uc">
@@ -654,7 +657,7 @@
       <div class="card">
         <span class="resource-tag">Proposed</span>
         <h3>A custom assistant embedded inside a project workspace</h3>
-        <p>This is a feature request aimed at the vendors, not a use case. It describes something a judge would like to exist, not something anyone has done.</p>
+        <p>This is a feature request aimed at the vendors, not a use case. It describes something a judge would like to exist, not something anyone has done. Both terms are explained under <a href="#custom-assistants">Tools</a>.</p>
       </div>
       <div class="card">
         <span class="resource-tag">Proposed</span>
@@ -728,6 +731,17 @@
       <li><strong>2. Can I check the output, and will I?</strong> Not <em>could someone in principle</em>, but will you, on this task, on the day you actually do it. If checking the output is as much work as doing the task, the tool has bought you nothing and added a risk.</li>
       <li><strong>3. Is any part of the judgment being handed over?</strong> Deciding what the case is about, what the evidence is worth, who is telling the truth, what the sentence should be. If yes, stop. That is not a workflow question, and no amount of verification cures it.</li>
     </ul>
+
+    <div class="callout" id="how-to-ask">
+      <h3>Once a task passes: how to ask</h3>
+      <p><strong>This is advice, not observed practice.</strong> The first three techniques come from the chambers reports above. The fourth extends an instruction reported there. Putting them together as a routine is this portal&rsquo;s suggestion.</p>
+      <ul>
+        <li><strong>Put the source in, and name it.</strong> Attach the briefs, the docket, or the prior opinion, and say which document the answer should come from.</li>
+        <li><strong>Summarize first, then give it the real task.</strong> Several chambers report better output when the model has first summarized what it was handed.</li>
+        <li><strong>Say what you want back.</strong> The reported formula works because the person fills in every blank: the source, the topic, the length, and the conclusion the passage should reach.</li>
+        <li><strong>State the boundary.</strong> Tell it to use only the documents you supplied, and to say so when they do not answer the question. Without that instruction a model fills the gap from memory, and nothing marks where your documents stop and its memory begins.</li>
+      </ul>
+    </div>
 
     <div class="divider"></div>
 
@@ -823,6 +837,7 @@
         <li><label><input type="checkbox"> The team can recognize hallucinations, false quotations, prompt injection, synthetic evidence, automation bias, and confidentiality leakage.</label></li>
         <li><label><input type="checkbox"> Our workflow identifies the points at which AI output must not supply or anchor judgment.</label></li>
         <li><label><input type="checkbox"> We know which authority and policy govern disclosure for a particular use.</label></li>
+        <li><label><input type="checkbox"> We know whom to tell, and how quickly, if protected material goes into an AI tool by mistake.</label></li>
       </ol>
       <p class="why"><strong>Use it as a conversation guide.</strong> Answers remain on this device and are not saved.</p>
     </div>
@@ -886,6 +901,17 @@
 
     </div>
 
+    <div class="callout" id="custom-assistants">
+      <h3>What a &ldquo;custom assistant&rdquo; or a &ldquo;project&rdquo; is</h3>
+      <p>Several use cases on this portal mention a custom assistant. The term sounds more technical than the thing. It is an ordinary chat tool with two things saved in advance: a standing instruction and a fixed set of files. Every conversation then starts with both in place, so nobody retypes the instruction or reattaches the documents. Vendors name this differently, and some call the same arrangement a project or a workspace. Building one takes no programming.</p>
+      <ul>
+        <li><strong>The standing instruction is where the rules go.</strong> What the assistant is for, what form the answer takes, and the boundary: use only the attached material.</li>
+        <li><strong>The files are its universe.</strong> A lopsided set produces a lopsided answer, which is why the chambers that built one over a closed set of cases loaded cases going both ways.</li>
+        <li><strong>Attached is not the same as read.</strong> With a large set of files, many tools pull out the passages that look relevant to each question and show the model only those. The model may never see the page that mattered, and nothing in the answer says so. This is the trial-transcript lesson from <a href="#use-cases" onclick="activateTab('use-cases'); scrollToTabs(); return false;">Use Cases</a> in another form.</li>
+      </ul>
+      <p>None of this changes authorization. Files attached to a custom assistant go where everything else you type goes.</p>
+    </div>
+
     <h3 class="subhead">Legal research tools with AI layers</h3>
     <p class="subhead-note">These retrieve first and then summarize, which is a meaningfully better risk profile than a general assistant answering a legal question from memory. Better is not risk-free. The model still writes the summary, and it can still mischaracterize a case it correctly found.</p>
 
@@ -938,9 +964,10 @@
     <ul class="tips-list">
       <li><strong>Whether you can give it the document.</strong> The most important feature, by a wide margin. A tool you can hand a PDF, a record, or a brief is operating in the source-grounded mode described on the <a href="#how-it-works" onclick="activateTab('how-it-works'); scrollToTabs(); return false;">How These Tools Work</a> tab. One you cannot is operating from memory. Everything else is secondary to this.</li>
       <li><strong>How much it can hold at once.</strong> Tools differ enormously in how long an input they can take. If you want to work with a 400-page record, this is the specification that decides whether you can.</li>
-      <li><strong>The data terms.</strong> Whether your inputs are used for training, how long they are retained, and who can see them. This varies by vendor and by tier, and consumer tiers are typically the worst. Read the terms for the specific plan you are on, not the vendor's marketing page.</li>
+      <li id="data-terms"><strong>The data terms.</strong> Whether your inputs are used for training, how long they are retained, and who can see them. This varies by vendor and by tier, and consumer tiers are typically the worst. Paying does not by itself establish stronger privacy terms: a paid personal plan can carry the same data terms as the free one. Read the terms, and check the training and retention settings, for the specific plan you are on, not the vendor's marketing page.</li>
       <li><strong>Whether it can search the web.</strong> Useful for current information, and a second path by which unverified material enters your work. Know which mode you are in.</li>
       <li><strong>Paid versus free.</strong> Free tiers run older, weaker models. If your view of what AI can do was formed on a free tier, that view is out of date. This matters for judges specifically, because an inaccurate sense of the ceiling produces both complacency and overreaction.</li>
+      <li><strong>Which model answered, and how hard it worked.</strong> A single account usually offers more than one model, and often a setting for how much effort the model spends before it answers. The default tends to be the quick one. For hard analytical work, choose the strongest model on offer and the higher setting, and expect a slower answer. Before you judge what a tool can do, look at which model you were using.</li>
     </ul>
 
     <div class="draft-flag wide">
