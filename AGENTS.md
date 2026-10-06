@@ -97,8 +97,9 @@ proposals. **Never fill a gap with a plausible example.**
 
 Position as of October 2026, matching the deck: detectors have improved, but a detector score
 is a reason to ask, never a finding. The site states only what the cited research supports
-(Jabarian & Imas 2025; Liang et al. 2023; Russell et al. 2025) and notes that none of it tested
-legal filings. Do not write that detectors are useless, and do not write that they are reliable.
+(Jabarian & Imas 2025; Liang et al. 2023; Russell et al. 2025; Karr, Khvatskii, Hua & Chawla
+2026, added with Polk's approval 2026-10-06, for edited and "humanized" text) and notes that
+none of it tested legal filings. Do not write that detectors are useless, and do not write that they are reliable.
 The site may describe the human-noticed tells in AI-drafted filings (randomly bolded words,
 uncanny turnarounds, legal elements paraphrased rather than quoted). It may **not** present any
 of that as a detector.
