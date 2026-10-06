@@ -279,7 +279,9 @@ em { font-style: italic; }
 .page-body { max-width: var(--wide); margin: 0 auto; padding: 3.5rem 3rem 5rem; }
 .js .tab-pane { display: none; }
 .js .tab-pane.active { display: block; }
-.tab-pane:focus-visible { outline-width: 1px; outline-offset: 14px; }
+/* A pane takes focus when a fragment or the Tab key lands on it; a bar at its
+   left edge marks that without boxing in the whole page. */
+.tab-pane:focus-visible { outline: none; box-shadow: -14px 0 0 -10px var(--navy); }
 [id] { scroll-margin-top: 130px; }
 
 /* ── SECTION HEADINGS ── */
