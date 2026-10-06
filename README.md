@@ -55,4 +55,4 @@ Navy frame, light reading body, matching Polk Wagner's slide theme. Navy `#05225
 
 The eight inline diagrams come from the deck at `judiciary/talk/fjc-appeals-2026/slides/diagrams/` (generated there by `build.py`). They are pasted into `index.html` with per-figure marker ids, a `<title>`, and a `<desc>`. If the deck's diagrams change, re-inline them; there is no build step here. On narrow screens each diagram scrolls sideways inside its own panel; in print the diagrams are redrawn in black outline by the print stylesheet.
 
-**`CLAUDE.md` and `AGENTS.md` still describe the retired "Slip Opinion" design and an older rule on AI detection.** They were left untouched on the rebuild branch because they are instruction files; Polk should revise them before or with the merge.
+`CLAUDE.md` and `AGENTS.md` carry the current design and content rules.
