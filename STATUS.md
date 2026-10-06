@@ -11,7 +11,7 @@ What the rebuild changed:
 - **Testbed facts.** "20+ chambers as of September 2026"; the invented-quotation failure is "reported by three chambers."
 - **New content from the deck.** Capability evidence, AI agents, agent product examples, five agent controls, appellate recommendations, AI-detector research, and Penn Carey Law's fall 2026 tools and teaching. New sources are in the Sources tab.
 - **Names.** No judge is named on the site for now, per Polk.
-- **Additions from the faculty AI resources portal (branch `add/resources-crossover`, not yet merged).** Prompt injection, training cutoff, what a custom assistant is, connectors and standing permissions, a how-to-ask callout, model and effort settings, two data-handling lines, and a fourth detector study (Karr et al. 2026, on edited and humanized text; figures checked against the paper).
+- **Additions from the faculty AI resources portal (added October 6, 2026).** Prompt injection, training cutoff, what a custom assistant is, connectors and standing permissions, a how-to-ask callout, model and effort settings, two data-handling lines, and a fourth detector study (Karr et al. 2026, on edited and humanized text; figures checked against the paper).
 
 **Open:**
 
