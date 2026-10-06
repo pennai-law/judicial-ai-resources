@@ -18,8 +18,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#05225B">
+<link rel="preload" href="assets/fonts/source-sans-3-roman.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/oswald.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/portal.css">
 </head>
 <body>
@@ -30,7 +31,7 @@
 <!-- TOP STRIPE: Penn Carey Law AI Project attribution -->
 <div class="lab-stripe">
   <a class="lab-stripe-link" href="https://pennai.law/" target="_blank" rel="noopener">
-    <span class="lab-stripe-text">A practical resource for federal judges and chambers staff, maintained with support from the <strong>Penn Carey Law AI Project</strong>.</span>
+    <span class="lab-stripe-text">A standing resource for federal judges and chambers staff, from the <strong>Penn Carey Law AI Project</strong>.</span>
     <span class="lab-stripe-cta">Visit pennai.law &rarr;</span>
   </a>
 </div>
@@ -38,13 +39,13 @@
 <!-- SITE HEADER -->
 <header class="site-header">
   <a class="wordmark" href="index.html">Judicial AI <span>|</span> Portal</a>
-  <div style="display:flex; align-items:center; gap:1rem;">
+  <div class="header-tools">
     <button class="header-search" type="button" aria-label="Search this site (Cmd+K)">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
       <span class="label">Search</span>
       <kbd>&#8984;K</kbd>
     </button>
-    <div class="header-badge"><a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Penn Carey Law AI Project</a></div>
+    <div class="header-badge"><a href="https://pennai.law/" target="_blank" rel="noopener">Penn Carey Law AI Project</a></div>
   </div>
 </header>
 
@@ -53,6 +54,7 @@
   <div class="hero-inner">
     <h1>Judicial AI <em>Field Guide</em></h1>
     <p class="hero-sub">Evaluate a task, identify the risks, and preserve human judgment.</p>
+    <p class="hero-meta">For federal judges and chambers staff &middot; Updated October 2026</p>
   </div>
 </section>
 
@@ -79,59 +81,61 @@
 
 <!-- OVERVIEW MAP -->
 <div class="overview-map">
-  <div class="overview-col active" data-nav="start">
-    <h3>Start Here</h3>
-    <ul>
-      <li><strong>Where being wrong costs nothing</strong></li>
-      <li><strong>&ldquo;This sounds like cheating&rdquo;</strong></li>
-      <li><strong>&ldquo;I&rsquo;m afraid I&rsquo;ll face plant&rdquo;</strong></li>
-      <li><strong>Experimenting safely</strong> on a private device</li>
-    </ul>
-  </div>
-  <div class="overview-col" data-nav="how-it-works">
-    <h3>How These Tools Work</h3>
-    <ul>
-      <li><strong>Search vs. generation</strong></li>
-      <li><strong>Why they make things up</strong></li>
-      <li><strong>Why bias is built in</strong></li>
-      <li><strong>What this predicts</strong></li>
-    </ul>
-  </div>
-  <div class="overview-col featured" data-nav="use-cases">
-    <h3>Use Cases</h3>
-    <ul>
-      <li><strong>Lower risk if authorized</strong></li>
-      <li><strong>Promising, with care</strong></li>
-      <li><strong>Not worth the risk</strong></li>
-      <li><strong>A three-question test</strong></li>
-    </ul>
-  </div>
-  <div class="overview-col" data-nav="guardrails">
-    <h3>Guardrails</h3>
-    <ul>
-      <li><strong>The verification duty</strong></li>
-      <li><strong>Never delegated</strong></li>
-      <li><strong>Confidential material</strong></li>
-      <li><strong>Chambers practice</strong></li>
-    </ul>
-  </div>
-  <div class="overview-col" data-nav="tools">
-    <h3>Tools</h3>
-    <ul>
-      <li><strong>Authorization first</strong></li>
-      <li><strong>General assistants</strong></li>
-      <li><strong>Research tools with AI</strong></li>
-      <li><strong>How to choose</strong></li>
-    </ul>
-  </div>
-  <div class="overview-col" data-nav="adapting">
-    <h3>What Courts See</h3>
-    <ul>
-      <li><strong>Use is ahead of policy</strong></li>
-      <li><strong>What reaches your docket</strong></li>
-      <li><strong>What law schools did</strong></li>
-      <li><strong>Your next clerk</strong></li>
-    </ul>
+  <div class="overview-map-inner">
+    <div class="overview-col active" data-nav="start">
+      <h3>Start Here</h3>
+      <ul>
+        <li>Where being wrong costs nothing</li>
+        <li>Where the tools stand</li>
+        <li>The two objections</li>
+        <li>Experimenting safely</li>
+      </ul>
+    </div>
+    <div class="overview-col" data-nav="how-it-works">
+      <h3>How These Tools Work</h3>
+      <ul>
+        <li>Search vs. generation</li>
+        <li>Why they make things up</li>
+        <li>Why bias is built in</li>
+        <li>What is new: AI agents</li>
+      </ul>
+    </div>
+    <div class="overview-col" data-nav="use-cases">
+      <h3>Use Cases</h3>
+      <ul>
+        <li>Lower risk if authorized</li>
+        <li>Promising, with care</li>
+        <li>Not worth the risk</li>
+        <li>In appellate work</li>
+      </ul>
+    </div>
+    <div class="overview-col" data-nav="guardrails">
+      <h3>Guardrails</h3>
+      <ul>
+        <li>The verification duty</li>
+        <li>Never delegated</li>
+        <li>Confidential material</li>
+        <li>Five controls for agents</li>
+      </ul>
+    </div>
+    <div class="overview-col" data-nav="tools">
+      <h3>Tools</h3>
+      <ul>
+        <li>Authorization first</li>
+        <li>General assistants</li>
+        <li>Research tools with AI</li>
+        <li>Agent products</li>
+      </ul>
+    </div>
+    <div class="overview-col" data-nav="adapting">
+      <h3>What Courts See</h3>
+      <ul>
+        <li>Use is ahead of policy</li>
+        <li>What detectors can show</li>
+        <li>What law schools did</li>
+        <li>Your next clerk</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -165,6 +169,36 @@
 
     <div class="divider"></div>
 
+    <p class="section-label" id="capability">Where the tools stand</p>
+    <h2 class="section-title">In three years, from a C+ to <em>the top of the class</em></h2>
+    <p class="section-intro">The question is no longer whether these tools can do legal work. They can. The published record, in order:</p>
+
+    <ol class="trajectory">
+      <li><span class="when">2023</span><span>ChatGPT passed four law school final exams, at about a C+.<span class="cite">Choi et al., 71 J. Legal Educ. 387 (2023)</span></span></li>
+      <li><span class="when">2023</span><span>GPT-4 passed a simulated bar exam. How far above the passing line it scored is disputed.<span class="cite">Katz et al. (2024); Mart&iacute;nez (2025)</span></span></li>
+      <li><span class="when">2026</span><span>Contracts professors, reading blind, preferred AI answers to other professors&rsquo; answers about 75% of the time.<span class="cite">Salinas et al. (2026)</span></span></li>
+      <li><span class="when">Still true</span><span>Commercial legal research tools invent authority, according to a 2025 study.<span class="cite">Magesh et al., 22 J. Empirical Legal Stud. 216 (2025)</span></span></li>
+    </ol>
+    <p class="table-note">Read this as a direction, not a measurement. Each entry is a different study of a different model in a different setting, so the entries cannot be compared point for point. Full notes are under <a href="#sources">Sources</a>.</p>
+
+    <div class="band" id="exam-study">
+      <p class="band-label">Penn Carey Law &middot; Spring 2026 finals</p>
+      <h3>On real Penn Law finals, AI landed at the top of the class</h3>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">10 of 10</div><p class="stat-what">graded exams at or above the class median</p></div>
+        <div class="stat"><div class="stat-num">7 of 10</div><p class="stat-what">graded exams in the top tenth of the class</p></div>
+        <div class="stat"><div class="stat-num">2</div><p class="stat-what">exams where it outscored every enrolled student</p></div>
+      </div>
+      <p class="band-source">Wagner, <em>Can AI Ace Your Exam?</em> (draft, June 2026). Eleven Penn Carey Law finals from Spring 2026 were answered by one model, Claude Opus 4.7, and graded blind on the class curve by the faculty who wrote them. Ten of the eleven were returned with grades, so every figure above is out of ten. This is a draft paper, on one model, at one school. <a href="https://pennai.law/projects/exam-taker/" target="_blank" rel="noopener">Read about the study</a>.</p>
+    </div>
+
+    <div class="callout callout-gold">
+      <h3>Capability is not authority</h3>
+      <p>These results show what the tools can do. They do not change whose work it is. More capability, and more plausibility, does not make generated text authoritative. That is the human&rsquo;s job.</p>
+    </div>
+
+    <div class="divider"></div>
+
     <p class="section-label">The two objections</p>
     <h2 class="section-title">What judges actually say</h2>
     <p class="section-intro">Two objections come up more than any others. Both are reasonable. Neither is a reason to stay away entirely, and both point to real limits worth keeping.</p>
@@ -190,6 +224,20 @@
 
     <div class="prose-section">
       <p>Do your learning on your own device, your own account, and non-professional material. This is partly a confidence-building measure and partly a practical necessity: the Administrative Office has interim guidance in effect, and the list of AI tools authorized for court work is limited today. Chambers experimentation is not a live option for most judges right now. Personal experimentation is.</p>
+    </div>
+
+    <div class="callout">
+      <h3>How to learn: use these tools</h3>
+      <p>Start where error is cheap and no protected data is at risk.</p>
+      <ul>
+        <li>A professional-level account: one your court supplies if it supplies one, otherwise a paid personal account kept to personal material.</li>
+        <li>Public or synthetic material as test cases.</li>
+        <li>A task whose output you can check carefully.</li>
+        <li>Never a free commercial version of any AI tool.</li>
+      </ul>
+    </div>
+
+    <div class="prose-section">
       <p>What to actually do:</p>
     </div>
 
@@ -226,15 +274,43 @@
       <h3>What a large language model does</h3>
       <p>Nothing gets looked up. The model was trained on an enormous quantity of text, and from that training it learned, in effect, what words tend to follow what other words in what contexts. When you give it a prompt, it produces an answer one piece at a time, each piece being the most plausible continuation of everything so far. That is <strong>processing</strong>, and it is not a lookup with extra steps. It is a different operation.</p>
       <p>Nothing in that process consults a library. The output is not the result of a search. It is a construction, assembled to be plausible.</p>
+    </div>
+
+    <figure class="diagram" id="fig-retrieval-generation">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: Search retrieves. An AI model generates."><svg viewBox="0 0 1168 400" role="img" aria-labelledby="retrieval-generation-t retrieval-generation-d"><title id="retrieval-generation-t">Search retrieves. An AI model generates.</title><desc id="retrieval-generation-d">Two panels. Retrieval finds sources: it searches an existing collection and returns material that already exists. Generation assembles text: it predicts a plausible continuation and returns newly made language.</desc><defs><marker id="retrieval-generation-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="retrieval-generation-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="0" width="564" height="400" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">RETRIEVAL</text><text x="36" y="116" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="40" font-weight="400">Find sources</text><text x="36" y="170" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Search an existing</text><text x="36" y="204" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">collection</text><line x1="282" y1="228" x2="282" y2="268" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#retrieval-generation-mk-a)"/><rect x="36" y="280" width="492" height="84" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="282" y="331" text-anchor="middle" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Returns material that already exists</text><rect x="604" y="0" width="564" height="400" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="640" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">GENERATION</text><text x="640" y="116" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="40" font-weight="400">Assemble text</text><text x="640" y="170" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Predict a plausible</text><text x="640" y="204" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">continuation</text><line x1="886" y1="228" x2="886" y2="268" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#retrieval-generation-mk-a)"/><rect x="640" y="280" width="492" height="84" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="886" y="331" text-anchor="middle" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Returns newly made language</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>Current AI tools can do both, when used well.</figcaption>
+    </figure>
+
+    <div class="prose-section">
 
       <h3>Why it invents citations</h3>
       <p>Now the important part. A fabricated citation is not a malfunction. It is the system working exactly as designed. Asked for authority, the model produces text that has the shape of authority: a plausible case name, a plausible reporter, a plausible year, a plausible pin cite. Producing that shape <em>is</em> the job. Whether the case exists is not a question the architecture ever asks, because the architecture has no mechanism for asking it.</p>
       <p>This is why the industry term, <strong>hallucination</strong>, is misleading. It implies a lapse from an otherwise sound faculty, as though the model normally knows and occasionally slips. There is no faculty to lapse from. The model is doing the same thing when it is right and when it is wrong. You just happen to like one result better.</p>
+    </div>
+
+    <figure class="diagram" id="fig-shape-of-authority">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: A fabricated citation is a predictable failure"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="shape-of-authority-t shape-of-authority-d"><title id="shape-of-authority-t">A fabricated citation is a predictable failure</title><desc id="shape-of-authority-d">A citation has a fixed form: party names, volume, reporter, page, court, and year. Every part can look entirely plausible. Retrieval confirms that the authority exists and that the source opens. Only reading confirms that the claim is supported, the quotation is accurate, and the pin cite is right.</desc><defs><marker id="shape-of-authority-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="shape-of-authority-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="0" width="1168" height="120" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="584" y="54" text-anchor="middle" fill="#FFFFFF" font-family="Source Sans 3" font-size="32" font-weight="400">Party v. Party  ·  volume  ·  reporter  ·  page  ·  court  ·  year</text><text x="584" y="96" text-anchor="middle" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Every part can look entirely plausible</text><rect x="0" y="160" width="564" height="240" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="212" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">RETRIEVAL CONFIRMS</text><text x="36" y="266" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">The authority exists</text><text x="36" y="310" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">The source opens</text><rect x="604" y="160" width="564" height="240" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="640" y="212" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">ONLY READING CONFIRMS</text><text x="640" y="266" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">The claim is supported</text><text x="640" y="310" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">The quotation is accurate</text><text x="640" y="354" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">The pin cite is right</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>Retrieve to confirm existence. Read to confirm support.</figcaption>
+    </figure>
+
+    <div class="prose-section">
       <p>Which means: <strong>the question is not when this gets fixed.</strong> Models get better, and error rates fall. But making the text more plausible is what improvement <em>means</em> here, and more plausible fabrications are harder to catch, not easier. The kind of tool it is does not change.</p>
 
       <h3>Why bias is built in the same way</h3>
       <p>Same architecture, same consequence. The model produces what is probable given the text it was trained on, and that text is the accumulated written output of a society with all of its assumptions in it. Probable is not the same as fair, or accurate, or representative. Patterns that nobody would defend if they were stated out loud are still patterns, and the model reproduces them because reproducing patterns is what it does.</p>
       <p>Vendors work hard to suppress the obvious cases, and they largely succeed at the obvious cases. The subtle ones are the ones that matter to a court, and they are not detectable by looking at any single output. This is a structural feature, not a settings problem.</p>
+      <p>Bias can also enter at more than one stage. It can come in through the training text: what was included, what was missing, and what was repeated. It can come in through the model choices: training, tuning, and safeguards. And it can come in through the tool context: the prompt, the retrieval step, and the defaults. The output is shaped by every prior stage.</p>
+    </div>
+
+    <figure class="diagram" id="fig-bias-stages">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: Bias can enter at multiple stages"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="bias-stages-t bias-stages-d"><title id="bias-stages-t">Bias can enter at multiple stages</title><desc id="bias-stages-d">Four stages in sequence. One, training text: what was included, missing, or repeated. Two, model choices: training, tuning, and safeguards. Three, tool context: prompt, retrieval, and defaults. Four, output: shaped by every prior stage.</desc><defs><marker id="bias-stages-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="bias-stages-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="60" width="265" height="280" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="28" y="122" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">1</text><text x="28" y="176" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">TRAINING TEXT</text><text x="28" y="232" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">What was included,</text><text x="28" y="268" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">missing, or repeated</text><line x1="269" y1="200" x2="297" y2="200" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#bias-stages-mk-a)"/><rect x="301" y="60" width="265" height="280" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="329" y="122" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">2</text><text x="329" y="176" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">MODEL CHOICES</text><text x="329" y="232" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Training, tuning,</text><text x="329" y="268" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">and safeguards</text><line x1="570" y1="200" x2="598" y2="200" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#bias-stages-mk-a)"/><rect x="602" y="60" width="265" height="280" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="630" y="122" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">3</text><text x="630" y="176" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">TOOL CONTEXT</text><text x="630" y="232" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Prompt, retrieval,</text><text x="630" y="268" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">and defaults</text><line x1="871" y1="200" x2="899" y2="200" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#bias-stages-mk-a)"/><rect x="903" y="60" width="265" height="280" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="931" y="122" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">4</text><text x="931" y="176" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">OUTPUT</text><text x="931" y="232" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Shaped by every</text><text x="931" y="268" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">prior stage</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>Consider the entire chain, not one fluent answer.</figcaption>
+    </figure>
+
+    <div class="prose-section">
 
       <h3>Four things this predicts</h3>
       <ul>
@@ -247,12 +323,75 @@
       <h3>A word about the &ldquo;grounded&rdquo; legal tools</h3>
       <p>Westlaw and Lexis have built AI layers that put a retrieval step in front of the model: find the real documents first, then have the model summarize and synthesize them. That genuinely helps, and it is a meaningfully better risk profile than a general chatbot answering a legal question from memory.</p>
       <p>It is not a cure. The retrieval step can miss, and the model still writes the summary, which means it can still mischaracterize what it found, and still smooth two cases into one proposition that neither supports. Grounding narrows the failure mode. It does not eliminate the need to read the case.</p>
-
+      <p>It helps to think of three levels of grounding, each with its own check. Working from model memory, no source is visible, and the question is whether there is any evidence to confirm. With retrieved sources, a source is linked, and the question is whether it is the right source. With the source in view, the source is open, and the question is whether it supports the claim.</p>
     </div>
+
+    <figure class="diagram" id="fig-grounding">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: Grounding AI work changes the risk profile"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="grounding-t grounding-d"><title id="grounding-t">Grounding AI work changes the risk profile</title><desc id="grounding-d">Three panels. Model memory: no source is visible; check whether there is evidence to confirm. Retrieved sources: a source is linked; check whether it is the right source. Source in view: the source is open; check whether it supports the claim.</desc><defs><marker id="grounding-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="grounding-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="40" width="376" height="320" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="28" y="96" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">MODEL MEMORY</text><text x="28" y="148" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">No source is visible.</text><line x1="28" y1="200" x2="348" y2="200" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="28" y="254" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="20" letter-spacing="1.5">CHECK</text><text x="28" y="300" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Is there evidence to confirm?</text><rect x="396" y="40" width="376" height="320" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="424" y="96" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">RETRIEVED SOURCES</text><text x="424" y="148" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">A source is linked.</text><line x1="424" y1="200" x2="744" y2="200" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="424" y="254" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="20" letter-spacing="1.5">CHECK</text><text x="424" y="300" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Is it the right source?</text><rect x="792" y="40" width="376" height="320" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="820" y="96" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">SOURCE IN VIEW</text><text x="820" y="148" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">The source is open.</text><line x1="820" y1="200" x2="1140" y2="200" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="820" y="254" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="20" letter-spacing="1.5">CHECK</text><text x="820" y="300" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Does it support the claim?</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>Grounding narrows risk. It does not resolve all questions.</figcaption>
+    </figure>
+
 
     <div class="callout">
       <h3>The takeaway</h3>
       <p>You are not being handed an unreliable version of a reliable tool. You are being handed a different kind of tool, one whose errors are inherent to how it produces anything at all. That is not a reason to refuse it. It is the information you need in order to use it well, because it tells you exactly where to put the tool: <strong>on tasks where the source material is in front of it and a human checks the result.</strong></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label" id="agents">What is new</p>
+    <h2 class="section-title">AI agents: the tool now <em>acts</em></h2>
+    <p class="section-intro">Three changes since these tools first appeared matter for chambers work. The third is the one that changes what you have to supervise.</p>
+
+    <div class="prose-section">
+      <h3>Three changes that matter</h3>
+      <ol>
+        <li><strong>More of the record.</strong> Current AI tools can work with much longer records, either held in context or retrieved in pieces. Having the entire record as context makes them far more capable.</li>
+        <li><strong>More reasoning.</strong> The tools now spend extra computation before answering. The result is fewer hallucinations and better writing.</li>
+        <li><strong>More agency.</strong> Agents search, read, choose their next steps, and act through connected systems. They can read and create files, search databases, and act independently.</li>
+      </ol>
+
+      <h3>One tool, three modes</h3>
+      <p>A current AI tool can operate in three modes. It can <strong>generate</strong>: assemble new text to draft, summarize, explain, or transform. It can <strong>retrieve and then generate</strong>: find sources first, then assemble text, which makes the result grounded but not guaranteed. And it can <strong>act</strong>: take steps across tools or systems, which is where permissions and approval points start to matter.</p>
+    </div>
+
+    <figure class="diagram" id="fig-three-modes">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: Current AI tools can operate in three modes"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="three-modes-t three-modes-d"><title id="three-modes-t">Current AI tools can operate in three modes</title><desc id="three-modes-d">Three panels. Generate: assemble new text; draft, summarize, explain, transform. Retrieve and generate: find sources first, then assemble text; grounded, not guaranteed. Act: take steps across tools or systems; permissions and approval points.</desc><defs><marker id="three-modes-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="three-modes-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="0" width="376" height="400" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="28" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">GENERATE</text><text x="28" y="116" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Assemble new text</text><line x1="28" y1="230" x2="348" y2="230" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="28" y="284" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Draft · summarize</text><text x="28" y="320" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Explain · transform</text><rect x="396" y="0" width="376" height="400" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="424" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">RETRIEVE + GENERATE</text><text x="424" y="116" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Find sources first,</text><text x="424" y="154" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">then assemble text</text><line x1="424" y1="230" x2="744" y2="230" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="424" y="284" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Grounded,</text><text x="424" y="320" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">not guaranteed</text><rect x="792" y="0" width="376" height="400" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="820" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">ACT</text><text x="820" y="116" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Take steps across</text><text x="820" y="154" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">tools or systems</text><line x1="820" y1="230" x2="1140" y2="230" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="820" y="284" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Permissions</text><text x="820" y="320" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Approval points</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>The third mode is the new one: the tool acts. That makes it very powerful.</figcaption>
+    </figure>
+
+    <div class="prose-section">
+      <h3>Best practice: agents work between checkpoints</h3>
+      <p>Put a person at each end. A person sets the task and supplies the sources. The agent then searches, reads, compares, and chooses its own next step, repeating as often as it needs to before anyone sees anything. A person then checks the work and approves or rejects it.</p>
+      <p>Most agents show a <strong>trace</strong>: a record of the steps taken and the sources used. Any reasoning shown in a trace is a summary, not a reliable account of how the result was produced.</p>
+    </div>
+
+    <figure class="diagram" id="fig-agent-checkpoints">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: AI agents work between human checkpoints"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="agent-checkpoints-t agent-checkpoints-d"><title id="agent-checkpoints-t">AI agents work between human checkpoints</title><desc id="agent-checkpoints-d">A chain of three boxes. A human sets the task and supplies sources. An agent searches, reads, compares, and chooses its next step, repeating. A human checks the work and approves or rejects it. Below the chain: the trace is a record of steps and sources, and any reasoning shown is a summary, not a reliable account.</desc><defs><marker id="agent-checkpoints-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="agent-checkpoints-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="56" width="300" height="180" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="28" y="108" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">HUMAN</text><text x="28" y="158" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Sets the task</text><text x="28" y="194" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Supplies sources</text><line x1="306" y1="146" x2="398" y2="146" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#agent-checkpoints-mk-a)"/><rect x="404" y="56" width="360" height="180" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="432" y="108" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">AGENT</text><text x="432" y="158" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Search · read · compare</text><text x="432" y="194" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Chooses its next step</text><path d="M680 56 C680 0 488 0 488 48" fill="none" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#agent-checkpoints-mk-a)"/><text x="584" y="46" text-anchor="middle" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="24" font-weight="400">repeats</text><line x1="770" y1="146" x2="862" y2="146" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#agent-checkpoints-mk-a)"/><rect x="868" y="56" width="300" height="180" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="896" y="108" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">HUMAN</text><text x="896" y="158" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Checks the work</text><text x="896" y="194" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Approves or rejects</text><rect x="0" y="280" width="1168" height="120" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="28" y="328" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="20" letter-spacing="1.5">THE TRACE</text><text x="28" y="370" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">A record of steps and sources. Any reasoning shown is a summary, not a reliable account.</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>A trace given by the AI is not judgment, even if it appears to be.</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption>Each agent strength carries its own risk</caption>
+        <thead><tr><th scope="col">An agent</th><th scope="col">The strength</th><th scope="col">The risk</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Takes many steps</th><td data-label="The strength">Covers the whole record</td><td data-label="The risk">An early error carries forward</td></tr>
+          <tr><th scope="row">Chooses its own steps</th><td data-label="The strength">Needs far less direction</td><td data-label="The risk">You see results, not choices</td></tr>
+          <tr><th scope="row">Reads what it finds</th><td data-label="The strength">Gathers its own sources</td><td data-label="The risk">May obey text inside a document</td></tr>
+          <tr><th scope="row">Acts in other systems</th><td data-label="The strength">Finishes the task</td><td data-label="The risk">Acts before anyone checks</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">The matching controls are under <a href="#agent-controls">Guardrails</a>. Examples of agent products are under <a href="#agent-products">Tools</a>.</p>
+
+    <div class="band">
+      <p class="band-label">The point to keep</p>
+      <h3>Capability is not authority</h3>
+      <p class="band-claim">More capability, and more plausibility, does not make generated text authoritative. That is the human&rsquo;s job.</p>
     </div>
 
   </section>
@@ -266,9 +405,22 @@
 
     <div class="callout">
       <h3>Where this comes from</h3>
-      <p>These are drawn from chambers participating in a <strong>federal judicial AI testbed</strong>: roughly forty use cases observed across about eighteen chambers. That matters, because it means this is <strong>observed practice rather than speculation</strong>. These are things judges and law clerks actually tried, with the results they actually reported, including the failures.</p>
+      <p>These are drawn from chambers participating in a <strong>federal judicial AI testbed</strong> that Penn Carey Law has run since fall 2024: 20+ chambers as of September 2026, and roughly forty use cases observed. That matters, because it means this is <strong>observed practice rather than speculation</strong>. These are things judges and law clerks actually tried, with the results they actually reported, including the failures.</p>
       <p>They are reported here <strong>in aggregate, with the chambers de-identified.</strong> No judge, clerk, court, or case is named, and none will be. Where chambers reported conflicting experiences, this page says so rather than picking a winner.</p>
       <p>Reported figures are reported, not measured. When a chambers says a technique saves roughly an hour a page, that is their estimate of their own work, and it is presented as such.</p>
+      <p><strong>No confidential information goes into the testbed tools.</strong> Terms of participation, including confidentiality, are set out in a memorandum of understanding.</p>
+    </div>
+
+    <figure class="diagram" id="fig-testbed-loop">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: How the judicial AI testbed works"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="testbed-loop-t testbed-loop-d"><title id="testbed-loop-t">How the judicial AI testbed works</title><desc id="testbed-loop-d">Penn provides access to AI tools, orientation, group meetings, and one-on-one help. Chambers report what they tried, what worked, and what failed, and how: 20+ chambers in 4 courts. The findings are published in aggregate, with chambers de-identified, at judges.pennai.law.</desc><defs><marker id="testbed-loop-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="testbed-loop-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="0" width="500" height="290" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">PENN PROVIDES</text><text x="36" y="112" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Access to AI tools</text><text x="36" y="154" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Orientation</text><text x="36" y="196" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Group meetings</text><text x="36" y="238" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">One-on-one help</text><rect x="668" y="0" width="500" height="290" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="704" y="56" text-anchor="start" fill="#82AFD3" font-family="Oswald" font-size="26" letter-spacing="1.5">CHAMBERS REPORT</text><text x="704" y="112" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">What they tried</text><text x="704" y="154" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">What worked</text><text x="704" y="196" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">What failed, and how</text><line x1="704" y1="222" x2="1132" y2="222" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="704" y="262" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="24" font-weight="400">20+ chambers, 4 courts</text><line x1="508" y1="110" x2="660" y2="110" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#testbed-loop-mk-a)"/><line x1="660" y1="190" x2="508" y2="190" stroke="rgba(255,255,255,.72)" stroke-width="3" marker-end="url(#testbed-loop-mk-a)"/><line x1="918" y1="294" x2="918" y2="322" stroke="#F2C100" stroke-width="3" marker-end="url(#testbed-loop-mk-g)"/><rect x="0" y="326" width="1168" height="74" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="36" y="373" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">PUBLISHED IN AGGREGATE</text><text x="1132" y="372" text-anchor="end" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Chambers de-identified  ·  judges.pennai.law</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>No confidential information goes into the tools.<span class="diagram-source">PennLaw-Judiciary AI Testbed, Penn Carey Law AI Project. Counts as of September 2026.</span></figcaption>
+    </figure>
+
+    <div class="draft-flag wide">
+      <span class="draft-flag-label">Next for the testbed</span>
+      <h4>Hands-on training for chambers</h4>
+      <p>The next step is a set of sessions for chambers, using sample briefs: summarizing and extracting, drafting from sources, and failure points with a verification routine. Interested chambers can write to R. Polk Wagner at <a href="mailto:pwagner@law.upenn.edu">pwagner@law.upenn.edu</a>.</p>
     </div>
 
 
@@ -439,9 +591,9 @@
         <div class="callout">
           <h3>Open-universe legal research: "find me a case that says X"</h3>
           <p><strong>This is the most consistent failure in the entire record.</strong> Seminal cases come back correct roughly half the time. The rest are hallucinations.</p>
-          <p>But the raw failure rate is not the danger. The recurring pattern, reported independently by <strong>at least five chambers</strong>, is <strong>real cases with invented quotes</strong>. That is far more dangerous than an obviously fake case, because <em>the case checks out</em>. You look it up, it exists, it is roughly on topic, and the quotation you were handed appears nowhere in it. Every verification habit you have is built to catch the fake case. None of them is built to catch this.</p>
+          <p>But the raw failure rate is not the danger. The recurring pattern, reported by <strong>three chambers</strong>, is <strong>real cases with invented quotes</strong>. That is far more dangerous than an obviously fake case, because <em>the case checks out</em>. You look it up, it exists, it is roughly on topic, and the quotation you were handed appears nowhere in it. Every verification habit you have is built to catch the fake case. None of them is built to catch this.</p>
           <p>One chambers now explicitly instructs the model <strong>not to give cases or statutes at all</strong>. On the current evidence that is a reasonable setting, not an excessive one.</p>
-          <p class="why" style="margin-top:0.8rem;"><strong>Why it fails:</strong> exactly as the previous tab predicts. No source in front of it, so it generates what a citation to a case like that would plausibly look like. That is the whole operation. It is not malfunctioning.</p>
+          <p class="why"><strong>Why it fails:</strong> exactly as the previous tab predicts. No source in front of it, so it generates what a citation to a case like that would plausibly look like. That is the whole operation. It is not malfunctioning.</p>
         </div>
 
         <div class="callout">
@@ -481,7 +633,7 @@
     <!-- ── PROPOSED, NOT OBSERVED ── -->
     <p class="section-label">Not practice</p>
     <h2 class="section-title">Proposed, <em>not observed</em></h2>
-    <p class="proposal-note"><strong>Read the label.</strong> Everything above this line is something a chambers actually did. Everything below it is an <em>idea someone raised</em>. Nobody has reported doing these, and they carry none of the weight of the catalogue above. They are here because they are worth discussing, not because they are worth copying.</p>
+    <p class="proposal-note"><strong>Read the label.</strong> Everything above this line is something a chambers actually did. Everything in this section is an <em>idea someone raised</em>. Nobody has reported doing these, and they carry none of the weight of the catalogue above. They are here because they are worth discussing, not because they are worth copying.</p>
 
     <div class="card-grid">
       <div class="card">
@@ -520,9 +672,47 @@
 
     <div class="divider"></div>
 
-    <p class="section-label">A working test</p>
+    <p class="section-label" id="appellate">Recommendations, not observed practice</p>
+    <h2 class="section-title">In appellate work: where AI helps, and <em>where to keep it out</em></h2>
+    <p class="proposal-note"><strong>Read the label here too.</strong> The testbed reports above come mostly from district courts. The two lists below are recommendations for appellate chambers. They apply the same sorting principle to appellate tasks. They are not reports of what appellate chambers have done.</p>
+
+    <div class="rec-grid">
+      <div class="rec">
+        <span class="resource-tag">Recommended</span>
+        <h3>Good use cases</h3>
+        <ul>
+          <li>Procedural history from the district court docket, with record cites.</li>
+          <li>An issue map: what each brief argues, and where the parties agree and disagree.</li>
+          <li>The appendix pages that address a point, with cites you can click to open.</li>
+          <li>Candidate questions for oral argument, drawn from the briefs.</li>
+          <li>Proofreading and cite-format checks on a draft opinion. Chambers reports on cite-format checking conflict, so test it on your own material first.</li>
+        </ul>
+        <p class="rec-kicker">Bounded, sourced, and checkable. The judgment stays with you.</p>
+      </div>
+      <div class="rec rec-dont">
+        <span class="resource-tag">Recommended against</span>
+        <h3>Don&rsquo;t do these</h3>
+        <ul>
+          <li>A decisional draft, a bench memo, or anything else produced from model memory alone.</li>
+          <li>Open-ended research: <em>find me a case that says X</em>.</li>
+          <li>Questions about a long record that is not fully in view.</li>
+          <li>Anything you will not be able to fully check.</li>
+        </ul>
+        <p class="rec-kicker">If no one will read the source, the tool should not have the task.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label" id="first-screen">A working test</p>
     <h2 class="section-title">Three questions to sort any task</h2>
     <p class="section-intro">When something new comes up and it is not on any list, ask these in order. They are the whole framework compressed, and they are what generated the buckets above.</p>
+
+    <figure class="diagram" id="fig-first-screen">
+      <div class="diagram-scroll" tabindex="0" role="group" aria-label="Diagram: A useful first screen"><svg viewBox="0 0 1168 400" role="img" aria-labelledby="first-screen-t first-screen-d"><title id="first-screen-t">A useful first screen</title><desc id="first-screen-d">Three questions in order. One, is the source in view? Work from identified materials, not model memory. Two, is the output checkable, and checked? A possible check is not a completed check. Three, is judgment retained? The tool assists; the human decides. Then apply court rules: approved tools, confidentiality, and security.</desc><defs><marker id="first-screen-mk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B8C2D6"/></marker><marker id="first-screen-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F2C100"/></marker></defs><rect x="0" y="0" width="1168" height="84" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="54" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">1</text><text x="92" y="53" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Source in view?</text><text x="560" y="52" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">Work from identified materials, not model memory.</text><rect x="0" y="100" width="1168" height="84" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="154" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">2</text><text x="92" y="153" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Output checkable, and checked?</text><text x="560" y="152" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">A possible check is not a completed check.</text><rect x="0" y="200" width="1168" height="84" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="2"/><text x="36" y="254" text-anchor="start" fill="#82AFD3" font-family="Source Sans 3" font-size="40" font-weight="400">3</text><text x="92" y="253" text-anchor="start" fill="#FFFFFF" font-family="Source Sans 3" font-size="30" font-weight="400">Judgment retained?</text><text x="560" y="252" text-anchor="start" fill="rgba(255,255,255,.72)" font-family="Source Sans 3" font-size="26" font-weight="400">The tool assists; the human decides.</text><rect x="0" y="316" width="1168" height="84" rx="8" fill="rgba(242,193,0,.10)" stroke="#F2C100" stroke-width="2"/><text x="36" y="369" text-anchor="start" fill="#FFFFFF" font-family="Oswald" font-size="26" letter-spacing="1.5">THEN APPLY COURT RULES</text><text x="1132" y="368" text-anchor="end" fill="#FFFFFF" font-family="Source Sans 3" font-size="26" font-weight="400">Approved tools  ·  confidentiality  ·  security</text></svg></div>
+      <div class="diagram-hint">Scroll sideways to see the whole diagram.</div>
+      <figcaption>Three questions, then your court&rsquo;s own rules: approved tools, confidentiality, security.</figcaption>
+    </figure>
 
     <ul class="tips-list">
       <li><strong>1. Is the source material in front of the model, or is it working from memory?</strong> In front of it: the risk drops a lot. From memory: assume anything specific it tells you is unverified, including things that look like citations. And remember the trial transcript. On a very long document, "in front of it" can quietly stop being true.</li>
@@ -535,10 +725,11 @@
     <!-- ── AI-GENERATED FILINGS ── -->
     <div class="callout callout-gold">
       <h3>The AI problem that reaches your desk whether or not you ever open one of these tools</h3>
-      <p>This is not a judicial use case, and it is the one AI issue in the record that arrives without being invited. <strong>Four chambers independently report receiving AI-generated filings</strong>, mostly from self-represented litigants.</p>
-      <p>The tells they describe are ordinary human observations: randomly bolded words, uncanny 24-hour turnarounds, legal elements paraphrased rather than quoted. Parties generally admit it when asked at a hearing.</p>
+      <p>This is not a judicial use case, and it is the one AI issue in the record that arrives without being invited. <strong>Four chambers independently report receiving AI-generated filings</strong>, mostly from self-represented litigants. Some chambers also point to motions for temporary restraining orders and injunctions.</p>
+      <p>The tells they describe are ordinary human observations: randomly bolded words, uncanny 24-hour turnarounds, legal elements paraphrased rather than quoted. Parties generally admit it when asked at a hearing. One chambers has a clerk verify by reading, and sets a hearing when in doubt.</p>
       <p><strong>The problem is not primarily fake citations.</strong> It is <strong>subtly wrong statements of law</strong>: elements restated <em>almost</em> correctly, tests recited with a piece quietly missing. A fabricated case announces itself the moment you look it up. A near-miss statement of the governing standard does not announce anything, and it will sit in the record until someone reads it closely enough to catch it. Plan for that failure, not the flashy one.</p>
-      <p><strong>One caution, and it matters.</strong> The patterns above are things people noticed, not the output of a detector. <em>There are no reliable tools to detect AI-generated writing. None.</em> Do not treat any tool's confident claim that a filing is AI-generated as evidence of anything, and be careful about acting on a hunch that a self-represented party used a machine. The wrongness of the law in the filing is something you can actually establish. Its authorship usually is not.</p>
+      <p><strong>One caution, and it matters.</strong> The patterns above are things people noticed, not the output of a detector. Detection software has improved, but none of the studies summarized on this site tested legal filings, and a score is not proof. Treat a detector score as a reason to ask, never as a finding, and be careful about acting on a hunch that a self-represented party used a machine. The wrongness of the law in the filing is something you can actually establish. Its authorship usually is not. The research is summarized under <a href="#detectors">What Courts See</a>.</p>
+      <p><strong>For appellate chambers.</strong> These reports come mostly from district courts. Expect similar issues in the record on appeal.</p>
     </div>
 
   </section>
@@ -591,6 +782,20 @@
       <p>Your law clerks have these tools on their phones. Some of them have been using them since law school and are considerably better at it than you are. The realistic risk to a chambers is not a judge who experiments deliberately. It is a clerk who used a tool for a draft and did not think to mention it, because in law school it was ordinary.</p>
       <p>The fix is a conversation and a stated rule, whatever the rule turns out to be. Prohibition is a coherent choice. Permission with disclosure is a coherent choice. Silence is not a choice, it is just an unexamined policy. Have the conversation in the first week of the clerkship.</p>
 
+    </div>
+
+    <div class="band" id="agent-controls">
+      <p class="band-label">Recommendations &middot; AI agents</p>
+      <h3>Five controls for an AI agent in chambers</h3>
+      <p>An agent takes steps on its own between the moments a person looks at its work. These five controls keep those moments in your hands. How agents work is explained under <a href="#agents">How These Tools Work</a>.</p>
+      <ol>
+        <li>Give the agent a bounded task and a defined set of sources.</li>
+        <li>Grant read-only access unless the task needs more.</li>
+        <li>Require approval before any action that cannot be undone. Deleting is the plain example.</li>
+        <li>Check the output against the sources, not against the trace.</li>
+        <li>Use only tools you approve and understand.</li>
+      </ol>
+      <p class="payoff">Delegate the steps. Keep the checkpoints.</p>
     </div>
 
     <div class="callout">
@@ -698,6 +903,23 @@
 
     <p class="subhead-note">There is also a set of AI platforms built for law firms and legal departments, Harvey and Legora among them. They are aimed at practice workflows rather than judicial ones, and are unlikely to be relevant to chambers, but judges will hear the names from the bar.</p>
 
+    <h3 class="subhead" id="agent-products">AI agents inside mainstream products</h3>
+    <p class="subhead-note">Agents are no longer a specialist tool. They now ship inside products many people already use. What an agent is, and what it changes, is explained under <a href="#agents">How These Tools Work</a>.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption class="visually-hidden">Examples of AI agent products</caption>
+        <thead><tr><th scope="col">Product</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Claude Cowork (Anthropic)</th><td data-label="What it does">Works in your files and desktop apps</td></tr>
+          <tr><th scope="row">ChatGPT Work (OpenAI)</th><td data-label="What it does">Runs multi-step projects across your apps</td></tr>
+          <tr><th scope="row">Copilot Cowork (Microsoft)</th><td data-label="What it does">Acts across Outlook, Teams, and Excel</td></tr>
+          <tr><th scope="row">Claude Code and Codex</th><td data-label="What it does">Coding agents that read, write, and run files</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note"><strong>Examples, not endorsements. Check what your court has approved.</strong> Product descriptions come from vendor announcements and press coverage in 2026, and these products change quickly. The controls that belong around any agent are under <a href="#agent-controls">Guardrails</a>.</p>
+
     <div class="divider"></div>
 
     <p class="section-label">Choosing</p>
@@ -714,8 +936,7 @@
     <div class="draft-flag wide">
       <span class="draft-flag-label">Draft &mdash; awaiting input</span>
       <h4>Matching use cases to tools</h4>
-      <p>The panel's stated goal is a matrix: for each real judicial use case, which tool actually does it best. That matrix cannot be built until the use-case list exists, so it is not here yet, and a speculative version would be worse than nothing.</p>
-      <p>It goes in this spot once the list from Hon. Maritza Dominguez Braswell arrives and the panel has vetted it.</p>
+      <p>One goal for this portal is a matrix: for each real judicial use case, which tool actually does it best. That matrix cannot be built until the use-case list is complete, so it is not here yet, and a speculative version would be worse than nothing.</p>
     </div>
 
   </section>
@@ -755,32 +976,77 @@
 
     <div class="divider"></div>
 
+    <p class="section-label" id="detectors">AI in the filings</p>
+    <h2 class="section-title">Detectors have improved, but a score is <em>not proof</em></h2>
+    <p class="section-intro">Chambers in the testbed are seeing AI-assisted filings, as the <a href="#use-cases" onclick="activateTab('use-cases'); scrollToTabs(); return false;">Use Cases</a> tab reports. The natural next question is whether software can tell you which filings those are. Here is what the research shows.</p>
+
+    <ul class="tips-list">
+      <li><strong>The best current detector was near-perfect on unedited text.</strong> That detector is Pangram, in a 2025 University of Chicago audit of 1,992 passages (Jabarian &amp; Imas).</li>
+      <li><strong>Earlier detectors flagged 61% of essays by non-native English writers.</strong> That is the average across seven detectors in a 2023 Stanford study (Liang et al.).</li>
+      <li><strong>Practiced human readers matched the best detector.</strong> A majority vote of five people who use AI tools often made one error in 300 articles (Russell, Karpinska &amp; Iyyer).</li>
+      <li><strong>None of these studies tested legal filings.</strong></li>
+    </ul>
+
+    <div class="callout callout-gold">
+      <h3>Treat a detector score as a reason to ask, never as a finding</h3>
+      <p>A score can prompt a question to the filer or a closer read. It does not establish who or what wrote a document. What a court can establish is whether the law and the record citations in the filing are right, and that is done by reading.</p>
+    </div>
+
+    <div class="divider"></div>
+
     <p class="section-label">Law schools</p>
     <h2 class="section-title">The schools moved first, because we <em>had to</em></h2>
 
     <div class="prose-section">
       <p>Legal education did not get to deliberate. Students arrived in 2023 with these tools already in hand, and a school that waited would have been setting policy for a world that had moved on. The question was never whether to allow them. It was what competence with them looks like, and how to grade it.</p>
-      <p>Penn Carey Law put AI into the 1L curriculum the year ChatGPT launched. That is not a claim to have gotten it right. It is a claim about the timeline: the schools are two full graduating classes into this, which is why the people arriving in your chambers are not where you are.</p>
+      <p>At Penn Carey Law, AI lessons and exercises entered the first-year Legal Practice Skills course in 2023. That is not a claim to have gotten it right. It is a claim about the timeline: the schools are two full graduating classes into this, which is why the people arriving in your chambers are not where you are.</p>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <h3>Every 1L gets a real account</h3>
-        <p>Secure institutional accounts, extended to writing fellows and teaching assistants as well. Deliberately not a consumer login &mdash; the data terms and the model quality are both different, and students who learn on a free tier learn the wrong lessons about capability.</p>
+    <div class="band">
+      <p class="band-label">Penn Carey Law</p>
+      <h3>Penn began with first-year skills</h3>
+      <div class="stat-row dates">
+        <div class="stat"><div class="stat-num">2023</div><p class="stat-what">AI lessons and exercises entered first-year Legal Practice Skills</p></div>
+        <div class="stat"><div class="stat-num">2025&ndash;26</div><p class="stat-what">1Ls, writing fellows, and teaching assistants received secure ChatGPT EDU accounts</p></div>
+        <div class="stat"><div class="stat-num">2026</div><p class="stat-what">In spring, 2Ls, 3Ls, and LLM students received Harvey access</p></div>
       </div>
-      <div class="card">
-        <h3>Legal-specific tools alongside general ones</h3>
-        <p>Harvey sits beside the general assistants rather than replacing them. Students see where a legal-specific tool earns its keep and where it does not, which is a judgment they will need on their first day of practice.</p>
-      </div>
-      <div class="card">
-        <h3>Verification is taught first</h3>
-        <p>Coursework runs from access to justice through AI in corporate practice, and Advanced Legal Research was expanded to take these tools seriously. The through-line is the same one on this portal: check the source.</p>
-      </div>
+      <p class="band-source">Penn Carey Law, &ldquo;Forging the Future,&rdquo; Jan. 30, 2026. These are dates, not quantities.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption>Penn Carey Law&rsquo;s AI tools, fall 2026</caption>
+        <thead><tr><th scope="col">Tool</th><th scope="col">Who has it</th><th scope="col">What it is for</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Claude, with Claude Code</th><td data-label="Who has it">Every 1L; faculty and staff</td><td data-label="What it is for">General assistant and agent</td></tr>
+          <tr><th scope="row">PennChat, Copilot Chat</th><td data-label="Who has it">Everyone</td><td data-label="What it is for">Secure chat for University data</td></tr>
+          <tr><th scope="row">Harvey, Legora</th><td data-label="Who has it">2Ls, 3Ls, LLM students, faculty</td><td data-label="What it is for">Legal research and drafting</td></tr>
+          <tr><th scope="row">Westlaw AI, Lexis+ AI</th><td data-label="Who has it">All students and faculty</td><td data-label="What it is for">AI inside legal research</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Source: Penn Carey Law AI resources guide, updated Sept. 30, 2026. Access terms vary by tool and data sensitivity.</p>
+
+    <div class="prose-section">
+      <h3>What Penn teaches alongside the tools</h3>
+      <ul>
+        <li><strong>First-year students:</strong> AI is optional, and course rules come first. The test for any use is one question: who is doing the work?</li>
+        <li><strong>Upper-level students:</strong> the legal platforms they will meet in practice.</li>
+        <li><strong>Faculty:</strong> shared tools for exams and class preparation, and regular drop-in sessions.</li>
+        <li><strong>No detector score is treated as proof of misconduct.</strong></li>
+      </ul>
+      <p><strong>Access comes with instruction, not instead of it.</strong> The accounts are institutional ones, deliberately not consumer logins: the data terms and the model quality are both different, and students who learn on a free tier learn the wrong lessons about capability. Legal-specific tools sit beside the general assistants, so students see where a legal-specific tool earns its keep and where it does not. Coursework runs from access to justice through AI in corporate practice, and Advanced Legal Research was expanded to take these tools seriously. The through-line is the same one on this portal: check the source.</p>
+      <p class="table-note">Source for the list above: Penn Carey Law AI resources guide and 1L guide, updated Sept. 30, 2026.</p>
     </div>
 
     <div class="callout-gold callout">
       <h3>What this means for your chambers</h3>
-      <p>Your next law clerk has never practiced law without these tools. They will not think of using one as a decision worth mentioning, because in law school it was ordinary. That is not a discipline problem and it does not respond to a discipline answer. It responds to a stated rule in the first week, whatever the rule turns out to be &mdash; which is the point made at the end of <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a>, arriving here from the other direction.</p>
+      <p>Some new clerks are arriving having learned alongside these tools. They may not think of using one as a decision worth mentioning, because in law school it was ordinary. That is not a discipline problem and it does not respond to a discipline answer.</p>
+      <ul>
+        <li>Ask what they used, and how they checked it.</li>
+        <li>Set chambers practice before your clerks&rsquo; habits do.</li>
+      </ul>
+      <p>A stated rule in the first week, whatever the rule turns out to be, is the point made at the end of <a href="#guardrails" onclick="activateTab('guardrails'); scrollToTabs(); return false;">Guardrails</a>, arriving here from the other direction.</p>
     </div>
 
   </section>
@@ -790,17 +1056,36 @@
     <h2 class="section-title">Sources and current guidance</h2>
     <p class="section-intro">Each note states what the source supports and where its limits lie.</p>
 
+    <h3 class="source-group" id="sources-courts">Courts, guidance, and the profession</h3>
+
     <article data-source="sedona-federal-survey" data-source-type="survey" data-reviewed="2026-08-28"><h3>Artificial Intelligence in Federal Courts</h3><p>Supports reported use, attitudes, tasks, and chambers policies among responding federal judges.</p><p data-field="limitation"><strong>Limitation:</strong> 112 of 502 sampled judges responded, a 22.3% response rate. Item totals vary, and only six appellate judges responded.</p><a href="https://www.thesedonaconference.org/sites/default/files/publications/Artificial_Intelligence_in_Federal_Courts_preprint_0.pdf" target="_blank" rel="noopener">Read the preprint</a></article>
     <article data-source="ao-conrad-letter" data-source-type="official-letter" data-reviewed="2026-08-28"><h3>AO Director letter, October 21, 2025</h3><p>Publicly describes interim guidance distributed July 31, 2025.</p><p data-field="limitation"><strong>Limitation:</strong> The letter summarizes the guidance; it is not the full guidance and does not establish a February 2026 update.</p><a href="https://www.grassley.senate.gov/imo/media/doc/ao_to_grassley_re_judiciary_use_of_ai.pdf" target="_blank" rel="noopener">Read the letter</a></article>
     <article data-source="shah-levy-pro-se" data-source-type="working-paper" data-reviewed="2026-08-28"><h3>Access to Justice in the Age of AI</h3><p>Documents federal pro se filing and docket trends during the generative-AI period.</p><p data-field="limitation"><strong>Limitation:</strong> This is a working paper. It reports an association, not proof that AI caused the increase.</p><a href="https://avshah1.github.io/assets/pdf/papers/pro-se/Pro_Se_Automation.pdf" target="_blank" rel="noopener">Read the paper</a></article>
     <article data-source="charlotin-tracker" data-source-type="live-tracker" data-reviewed="2026-08-28"><h3>AI Hallucination Cases Database</h3><p>Collects judicial matters involving alleged, implied, or found AI-related fabrication and misrepresentation.</p><p data-field="limitation"><strong>Limitation:</strong> It changes continually, uses inclusion judgments, and does not measure incidence across all filings.</p><a href="https://www.damiencharlotin.com/hallucinations/" target="_blank" rel="noopener">Open the tracker</a></article>
     <article data-source="sedona-guidelines" data-source-type="guidance" data-reviewed="2026-08-28"><h3>Navigating AI in the Judiciary</h3><p>Provides public judicial use cases and guidance on verification, confidentiality, bias, and responsibility.</p><p data-field="limitation"><strong>Limitation:</strong> Professional guidance is not binding federal policy or product authorization.</p><a href="https://www.thesedonaconference.org/node/10896" target="_blank" rel="noopener">Read the guidelines</a></article>
     <article data-source="tr-professional-services-2026" data-source-type="industry-survey" data-reviewed="2026-08-28"><h3>2026 AI in Professional Services Report</h3><p>Provides cross-sector adoption and use-case context.</p><p data-field="limitation"><strong>Limitation:</strong> Toplines combine legal, tax, accounting, risk, fraud, and government respondents; they are not lawyer-only statistics.</p><a href="https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/reports/2026-ai-in-professional-services-report.pdf" target="_blank" rel="noopener">Read the report</a></article>
+
+    <h3 class="source-group" id="sources-capability">Capability evidence</h3>
+    <article data-source="wagner-exam-study" data-source-type="draft-paper" data-reviewed="2026-10-06"><h3>Wagner, <em>Can AI Ace Your Exam?</em> (draft, June 2026)</h3><p>Supports the Penn exam results on the Start Here tab: eleven Penn Carey Law finals from Spring 2026, one model (Claude Opus 4.7), graded blind on the class curve by the faculty who wrote the exams.</p><p data-field="limitation"><strong>Limitation:</strong> A draft paper on one model at one school. Ten of the eleven exams were returned with grades, so the reported figures are out of ten.</p><a href="https://pennai.law/projects/exam-taker/" target="_blank" rel="noopener">Read about the study</a></article>
+    <article data-source="choi-law-school-exams" data-source-type="journal-article" data-reviewed="2026-10-06"><h3>Choi et al., 71 J. Legal Educ. 387 (2023)</h3><p>Supports the statement that ChatGPT passed four law school final exams in 2023, at about a C+.</p><p data-field="limitation"><strong>Limitation:</strong> An early result on an early model. It marks the starting point of the trajectory, not current performance.</p></article>
+    <article data-source="katz-martinez-bar-exam" data-source-type="journal-articles" data-reviewed="2026-10-06"><h3>Katz et al. (2024) and Mart&iacute;nez (2025)</h3><p>Together support the statement that GPT-4 passed a simulated bar exam in 2023.</p><p data-field="limitation"><strong>Limitation:</strong> The two are cited as a pair because how far above the passing line GPT-4 scored is disputed.</p></article>
+    <article data-source="salinas-contracts-blind" data-source-type="study" data-reviewed="2026-10-06"><h3>Salinas et al. (2026)</h3><p>Supports the statement that contracts professors, reading blind, preferred AI answers to other professors&rsquo; answers about 75% of the time.</p><p data-field="limitation"><strong>Limitation:</strong> One subject and one study design. It is a different model and a different setting from the earlier entries, so it is not a like-for-like comparison.</p></article>
+    <article data-source="magesh-legal-research-tools" data-source-type="journal-article" data-reviewed="2026-10-06"><h3>Magesh et al., 22 J. Empirical Legal Stud. 216 (2025)</h3><p>Supports the statement that commercial legal research tools invent authority.</p><p data-field="limitation"><strong>Limitation:</strong> A 2025 study of products that change often. It does not measure any tool as it performs today.</p></article>
+
+    <h3 class="source-group" id="sources-detectors">AI detection</h3>
+    <article data-source="jabarian-imas-detection" data-source-type="working-paper" data-reviewed="2026-10-06"><h3>Jabarian &amp; Imas, &ldquo;Artificial Writing and Automated Detection,&rdquo; NBER Working Paper 34223 (2025)</h3><p>Supports the statement that the best current detector, Pangram, was near-perfect on unedited text in an audit of 1,992 passages.</p><p data-field="limitation"><strong>Limitation:</strong> A working paper. It did not test legal filings, and the result reported here is for unedited text.</p><a href="https://www.nber.org/papers/w34223" target="_blank" rel="noopener">Read the working paper</a></article>
+    <article data-source="liang-detector-bias" data-source-type="journal-article" data-reviewed="2026-10-06"><h3>Liang et al., &ldquo;GPT detectors are biased against non-native English writers,&rdquo; <em>Patterns</em> (2023)</h3><p>Supports the statement that seven earlier detectors flagged, on average, 61% of essays by non-native English writers.</p><p data-field="limitation"><strong>Limitation:</strong> Tested 2023 detectors on essays, not current detectors and not legal filings.</p><a href="https://arxiv.org/abs/2304.02819" target="_blank" rel="noopener">Read the paper</a></article>
+    <article data-source="russell-human-detection" data-source-type="conference-paper" data-reviewed="2026-10-06"><h3>Russell, Karpinska &amp; Iyyer, ACL 2025</h3><p>Supports the statement that a majority vote of five people who use AI tools often made one error in 300 articles.</p><p data-field="limitation"><strong>Limitation:</strong> Tested articles, not legal filings, and the readers were practiced users of AI tools rather than typical readers.</p><a href="https://aclanthology.org/2025.acl-long.267" target="_blank" rel="noopener">Read the paper</a></article>
+
+    <h3 class="source-group" id="sources-penn">Penn Carey Law and the testbed</h3>
+    <article data-source="penn-judiciary-testbed" data-source-type="testbed-reports" data-reviewed="2026-10-06"><h3>PennLaw-Judiciary AI Testbed, Penn Carey Law AI Project</h3><p>Supports the observed use cases, the failure reports, and the chambers reports of AI-assisted filings: 20+ chambers as of September 2026, reporting since fall 2024.</p><p data-field="limitation"><strong>Limitation:</strong> Chambers reports are self-reported, not measured, and are published only in aggregate with chambers de-identified. Some items come from a single chambers, and the page says so where that is the case. The reports come mostly from district courts.</p></article>
+    <article data-source="penn-forging-the-future" data-source-type="institutional-publication" data-reviewed="2026-10-06"><h3>Penn Carey Law, &ldquo;Forging the Future,&rdquo; Jan. 30, 2026</h3><p>Supports the dates on which AI instruction and tool access reached Penn Carey Law students.</p><p data-field="limitation"><strong>Limitation:</strong> A school&rsquo;s account of its own program. It supplies dates, not quantities.</p></article>
+    <article data-source="penn-ai-resources-guide" data-source-type="institutional-guide" data-reviewed="2026-10-06"><h3>Penn Carey Law AI resources guide and 1L guide, updated Sept. 30, 2026</h3><p>Supports the list of AI tools available at Penn Carey Law in fall 2026 and the description of what is taught alongside them.</p><p data-field="limitation"><strong>Limitation:</strong> Describes one school at one date. Access terms vary by tool and data sensitivity.</p></article>
   </section>
 
-  <div class="callout" style="margin-top:3rem; margin-bottom:0;">
+  <div class="callout about">
     <h3>About this portal</h3>
-    <p>Maintained by R. Polk Wagner with support from the Penn Carey Law AI Project. It does not speak for any court, the Judicial Conference, or the Administrative Office of the U.S. Courts.</p>
+    <p>Written and maintained by R. Polk Wagner, with support from the Penn Carey Law AI Project. It was first built for a panel at the August 2026 Judicial Conference of the Sixth Circuit and is now kept as a standing resource for judicial education programs. It is the author&rsquo;s work. It does not speak for any court, the Federal Judicial Center, the Judicial Conference, or the Administrative Office of the U.S. Courts.</p>
   </div>
 
 </main>
@@ -826,7 +1111,7 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html" style="color:inherit; text-decoration:underline;">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Report Accessibility Issues and Get Help</a> &middot; Last updated August 28, 2026
+  &copy; 2026 The Trustees of the University of Pennsylvania &middot; Licensed under <a href="license.html">CC BY 4.0</a> &middot; Maintained by <strong>R. Polk Wagner</strong> &middot; A project of the <a href="https://pennai.law/" target="_blank" rel="noopener">Penn Carey Law AI Project</a> &middot; <a href="https://accessibility.web-resources.upenn.edu/get-help" target="_blank" rel="noopener">Report Accessibility Issues and Get Help</a> &middot; Last updated October 2026
 </footer>
 
 <script type="module" src="assets/portal.js"></script>
