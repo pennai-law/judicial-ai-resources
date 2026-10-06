@@ -1,13 +1,21 @@
 # Judicial AI Portal
 
-**Updated:** 2026-09-10
+**Updated:** 2026-10-06
 
-The portal at judges.pennai.law has been live, public, and indexable since August 28, 2026, the day after Polk's plenary at the Sixth Circuit Judicial Conference. The early-release banner and the noindex tag are gone, and the live site matches `main` exactly. All four PRs are merged and there are no open branches. On September 10 this checkout was synced to `main`, stale worktrees pruned, and the launch status recorded in CLAUDE.md. The same day the Penn Carey Law AI Project site gained links to the portal from its Toolkit and its judiciary project page, which it had lacked entirely.
+The portal at judges.pennai.law was rebuilt on October 6, 2026 (PR #5, `rebuild/fjc-2026`) to agree with Polk's deck for the FJC National Symposium for U.S. Court of Appeals Judges on October 8, whose QR slide points here. It has been live and indexable since August 28, 2026.
 
-The portal is now the base for the judiciary testbed reboot: a training program whose first hands-on module, built from the Use Cases tab, is due by October 23. That plan lives in the restricted Box judiciary folder, not here. Fundraising and comms one-pagers describing the portal are in Polk's Downloads.
+What the rebuild changed:
 
-**Where it stands:** Launched and current. No code work pending. Content still waits on Judge Dominguez Braswell's use-case list, and the unverified items in CLAUDE.md stay unverified.
+- **Look.** Navy frame with a light reading body, Oswald and Source Sans 3 self-hosted, eight deck diagrams inline. The "Slip Opinion" styling and the Google Fonts dependency are gone.
+- **Framing.** A standing resource, not tied to one conference. The "prepared with the AI panel" wording is removed.
+- **Testbed facts.** "20+ chambers as of September 2026"; the invented-quotation failure is "reported by three chambers."
+- **New content from the deck.** Capability evidence, AI agents, agent product examples, five agent controls, appellate recommendations, AI-detector research, and Penn Carey Law's fall 2026 tools and teaching. New sources are in the Sources tab.
+- **Names.** No judge is named on the site for now, per Polk.
 
-**Next:** Nothing in this repo until the training curriculum needs portal changes. When it does, work by branch and PR; the site deploys from `main`.
+**Open:**
 
-**Open:** Two reviewers read the top stripe's "prepared with the AI panel" as implying co-authorship; the comms brief says "prepared for." Decide whether the site should match.
+- The Tools tab's use-case-to-tool matrix is still a placeholder.
+- The retired-name logo files in `assets/` (`ai-law-lab-logo.png`, `ai-teaching-lab-stacked.svg`) are unreferenced; delete them if nothing else needs them.
+- Several detector details and the Salinas study rest on the deck's citations rather than on sources re-checked for the rebuild.
+
+**Still true from before:** the portal is the base for the judiciary testbed training program, whose plan lives in the restricted Box judiciary folder, not here. The unverified items in `CLAUDE.md` stay unverified.

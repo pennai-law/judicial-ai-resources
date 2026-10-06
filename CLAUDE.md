@@ -4,12 +4,14 @@ Guidance for Claude Code working in the Judicial AI Portal.
 
 ## What this is
 
-A plain-language AI resource for **federal judges and their chambers**, built for the panel
-at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City). A project of
-the Penn Carey Law AI Project.
+A plain-language AI resource for **federal judges and their chambers**. First built for the
+panel at the 2026 Judicial Conference of the Sixth Circuit (Aug 27, Traverse City); since
+October 2026 a standing resource, rebuilt to match Polk's deck for the FJC National Symposium
+for U.S. Court of Appeals Judges (Oct 8, 2026). A project of the Penn Carey Law AI Project.
 
 **Status: launched.** Live and indexable at `judges.pennai.law` since Aug 28, 2026. The
-`noindex` meta and the early-release banner are gone; don't reintroduce either.
+`noindex` meta and the early-release banner are gone; don't reintroduce either. Do not tie the
+site's framing to a single event or imply that any panel co-authored it.
 
 ## Audience — write for them, not at them
 
@@ -58,6 +60,9 @@ have already been gotten wrong on this project. "Dominguez" has a **g**. The pan
 Hon. John B. Nalbandian (6th Cir., moderating), Hon. Robert Jonker (W.D. Mich., organizer),
 Hon. Maritza Dominguez Braswell (D. Colo., panelist), R. Polk Wagner (Penn Carey Law).
 
+**Not named on the site for now (Polk, 2026-10-06):** Judge Dominguez Braswell. Do not
+add her name to any page without his say-so.
+
 **One real citation we do have:** Judge Dominguez Braswell, "Between hype and fear: Why I have
 not issued a standing order on AI," Thomson Reuters Institute, Jan 15, 2026.
 
@@ -88,26 +93,31 @@ in Drive. **Neither belongs in this repo.**
 whole ballgame with this audience. Proposals stay in a clearly fenced section, labeled as
 proposals. **Never fill a gap with a plausible example.**
 
-## Do not claim AI can detect AI-generated writing
+## AI detectors: a score is not proof
 
-One testbed office reported that it can. That is almost certainly wrong and it contradicts Polk's
-own published position — *"There are no reliable tools to detect AI-generated writing. None."*
+Position as of October 2026, matching the deck: detectors have improved, but a detector score
+is a reason to ask, never a finding. The site states only what the cited research supports
+(Jabarian & Imas 2025; Liang et al. 2023; Russell et al. 2025) and notes that none of it tested
+legal filings. Do not write that detectors are useless, and do not write that they are reliable.
 The site may describe the human-noticed tells in AI-drafted filings (randomly bolded words,
 uncanny turnarounds, legal elements paraphrased rather than quoted). It may **not** present any
 of that as a detector.
 
-## Design — "The Slip Opinion"
+## Design: navy frame, light reading body
 
-Ivory `#FCFAF5`, warm ink `#1A1815`, oxblood `#6E2639` (sole accent), brass `#9A7B33`
-(hairlines and ornament only — never a fill, never text). Serif throughout: Libre Baskerville
-(display), Source Serif 4 (body). Google Fonts is the only external dependency.
+Matches Polk's slide theme (rebuilt October 2026; the earlier "Slip Opinion" design is retired).
+Navy `#05225B` for the stripe, header, hero, tab bar, feature bands, diagram panels and footer.
+Gold `#F2C100` is the one accent, used on navy for the current tab, key rules and payoff lines;
+on light grounds it appears only as a rule, never as text (it fails contrast on white). Light
+blue `#82AFD3` for labels on navy. The reading body is white and light warm grey with near-black
+text.
 
-Restraint over ornament. Hairline rules, not colored boxes. Flat — no shadows, no gradients,
-no pills, no rounded cards. Active tab = oxblood underline. Letterspaced small-caps for
-eyebrow labels. It should read like a published opinion, not a web app.
+Type: Oswald (headings, weight 400) and Source Sans 3 (text), self-hosted in `assets/fonts/`.
+No external requests; do not add Google Fonts or any other hotlinked dependency.
 
-**This is deliberately NOT the faculty portal's look and NOT Penn's brand.** Don't drift back
-toward it. If you see `#011F5B` or `#990000`, something has gone wrong.
+The deck's diagrams appear inline as SVG in navy panels. Each needs a `<title>` and `<desc>`,
+and marker ids must stay unique across the page. Every new text/background pair must pass
+WCAG AA. Keep it a dependency-free static page that works at phone width and prints cleanly.
 
 ## Deploy
 
@@ -121,4 +131,4 @@ Done: the repo is public, Pages is enabled from `main` root, and the DNS CNAME
 
 - Branch + PR for substantive changes; keep `main` deployable.
 - The repo is **public** — no chambers material, no judicial correspondence, no
-  credentials. That lives in Box: `AI Teaching Lab/Judiciary/sixth-circuit-2026/`.
+  credentials. That lives in Box: `PCL AI Project/Judiciary/`.

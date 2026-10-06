@@ -1,0 +1,10 @@
+Self-hosted typefaces, both licensed under the SIL Open Font License, Version 1.1
+(https://openfontlicense.org/).
+
+Oswald (oswald.woff2, variable weight 400-700)
+  Copyright 2016 The Oswald Project Authors (https://github.com/googlefonts/OswaldFont)
+
+Source Sans 3 (source-sans-3-roman.woff2, source-sans-3-italic.woff2)
+  (c) 2023 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'
+
+The files are Latin subsets of the originals.

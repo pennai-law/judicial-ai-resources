@@ -90,6 +90,43 @@ class VerifyPortalTests(unittest.TestCase):
         self.assertIn("working paper", index.lower())
         self.assertNotIn("a2j", index.lower())
 
+    def test_rebuild_is_self_hosted_and_synced_to_the_deck(self):
+        import re
+        root = Path(__file__).resolve().parents[1]
+        index = (root / "index.html").read_text(encoding="utf-8")
+        license_page = (root / "license.html").read_text(encoding="utf-8")
+        css = (root / "assets/portal.css").read_text(encoding="utf-8")
+        # Fonts are served from this site; nothing is hotlinked.
+        for text in (index, license_page, css):
+            self.assertNotIn("fonts.googleapis.com", text)
+            self.assertNotIn("fonts.gstatic.com", text)
+        for font in ("oswald.woff2", "source-sans-3-roman.woff2", "source-sans-3-italic.woff2"):
+            self.assertIn(font, css)
+            self.assertTrue((root / "assets/fonts" / font).is_file())
+        # Retired names, retired styling, and superseded testbed figures stay out.
+        lowered = (index + license_page).lower()
+        for retired in ("teaching lab", "law lab", "eighteen", "at least five",
+                        "prepared with the ai panel", "libre baskerville", "source serif"):
+            self.assertNotIn(retired, lowered)
+        self.assertIn("20+ chambers as of September 2026", index)
+        self.assertIn("reported by <strong>three chambers</strong>", index)
+        self.assertIn("Last updated October 2026", index)
+        # Every id is unique, including the marker ids inside the inline diagrams.
+        ids = re.findall(r'\sid="([^"]+)"', index)
+        self.assertEqual(sorted(ids), sorted(set(ids)))
+        # Each inline diagram carries a title and a description, and its markers resolve.
+        figures = re.findall(r'<figure class="diagram".*?</figure>', index, flags=re.S)
+        self.assertEqual(8, len(figures))
+        for figure in figures:
+            self.assertRegex(figure, r'<svg[^>]*role="img"[^>]*aria-labelledby="[^"]+"')
+            self.assertIn("<title id=", figure)
+            self.assertIn("<desc id=", figure)
+            for ref in re.findall(r'url\(#([^)]+)\)', figure):
+                self.assertIn(f'id="{ref}"', figure)
+        # In-page links point at something that exists.
+        for target in re.findall(r'href="#([^"]+)"', index):
+            self.assertIn(target, ids)
+
 
 if __name__ == "__main__":
     unittest.main()

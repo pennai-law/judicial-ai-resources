@@ -23,24 +23,65 @@
   }
 
   function scrollToTabs() {
-    window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 56, behavior: 'smooth' });
+    window.scrollTo({ top: document.querySelector('.tab-nav-wrap').offsetTop - 60, behavior: 'smooth' });
   }
   window.activateTab = activateTab;
   window.scrollToTabs = scrollToTabs;
 
+  const tabList = [...tabs];
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
       activateTab(btn.dataset.tab);
       scrollToTabs();
     });
+    // Roving tabindex: only the current tab is in the Tab order, so the arrow
+    // keys are how a keyboard user reaches the others (WAI-ARIA tabs pattern).
+    btn.addEventListener('keydown', e => {
+      const i = tabList.indexOf(btn);
+      let next = -1;
+      if (e.key === 'ArrowRight') next = (i + 1) % tabList.length;
+      else if (e.key === 'ArrowLeft') next = (i - 1 + tabList.length) % tabList.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabList.length - 1;
+      if (next < 0) return;
+      e.preventDefault();
+      activateTab(tabList[next].dataset.tab);
+      tabList[next].focus();
+      tabList[next].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
   });
 
+  // A fragment may name a pane (#use-cases) or something inside one (#agents).
+  // Either way, open the pane that holds it; then scroll to the inner target.
+  function goToFragment(id, smooth) {
+    if (!id) return false;
+    const el = document.getElementById(id);
+    if (!el) return false;
+    if (paneIds.has(id)) { activateTab(id); return true; }
+    const pane = el.closest('.tab-pane');
+    if (!pane) return false;
+    activateTab(pane.id);
+    requestAnimationFrame(() => el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' }));
+    return true;
+  }
   function activateFromHash() {
-    const target = location.hash.slice(1);
-    if (paneIds.has(target)) activateTab(target);
+    goToFragment(decodeURIComponent(location.hash.slice(1)), false);
   }
   activateFromHash();
   window.addEventListener('hashchange', activateFromHash);
+
+  // Plain in-page links (those without their own handler) to a target in another pane.
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]:not([onclick])');
+    if (!link || link.closest('.search-overlay')) return;
+    const id = decodeURIComponent(link.getAttribute('href').slice(1));
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    history.pushState(null, '', '#' + id);
+    if (paneIds.has(id)) { activateTab(id); scrollToTabs(); }
+    else goToFragment(id, true);
+  });
 
   document.querySelectorAll('.overview-col').forEach(col => {
     col.addEventListener('click', () => {
@@ -168,7 +209,7 @@
       const orig = result.element.style.transition;
       result.element.style.transition = 'background-color 0.6s';
       const origBg = result.element.style.backgroundColor;
-      result.element.style.backgroundColor = '#EFE7D3';
+      result.element.style.backgroundColor = '#E8F0F7';
       setTimeout(() => {
         result.element.style.backgroundColor = origBg;
         setTimeout(() => { result.element.style.transition = orig; }, 700);

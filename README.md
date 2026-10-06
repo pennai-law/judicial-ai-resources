@@ -8,13 +8,15 @@ A practical, plain-language resource for federal judges and chambers staff: use 
 
 ## Structure
 
-- **Start Here** — low-risk personal learning and the three-question test.
-- **How These Tools Work** — retrieval, generation, context limits, and bias.
-- **Use Cases** — observed practice sorted by risk.
-- **Guardrails** — authorization, confidentiality, supervision, verification, and a printable chambers assessment.
-- **Tools** — capabilities and dated product examples; listing is not authorization.
-- **What Courts See** — AI-assisted filings, professional adoption, and effects reaching chambers.
+- **Start Here** — low-risk personal learning, the capability evidence (the 2023-to-2026 trajectory and the Penn exam study), and the two objections.
+- **How These Tools Work** — retrieval, generation, bias, grounding, and AI agents (three modes, checkpoints, strengths and risks).
+- **Use Cases** — observed testbed practice sorted by risk; proposals; recommendations for appellate work, fenced off from observed practice; the three-question test.
+- **Guardrails** — authorization, confidentiality, supervision, verification, five controls for AI agents, and a printable chambers assessment.
+- **Tools** — capabilities and dated product examples, including agent products; listing is not authorization.
+- **What Courts See** — professional adoption, what the research shows about AI detectors, and Penn Carey Law's tools and teaching.
 - **Sources** — what each source supports and its principal limitation.
+
+Fragments work for panes (`#use-cases`) and for targets inside a pane (`#agents`, `#agent-controls`, `#agent-products`, `#appellate`, `#detectors`, `#capability`, `#exam-study`, `#first-screen`); `portal.js` opens the pane that holds the target.
 
 The argument remains load-bearing: retrieval systems retrieve existing material; an AI model generates. Many legal products combine both. That distinction explains why source boundaries and independent verification still matter.
 
@@ -22,7 +24,8 @@ The argument remains load-bearing: retrieval systems retrieve existing material;
 
 - `index.html` — semantic content.
 - `assets/portal.css` — screen, responsive, and print presentation.
-- `assets/portal.js` — tab navigation, search, legacy fragments, and assessment printing.
+- `assets/portal.js` — tab navigation (click, arrow keys, fragments), search, and assessment printing.
+- `assets/fonts/` — self-hosted Oswald and Source Sans 3 (SIL OFL 1.1; see `NOTICE.txt`). No external requests.
 - `license.html` — licensing and attribution.
 - `scripts/verify_portal.py` — evidence and editorial checks.
 - `tests/test_verify_portal.py` — verifier tests.
@@ -42,10 +45,14 @@ git diff --check
 - Keep testbed material de-identified. Private sources never enter this public repository.
 - Separate observed practice, survey findings, published guidance, recommendations, and proposals.
 - State denominators, populations, periods, and limitations when they affect interpretation.
-- Do not call a task universally safe or claim reliable detection of AI-generated writing.
+- Do not call a task universally safe. On AI detectors, state only what the cited studies show, and never present a detector score as proof of authorship.
 - Trace public AO claims to the October 21, 2025 letter from AO Director Robert J. Conrad Jr.
 - Check names against `NAMES.md` in the private judiciary repository.
 
 ## Design
 
-The visual register is “The Slip Opinion”: ivory, warm ink, oxblood, brass rules, and serif typography. It should read like a published judicial resource, not a software dashboard.
+Navy frame, light reading body, matching Polk Wagner's slide theme. Navy `#05225B` for the header, hero, tab bar, feature bands, diagram panels, and footer. Gold `#F2C100` is the one accent: the current tab, key rules, and payoff lines on navy. It is never text on a light ground (1.7:1); there it is a rule only. Light blue `#82AFD3` is for labels on navy. Body text is near-black on white or very light warm grey. Oswald (400) for headings, Source Sans 3 for text.
+
+The eight inline diagrams come from the deck at `judiciary/talk/fjc-appeals-2026/slides/diagrams/` (generated there by `build.py`). They are pasted into `index.html` with per-figure marker ids, a `<title>`, and a `<desc>`. If the deck's diagrams change, re-inline them; there is no build step here. On narrow screens each diagram scrolls sideways inside its own panel; in print the diagrams are redrawn in black outline by the print stylesheet.
+
+`CLAUDE.md` and `AGENTS.md` carry the current design and content rules.
