@@ -501,6 +501,14 @@ em { font-style: italic; }
 .site-footer { background: var(--navy); color: var(--on-navy-muted); text-align: center; font-size: 15px; padding: 2rem 1.5rem; line-height: 1.7; }
 .site-footer strong { color: var(--on-navy); font-weight: 600; }
 .site-footer a { color: var(--on-navy); }
+/* AI disclosure: the pill the slide decks carry. Fixed vocabulary
+   (AI-assisted | AI-drafted, author-reviewed | author-verified); use the pair that is true. */
+.site-footer .ai-disclosure {
+  display: table; margin: 1.1rem auto 0; padding: .2rem 1rem;
+  border: 1px solid currentColor; border-radius: 999px;
+  font-family: var(--display); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  line-height: 1.6; color: var(--blue);
+}
 
 /* ── LICENSE PAGE ── */
 .license-page .page-body { max-width: 760px; }
