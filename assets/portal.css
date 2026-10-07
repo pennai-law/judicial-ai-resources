@@ -503,12 +503,17 @@ em { font-style: italic; }
 .site-footer a { color: var(--on-navy); }
 /* AI disclosure: the pill the slide decks carry. Fixed vocabulary
    (AI-assisted | AI-drafted, author-reviewed | author-verified); use the pair that is true. */
-.site-footer .ai-disclosure {
+.site-footer .footer-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem .75rem; margin-top: 1.1rem; }
+.site-footer .footer-pills .ai-disclosure { margin: 0; }
+.site-footer .ai-disclosure, .site-footer .footer-pill {
   display: table; margin: 1.1rem auto 0; padding: .2rem 1rem;
   border: 1px solid currentColor; border-radius: 999px;
   font-family: var(--display); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
   line-height: 1.6; color: var(--blue);
 }
+/* A link pill beside the disclosure: white, so it reads as the one you can click. */
+.site-footer .footer-pill { margin: 0; color: var(--on-navy); text-decoration: none; }
+.site-footer .footer-pill:hover { color: var(--gold); }
 
 /* ── LICENSE PAGE ── */
 .license-page .page-body { max-width: 760px; }
