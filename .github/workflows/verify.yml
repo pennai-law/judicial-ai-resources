@@ -1,0 +1,27 @@
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verifier tests
+        run: python3 -m unittest tests/test_verify_portal.py -v
+      - name: Script syntax
+        run: node --check assets/portal.js
+      - name: Evidence and editorial checks
+        run: python3 scripts/verify_portal.py index.html license.html
