@@ -30,6 +30,17 @@ The argument remains load-bearing: retrieval systems retrieve existing material;
 - `scripts/verify_portal.py` — evidence and editorial checks.
 - `tests/test_verify_portal.py` — verifier tests.
 
+## Making changes
+
+`main` is the live site: a merge is in front of judges within a minute or two. So changes go through a pull request.
+
+1. Branch from an up-to-date `main` (`git fetch origin`, then branch from `origin/main`).
+2. Make the change and run the checks under **Verify** below.
+3. Open a pull request. The `verify` workflow runs the same checks.
+4. Another collaborator reviews and approves; then merge. Read the page on judges.pennai.law after it deploys.
+
+Follow the editorial rules below and the fuller guidance in `CLAUDE.md`, which Claude Code reads automatically when you work in this repository.
+
 ## Verify
 
 ```bash
